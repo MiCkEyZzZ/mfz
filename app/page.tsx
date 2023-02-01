@@ -1,4 +1,4 @@
-import styles from './page.module.css'
+import information from 'lib/information'
 
 export const metadata = {
   description: 'Разработчик, философ',
@@ -13,6 +13,10 @@ export const metadata = {
   },
 }
 
-export default function Home() {
-  return <section className={styles.main}></section>
+export default function HomePage() {
+  return (
+    <section className='w-full border'>
+      <h1>{information.name}</h1>
+    </section>
+  )
 }
