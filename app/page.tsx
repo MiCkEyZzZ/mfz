@@ -16,7 +16,7 @@ export const metadata = {
 export default function HomePage() {
   return (
     <section className='w-full border'>
-      <h1>{information.name}</h1>
+      <h1 className='underline'>{information.name}</h1>
     </section>
   )
 }

@@ -11,8 +11,8 @@ export default function RootLayout({
   return (
     <html lang='ru'>
       <head />
-      <body>
-        <main>{children}</main>
+      <body className='w-full'>
+        <main className='px-2 md:px-0'>{children}</main>
       </body>
     </html>
   )
