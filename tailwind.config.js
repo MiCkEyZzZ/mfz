@@ -9,6 +9,10 @@ module.exports = {
     extend: {
       height: {
         423: '423px',
+        506: '506px',
+      },
+      fontSize: {
+        md: '22px',
       },
     },
   },
