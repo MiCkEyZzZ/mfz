@@ -6,19 +6,22 @@ export const metadata = {
 
 function PostsPage() {
   return (
-    <section className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-      <div className='w-full h-80 border rounded-lg'></div>
-      <div className='w-full h-80 border rounded-lg'></div>
-      <div className='w-full h-80 border rounded-lg'></div>
-      <div className='w-full h-80 border rounded-lg'></div>
-      <div className='w-full h-80 border rounded-lg'></div>
-      <div className='w-full h-80 border rounded-lg'></div>
-      <div className='w-full h-80 border rounded-lg'></div>
-      <div className='w-full h-80 border rounded-lg'></div>
-      <div className='w-full h-80 border rounded-lg'></div>
-      <div className='w-full h-80 border rounded-lg'></div>
-      <div className='w-full h-80 border rounded-lg'></div>
-      <div className='w-full h-80 border rounded-lg'></div>
+    <section className='flex flex-col'>
+      <div className='w-full h-20 border'></div>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+        <div className='w-full h-80 border rounded-lg'></div>
+        <div className='w-full h-80 border rounded-lg'></div>
+        <div className='w-full h-80 border rounded-lg'></div>
+        <div className='w-full h-80 border rounded-lg'></div>
+        <div className='w-full h-80 border rounded-lg'></div>
+        <div className='w-full h-80 border rounded-lg'></div>
+        <div className='w-full h-80 border rounded-lg'></div>
+        <div className='w-full h-80 border rounded-lg'></div>
+        <div className='w-full h-80 border rounded-lg'></div>
+        <div className='w-full h-80 border rounded-lg'></div>
+        <div className='w-full h-80 border rounded-lg'></div>
+        <div className='w-full h-80 border rounded-lg'></div>
+      </div>
     </section>
   )
 }
