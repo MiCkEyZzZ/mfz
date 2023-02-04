@@ -6,7 +6,11 @@ module.exports = {
     './content/**/*.mdx',
   ],
   theme: {
-    extend: {},
+    extend: {
+      height: {
+        423: '423px',
+      },
+    },
   },
   future: {
     hoverOnlyWhenSupported: true,
