@@ -15,8 +15,10 @@ export const metadata = {
 
 export default function HomePage() {
   return (
-    <section className='w-full border'>
-      <h1 className='underline'>{information.name}</h1>
+    <section className='grid grid-flow-row-1 md:grid-flow-row-3 md:grid-flow-col md:gap-x-24 gap-y-12 md:gap-y-16 w-full items-start pt-16'>
+      <div className='w-full h-screen col-span-2 row-span-3 border'></div>
+      <div className='w-full h-36 col-span-2 md:col-span-1 border'></div>
+      <div className='md:sticky w-full h-96 row-span-1 md:row-span-1 col-span-2 md:col-span-1 border'></div>
     </section>
   )
 }
