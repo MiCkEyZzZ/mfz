@@ -1,7 +1,8 @@
-import Footer from 'components/footer'
-import Header from 'components/header'
 import './globals.css'
 import globalMetadata from './metadata'
+
+import Header from 'components/header'
+import Footer from 'components/footer'
 
 export const metadata = globalMetadata
 
