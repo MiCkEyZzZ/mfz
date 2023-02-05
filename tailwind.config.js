@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        serif: ['var(--font-gteestipro)'],
+      },
       height: {
         423: '423px',
         506: '506px',
