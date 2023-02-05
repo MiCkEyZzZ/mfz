@@ -19,7 +19,7 @@ function PostsPage() {
             <article>
               <Link href='/philosophy/1' className='flex flex-col w-full'>
                 <h3 className='text-xl font-semibold'>Пролог ВИДЕТЬ</h3>
-                <p className='text-base mt-4'>
+                <p className='text-base font-normal mt-4'>
                   В этой работе выражено стремление увидеть и показать то, чем
                   становится и чего требует человек, если его целиком и
                   полностью рассматривать в рамках явлений. Зачем стремиться
