@@ -1,5 +1,8 @@
 import Link from 'next/link'
-import { Bars3Icon } from '@heroicons/react/24/outline'
+
+import { Bars2Icon } from '@heroicons/react/24/outline'
+import { SunIcon } from '@heroicons/react/24/solid'
+import { RssIcon } from '@heroicons/react/24/solid'
 
 function Header() {
   return (
@@ -29,11 +32,24 @@ function Header() {
               </ul>
             </nav>
           </div>
-          <div className='hidden md:block w-40 h-16 border'></div>
+          <div className='hidden md:flex items-center'>
+            <ul className='flex flex-row'>
+              <li className='flex items-center'>
+                <button className='px-3 py-2'>
+                  <SunIcon className='w-5 h-5' />
+                </button>
+              </li>
+              <li className='flex items-center'>
+                <Link href='/' className='px-3 py-2'>
+                  <RssIcon className='w-5 h-5' />
+                </Link>
+              </li>
+            </ul>
+          </div>
           <div className='block md:hidden w-10 h-10'>
             <button className='w-10 h-10'>
-              <span className='hidden'>Menu</span>
-              <Bars3Icon />
+              <span className='hidden'>Меню</span>
+              <Bars2Icon />
             </button>
           </div>
         </header>
