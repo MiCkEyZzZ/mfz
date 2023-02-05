@@ -1,11 +1,41 @@
+import Link from 'next/link'
+import { Bars3Icon } from '@heroicons/react/24/outline'
+
 function Header() {
   return (
-    <div className='flex flex-col items-center w-full h-96 px-2 md:px-0 border'>
+    <div className='relative flex flex-col items-center w-full h-96 px-2 md:px-0 border'>
       <div className='hidden md:block w-full h-12'></div>
       <div className='sticky top-0 flex flex-row justify-center w-full'>
-        <header className='flex flex-row justify-between w-full max-w-6xl'>
-          <div className='w-full max-w-4xl h-16 border'></div>
-          <div className='w-40 h-16 border'></div>
+        <header className='flex flex-row justify-between items-center w-full max-w-6xl'>
+          <div className='flex flex-row items-center w-full max-w-4xl h-16'>
+            <Link href='/' className='mr-8'>
+              Михаил Журавлёв
+            </Link>
+            <nav className='hidden md:block text-black'>
+              <ul className='flex flex-row'>
+                <li>
+                  <Link href='/' className='text-base font-medium mr-2.5 p-2.5'>
+                    Главная
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href='/posts'
+                    className='text-base font-medium mr-2.5 p-2.5'
+                  >
+                    Посты
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div className='hidden md:block w-40 h-16 border'></div>
+          <div className='block md:hidden w-10 h-10'>
+            <button className='w-10 h-10'>
+              <span className='hidden'>Menu</span>
+              <Bars3Icon />
+            </button>
+          </div>
         </header>
       </div>
     </div>
