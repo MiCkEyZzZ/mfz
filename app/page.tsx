@@ -15,7 +15,7 @@ export const metadata = {
   },
 }
 
-export default function HomePage() {
+export default function HomePage(): JSX.Element {
   return (
     <section className='flex flex-col'>
       <div className='grid grid-flow-row-1 md:grid-flow-row-3 md:grid-flow-col md:gap-x-24 gap-y-12 md:gap-y-16 w-full items-start pt-16'>
