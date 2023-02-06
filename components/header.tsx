@@ -22,7 +22,7 @@ function Header() {
         }
       >
         <header className='flex flex-row justify-between items-center w-full max-w-6xl'>
-          <div className='flex flex-row items-center w-full max-w-4xl h-16'>
+          <div className='flex flex-row items-center w-full max-w-4xl h-14 md:h-16'>
             <Link href='/' className='mr-8'>
               Михаил Журавлёв
             </Link>

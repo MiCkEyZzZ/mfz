@@ -12,16 +12,16 @@ function Subscribe() {
           </p>
         </div>
         <div className='w-full mt-16'>
-          <form className='flex flex-row items-center w-full max-w-xl'>
+          <form className='flex flex-col md:flex-row items-center w-full max-w-xl'>
             <fieldset className='w-full'>
               <input
                 type='text'
                 placeholder='вы@домен.ру'
-                className='w-full px-3 py-5 border rounded-md'
+                className='w-full px-3 py-3 md:py-5 border rounded-md'
               />
             </fieldset>
-            <div className='ml-5'>
-              <button className='px-7 py-5 border rounded-md'>
+            <div className='mt-5 ml-auto md:ml-5 md:mt-0'>
+              <button className='px-5 md:px-7 py-3 md:py-5 border rounded-md'>
                 Подписаться
               </button>
             </div>
