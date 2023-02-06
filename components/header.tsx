@@ -15,8 +15,8 @@ function Header(): JSX.Element {
     <div
       className={
         isSticky
-          ? 'sticky top-0 flex flex-col items-center w-full h-16 px-2 md:px-0 border'
-          : 'relative flex flex-col items-center w-full h-96 px-2 md:px-0 border'
+          ? 'sticky top-0 flex flex-col items-center w-full h-16 px-2 md:px-0 bg-white border-b'
+          : 'relative flex flex-col items-center w-full h-96 px-2 md:px-0 bg-white border-b'
       }
     >
       <div

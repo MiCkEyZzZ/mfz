@@ -1,6 +1,6 @@
 function Post(): JSX.Element {
   return (
-    <section className='w-full'>
+    <section className='w-full pt-32'>
       <div className='flex flex-row-reverse justify-center items-start'>
         <aside className='sticky top-36 hidden md:flex w-full max-w-xs h-96 ml-auto'>
           <nav>

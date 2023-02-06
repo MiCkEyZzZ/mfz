@@ -9,7 +9,7 @@ export const metadata = {
 
 function PostsPage(): JSX.Element {
   return (
-    <section className='flex flex-col'>
+    <section className='flex flex-col pt-32'>
       <div className='flex flex-col'>
         <div className='flex flex-row justify-between items-center w-full h-20'>
           <h1 className='text-4xl font-semibold'>Философия</h1>
