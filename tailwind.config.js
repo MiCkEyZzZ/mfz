@@ -13,8 +13,12 @@ module.exports = {
       height: {
         506: '506px',
       },
+      maxWidth: {
+        '2xlx': '686px',
+      },
       fontSize: {
         md: '22px',
+        smb: '15px',
       },
     },
   },

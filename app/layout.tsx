@@ -4,9 +4,7 @@ import localFont from '@next/font/local'
 import './globals.css'
 import globalMetadata from './metadata'
 
-import Header from 'components/header'
-import Footer from 'components/footer'
-import Subscribe from 'components/subscribe'
+import { Header, Footer, Subscribe } from 'components'
 
 const gteestipro = localFont({
   src: '../public/fonts/GTEestiProText-Regular.woff2',
@@ -21,7 +19,7 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
-}) {
+}): JSX.Element {
   return (
     <html lang='ru' className={clsx('text-black', gteestipro.variable)}>
       <head />
