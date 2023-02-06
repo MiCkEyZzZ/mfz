@@ -1,3 +1,3 @@
-export interface MdxProps {
+export interface IMdxProps {
   code: string
 }

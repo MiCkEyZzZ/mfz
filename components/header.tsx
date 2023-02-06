@@ -8,8 +8,8 @@ import { SunIcon } from '@heroicons/react/24/solid'
 import { RssIcon } from '@heroicons/react/24/solid'
 
 function Header(): JSX.Element {
-  const pathname = usePathname()
-  const isSticky = pathname.includes('/posts')
+  const router = usePathname()
+  const isSticky = router.includes('/posts')
 
   return (
     <div

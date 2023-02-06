@@ -50,7 +50,7 @@ function Post(): JSX.Element {
               </li>
               <li className='mt-3.5'>
                 <a href='#' className='text-smb opacity-70'>
-                  Пример ссылки содержание
+                  Пример ссылки содержание контента
                 </a>
               </li>
             </ul>

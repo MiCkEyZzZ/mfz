@@ -1,6 +1,6 @@
 import { useMDXComponent } from 'next-contentlayer/hooks'
 
-import { MdxProps } from 'interfaces'
+import { IMdxProps } from 'interfaces'
 import { AnchorLink, PostCard } from 'components'
 
 const components = {
@@ -8,7 +8,7 @@ const components = {
   PostCard,
 }
 
-function Mdx({ code }: MdxProps): JSX.Element {
+function Mdx({ code }: IMdxProps): JSX.Element {
   const Component = useMDXComponent(code)
 
   return (
