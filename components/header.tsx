@@ -1,24 +1,32 @@
 'use client'
 
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 
 import { Bars2Icon } from '@heroicons/react/24/outline'
 import { SunIcon } from '@heroicons/react/24/solid'
 import { RssIcon } from '@heroicons/react/24/solid'
 
-function Header() {
-  const router = useSearchParams()
-  const isFixed = router.getAll('posts')
+function Header(): JSX.Element {
+  const pathname = usePathname()
+  const isSticky = pathname.includes('/posts')
 
   return (
-    <div className='relative flex flex-col items-center w-full h-96 px-2 md:px-0 border'>
-      <div className='hidden md:block w-full h-12'></div>
+    <div
+      className={
+        isSticky
+          ? 'sticky top-0 flex flex-col items-center w-full h-16 px-2 md:px-0 border'
+          : 'relative flex flex-col items-center w-full h-96 px-2 md:px-0 border'
+      }
+    >
+      <div
+        className={isSticky ? 'hidden' : 'hidden md:block w-full h-12'}
+      ></div>
       <div
         className={
-          !isFixed
-            ? 'sticky top-0 flex flex-row justify-center w-full'
-            : 'sticky top-[21px] flex flex-row justify-center w-full'
+          isSticky
+            ? 'flex flex-row justify-center w-full'
+            : 'sticky top-0 flex flex-row justify-center w-full'
         }
       >
         <header className='flex flex-row justify-between items-center w-full max-w-6xl'>

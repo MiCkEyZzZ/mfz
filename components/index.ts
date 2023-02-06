@@ -1,0 +1,5 @@
+export { default as AnchorLink } from './anchorLink'
+export { default as Header } from './header'
+export { default as PostCard } from './posr-card'
+export { default as Footer } from './footer'
+export { default as Subscribe } from './subscribe'
