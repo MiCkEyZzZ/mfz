@@ -1,7 +1,10 @@
+import { Breadcrumbs } from 'components'
+
 function Post(): JSX.Element {
   return (
-    <section className='w-full pt-32'>
-      <div className='flex flex-row-reverse justify-center items-start'>
+    <section className='w-full'>
+      <Breadcrumbs />
+      <div className='flex flex-row-reverse justify-center items-start pt-5'>
         <aside className='sticky top-36 hidden md:flex w-full max-w-xs h-96 ml-auto'>
           <nav>
             <h2 className='text-base font-semibold uppercase mb-5'>

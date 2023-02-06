@@ -4,7 +4,7 @@ import localFont from '@next/font/local'
 import './globals.css'
 import globalMetadata from './metadata'
 
-import { Header, Footer, Subscribe, Breadcrumbs } from 'components'
+import { Header, Footer, Subscribe } from 'components'
 
 const gteestipro = localFont({
   src: '../public/fonts/GTEestiProText-Regular.woff2',
@@ -25,7 +25,6 @@ export default function RootLayout({
       <head />
       <body className='flex flex-col items-center w-full h-auto font-gteestipro border'>
         <Header />
-        <Breadcrumbs />
         <main className='w-full max-w-6xl h-auto px-2 md:px-0'>{children}</main>
         <Subscribe />
         <Footer />
