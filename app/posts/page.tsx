@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Balancer from 'react-wrap-balancer'
 
 export const metadata = {
   title: 'Посты',
@@ -6,9 +7,9 @@ export const metadata = {
     'В блоге Я публикую свои мысли о происходящем и просто философствую о бытие',
 }
 
-function PostsPage() {
+function PostsPage(): JSX.Element {
   return (
-    <section className='flex flex-col'>
+    <section className='flex flex-col pt-32'>
       <div className='flex flex-col'>
         <div className='flex flex-row justify-between items-center w-full h-20'>
           <h1 className='text-4xl font-semibold'>Философия</h1>
@@ -18,7 +19,9 @@ function PostsPage() {
           <li className='w-full p-8 border rounded-lg'>
             <article>
               <Link href='/philosophy/1' className='flex flex-col w-full'>
-                <h3 className='text-xl font-semibold'>Пролог ВИДЕТЬ</h3>
+                <Balancer>
+                  <h3 className='text-xl font-semibold'>Пролог ВИДЕТЬ</h3>
+                </Balancer>
                 <p className='text-base font-normal mt-4'>
                   В этой работе выражено стремление увидеть и показать то, чем
                   становится и чего требует человек, если его целиком и
@@ -32,9 +35,11 @@ function PostsPage() {
           <li className='w-full p-8 border rounded-lg'>
             <article>
               <Link href='/philosophy/1' className='flex flex-col w-full'>
-                <h3 className='text-xl font-semibold'>
-                  Структурная антропология
-                </h3>
+                <Balancer>
+                  <h3 className='text-xl font-semibold'>
+                    Структурная антропология
+                  </h3>
+                </Balancer>
                 <p className='text-base mt-4'>
                   Более полувека прошло с тех пор, как Хаузер и Симиан изложили
                   и противопоставили основные принципы и методы, характерные, с
@@ -67,9 +72,11 @@ function PostsPage() {
           <li className='w-full h-80 p-8 border rounded-lg'>
             <article>
               <Link href='/philosophy/1' className='flex flex-col w-full'>
-                <h3 className='text-xl font-semibold'>
-                  Философские начала цельного знания
-                </h3>
+                <Balancer>
+                  <h3 className='text-xl font-semibold'>
+                    Философские начала цельного знания
+                  </h3>
+                </Balancer>
                 <p className='text-base mt-4'>
                   Первый вопрос, на который должна ответить всякая философия,
                   имеющая притязание на общий интерес, есть вопрос о цели
