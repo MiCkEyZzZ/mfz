@@ -11,6 +11,7 @@ module.exports = {
         gteestipro: ['var(--font-gteestipro)'],
       },
       height: {
+        75: '292px',
         506: '506px',
       },
       maxWidth: {
@@ -20,6 +21,9 @@ module.exports = {
       fontSize: {
         md: '22px',
         smb: '15px',
+      },
+      gridTemplateColumns: {
+        auto: 'repeat(auto-fill, minmax(400px, 1fr))',
       },
     },
   },
