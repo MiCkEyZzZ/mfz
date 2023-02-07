@@ -18,7 +18,7 @@ function PostsPage(): JSX.Element {
         <ul className='grid grid-cols-1 md:grid-cols-2 gap-8'>
           <li className='w-full p-8 border rounded-lg'>
             <article>
-              <Link href='/philosophy/1' className='flex flex-col w-full'>
+              <Link href='/posts/1' className='flex flex-col w-full'>
                 <Balancer>
                   <h3 className='text-xl font-semibold'>Пролог ВИДЕТЬ</h3>
                 </Balancer>
