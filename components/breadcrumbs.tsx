@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import { ChevronRightIcon } from '@heroicons/react/24/solid'
+import Balancer from 'react-wrap-balancer'
 
-function Breadcrumbs(): JSX.Element {
+function Breadcrumbs({ title }): JSX.Element {
   return (
     <div className='flex justify-center w-full px-2 md:px-0'>
       <div className='flex flex-col justify-end w-full h-64 max-w-6xl pt-12 pb-9'>
@@ -13,15 +14,15 @@ function Breadcrumbs(): JSX.Element {
               </Link>
             </li>
             <li className='mx-2'>
-              <ChevronRightIcon className='w-4 h-4' />
+              <ChevronRightIcon className='w-3.5 h-3.5' />
             </li>
             <li>
-              <Link href='/posts' className='text-sm md:text-base'>
+              <Link href='/blog' className='text-sm md:text-base'>
                 Посты
               </Link>
             </li>
             <li className='mx-2'>
-              <ChevronRightIcon className='w-4 h-4' />
+              <ChevronRightIcon className='w-3.5 h-3.5' />
             </li>
             <li>
               <Link href='/philosophy' className='text-sm md:text-base'>
@@ -30,7 +31,9 @@ function Breadcrumbs(): JSX.Element {
             </li>
           </ul>
         </div>
-        <h1 className='text-xl md:text-4xl mt-5'>Заголовок поста</h1>
+        <h1 className='text-xl sm:text-2xl md:text-4xl mt-5'>
+          <Balancer>{title}</Balancer>
+        </h1>
       </div>
     </div>
   )

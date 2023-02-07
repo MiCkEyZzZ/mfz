@@ -1,6 +1,6 @@
 function Subscribe(): JSX.Element {
   return (
-    <section className='flex flex-col items-center w-full my-24 px-2 md:px-0'>
+    <section className='flex flex-col items-center w-full my-24 px-5 md:px-5'>
       <div className='flex flex-col justify-between w-full max-w-6xl'>
         <div className='w-full max-w-xl'>
           <h2 className='text-4xl mb-6'>

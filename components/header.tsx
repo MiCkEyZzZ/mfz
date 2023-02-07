@@ -9,14 +9,14 @@ import { RssIcon } from '@heroicons/react/24/solid'
 
 function Header(): JSX.Element {
   const router = usePathname()
-  const isSticky = router.includes('/posts')
+  const isSticky = router.includes('/blog')
 
   return (
     <div
       className={
         isSticky
-          ? 'sticky top-0 flex flex-col items-center w-full h-16 px-2 md:px-0 bg-white border-b'
-          : 'relative flex flex-col items-center w-full h-96 px-2 md:px-0 bg-white border-b'
+          ? 'sticky top-0 flex flex-col items-center w-full h-16 px-5 md:px-5 bg-white border-b'
+          : 'relative flex flex-col items-center w-full h-96 px-5 md:px-5 bg-white border-b'
       }
     >
       <div
@@ -43,7 +43,7 @@ function Header(): JSX.Element {
                 </li>
                 <li>
                   <Link
-                    href='/posts'
+                    href='/blog'
                     className='text-base font-medium mr-2.5 p-2.5'
                   >
                     Посты

@@ -23,9 +23,11 @@ export default function RootLayout({
   return (
     <html lang='ru' className={clsx('text-black', gteestipro.variable)}>
       <head />
-      <body className='flex flex-col items-center w-full h-auto font-gteestipro border'>
+      <body className='flex flex-col items-center w-full h-auto font-gteestipro'>
         <Header />
-        <main className='w-full max-w-6xl h-auto px-2 md:px-0'>{children}</main>
+        <main className='flex justify-center w-full h-auto px-5 md:px-5'>
+          {children}
+        </main>
         <Subscribe />
         <Footer />
       </body>

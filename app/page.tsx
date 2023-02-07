@@ -17,12 +17,12 @@ export const metadata = {
 
 export default function HomePage(): JSX.Element {
   return (
-    <section className='flex flex-col'>
+    <section className='flex flex-col w-full max-w-6xl'>
       <div className='grid grid-flow-row-1 md:grid-flow-row-3 md:grid-flow-col md:gap-x-24 gap-y-12 md:gap-y-16 w-full items-start pt-16'>
         <div className='w-full col-span-2 row-span-3'>
           <h2 className='text-base uppercase mb-9'>Недавно опубликовано</h2>
           <ul className='flex flex-col w-full max-w-1xl'>
-            <li className='w-full h-52'>
+            <li className='w-full'>
               <article className='text-black'>
                 <Link href='/posts/1' className='flex flex-col'>
                   <h3 className='text-md font-bold'>Пролог ВИДЕТЬ</h3>
@@ -40,7 +40,7 @@ export default function HomePage(): JSX.Element {
                 </Link>
               </article>
             </li>
-            <li className='w-full h-52 mt-12'>
+            <li className='w-full mt-12'>
               <article className='text-black'>
                 <Link href='#' className='flex flex-col'>
                   <h3 className='text-md font-bold'>
@@ -62,7 +62,7 @@ export default function HomePage(): JSX.Element {
                 </Link>
               </article>
             </li>
-            <li className='w-full h-52 mt-12'>
+            <li className='w-full mt-12'>
               <article className='text-black'>
                 <Link href='#' className='flex flex-col'>
                   <h3 className='text-md font-bold'>
@@ -82,7 +82,7 @@ export default function HomePage(): JSX.Element {
                 </Link>
               </article>
             </li>
-            <li className='w-full h-52 mt-12'>
+            <li className='w-full mt-12'>
               <article className='text-black'>
                 <Link href='#' className='flex flex-col'>
                   <h3 className='text-md font-bold'>
@@ -102,7 +102,7 @@ export default function HomePage(): JSX.Element {
                 </Link>
               </article>
             </li>
-            <li className='w-full h-52 mt-12'>
+            <li className='w-full mt-12'>
               <article className='text-black'>
                 <Link href='#' className='flex flex-col'>
                   <h3 className='text-md font-bold'>
@@ -121,7 +121,7 @@ export default function HomePage(): JSX.Element {
                 </Link>
               </article>
             </li>
-            <li className='w-full h-52 mt-12'>
+            <li className='w-full mt-12'>
               <article className='text-black'>
                 <Link href='#' className='flex flex-col'>
                   <h3 className='text-md font-bold'>Что такое философия?</h3>
@@ -141,7 +141,7 @@ export default function HomePage(): JSX.Element {
                 </Link>
               </article>
             </li>
-            <li className='w-full h-52 mt-12'>
+            <li className='w-full mt-12'>
               <article className='text-black'>
                 <Link href='#' className='flex flex-col'>
                   <h3 className='text-md font-bold'>Платон. Государство.</h3>
@@ -161,7 +161,7 @@ export default function HomePage(): JSX.Element {
                 </Link>
               </article>
             </li>
-            <li className='w-full h-52 mt-12'>
+            <li className='w-full mt-12'>
               <article className='text-black'>
                 <Link href='#' className='flex flex-col'>
                   <h3 className='text-md font-bold'>
@@ -184,7 +184,7 @@ export default function HomePage(): JSX.Element {
                 </Link>
               </article>
             </li>
-            <li className='w-full h-52 mt-12'>
+            <li className='w-full mt-12'>
               <article className='text-black'>
                 <Link href='#' className='flex flex-col'>
                   <h3 className='text-md font-bold'>Хайдеггер М. Парменид.</h3>
@@ -205,7 +205,7 @@ export default function HomePage(): JSX.Element {
                 </Link>
               </article>
             </li>
-            <li className='w-full h-52 mt-12'>
+            <li className='w-full mt-12'>
               <article className='text-black'>
                 <Link href='#' className='flex flex-col'>
                   <h3 className='text-md font-bold'>
@@ -228,7 +228,7 @@ export default function HomePage(): JSX.Element {
                 </Link>
               </article>
             </li>
-            <li className='w-full h-52 mt-12'>
+            <li className='w-full mt-12'>
               <article className='text-black'>
                 <Link href='#' className='flex flex-col'>
                   <h3 className='text-md font-bold'>
