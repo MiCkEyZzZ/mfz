@@ -14,6 +14,7 @@ module.exports = {
         506: '506px',
       },
       maxWidth: {
+        '1xl': '626px',
         '2xlx': '686px',
       },
       fontSize: {
