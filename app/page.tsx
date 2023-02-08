@@ -94,9 +94,52 @@ export default function HomePage(): JSX.Element {
             </li>
           </ul>
         </div>
-        <div className='md:sticky w-full row-span-1 md:row-span-1 col-span-2 md:col-span-1'>
+        <div className='md:sticky top-8 w-full row-span-1 md:row-span-1 col-span-2 md:col-span-1'>
           <h2 className='text-base uppercase mb-9'>Популярные посты</h2>
-          <ul className='flex flex-wrap w-full max-w-xs h-506 border'></ul>
+          <ul className='flex flex-col w-full max-w-xs'>
+            <li className='w-full mb-4'>
+              <div>
+                <a href='/animation/css-transitions/' className='font-medium'>
+                  Кант И. "Логика. Антропология"
+                </a>
+              </div>
+            </li>
+            <li className='w-full mb-4'>
+              <div>
+                <a href='/animation/css-transitions/' className='font-medium'>
+                  Тейяр де Шарден П. Феномен человека
+                </a>
+              </div>
+            </li>
+            <li className='w-full mb-4'>
+              <div>
+                <a href='/animation/css-transitions/' className='font-medium'>
+                  Мавр. Принципы этики
+                </a>
+              </div>
+            </li>
+            <li className='w-full mb-4'>
+              <div>
+                <a href='/animation/css-transitions/' className='font-medium'>
+                  Аристотель. Этика
+                </a>
+              </div>
+            </li>
+            <li className='w-full mb-4'>
+              <div>
+                <a href='/animation/css-transitions/' className='font-medium'>
+                  О достоинстве и приумножении наук
+                </a>
+              </div>
+            </li>
+            <li className='w-full mb-0'>
+              <div>
+                <a href='/animation/css-transitions/' className='font-medium'>
+                  Энгельс Ф. Происхождение семьи...
+                </a>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
