@@ -26,7 +26,7 @@ export const Blog = defineDocumentType(() => ({
       required: true,
     },
     isPublished: {
-      type: boolean,
+      type: 'boolean',
       required: true,
     },
     publishedAt: {
