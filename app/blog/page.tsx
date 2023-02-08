@@ -9,6 +9,8 @@ export const metadata = {
     'В блоге Я публикую свои мысли о происходящем и просто философствую о бытие',
 }
 
+const LMT = 12
+
 function BlogPage(): JSX.Element {
   return (
     <section className='flex flex-col w-full max-w-6xl pt-32'>
@@ -27,7 +29,7 @@ function BlogPage(): JSX.Element {
               return 1
             })
             .map((post) => (
-              <li className='w-full p-8 border rounded-lg'>
+              <li key={post.slug} className='w-full p-8 border rounded-lg'>
                 <article>
                   <Link
                     href={`/blog/${post.slug}`}
