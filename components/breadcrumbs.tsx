@@ -31,9 +31,11 @@ function Breadcrumbs({ title }): JSX.Element {
             </li>
           </ul>
         </div>
-        <h1 className='text-xl sm:text-2xl md:text-4xl mt-5'>
-          <Balancer>{title}</Balancer>
-        </h1>
+        <div className='w-full lg:max-w-2xlx'>
+          <h1 className='text-xl sm:text-2xl md:text-4xl mt-5'>
+            <Balancer>{title}</Balancer>
+          </h1>
+        </div>
       </div>
     </div>
   )

@@ -1,8 +1,10 @@
-import { Breadcrumbs } from 'components'
-import Mdx from 'components/mdx'
 import { allBlogs } from 'contentlayer/generated'
+import { format, parseISO } from 'date-fns'
+import { ru } from 'date-fns/locale'
 
-async function generateStaticParams() {
+import { Breadcrumbs, Mdx } from 'components'
+
+export async function generateStaticParams() {
   return allBlogs.map((post) => ({
     slug: post.slug,
   }))
@@ -10,15 +12,15 @@ async function generateStaticParams() {
 
 async function generateMetadata({ params }) {
   const post = allBlogs.find((post) => post.slug === params.slug)
-  const { title, summary } = post
+  const { title, summary: description, publishedAt: publishedTime } = post
 
   return {
     title,
-    summary,
+    description,
   }
 }
 
-async function Blog({ params }): Promise<JSX.Element> {
+export async function Blog({ params }): Promise<JSX.Element> {
   const post = allBlogs.find((post) => post.slug === params.slug)
 
   if (!post) return
@@ -83,8 +85,13 @@ async function Blog({ params }): Promise<JSX.Element> {
         </aside>
         <article className='flex flex-col w-full lg:max-w-2xlx'>
           <Mdx code={post.body.code} />
-          <div className='mt-5 py-1 tracking-tighter rounded-md'>
-            Дата публикации: {post.publishedAt}
+          <div className='flex flex-row mt-5 py-1 tracking-tighter rounded-md'>
+            <span className='font-semibold mr-2'>Дата публикации:</span>
+            <span className='text-gray-500 italic'>
+              {format(parseISO(post.publishedAt), 'dd MMMM yyyy', {
+                locale: ru,
+              })}
+            </span>
           </div>
         </article>
       </div>

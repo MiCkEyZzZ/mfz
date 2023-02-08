@@ -21,6 +21,14 @@ export const Blog = defineDocumentType(() => ({
       type: 'string',
       required: true,
     },
+    seoTitle: {
+      type: 'string',
+      required: true,
+    },
+    isPublished: {
+      type: boolean,
+      required: true,
+    },
     publishedAt: {
       type: 'string',
       required: true,
@@ -49,7 +57,7 @@ export default makeSource({
           theme: 'one-dark-pro',
           onVisitLine(node) {
             if (node.children.length === 0) {
-              node.children = [{ type: 'text', value: '' }]
+              node.children = [{ type: 'text', value: ' ' }]
             }
           },
           onVisitHighlughtedLine(node) {
