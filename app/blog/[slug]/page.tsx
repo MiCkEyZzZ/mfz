@@ -3,22 +3,7 @@ import { format, parseISO } from 'date-fns'
 import { ru } from 'date-fns/locale'
 
 import { Breadcrumbs, Mdx } from 'components'
-
-export async function generateStaticParams() {
-  return allBlogs.map((post) => ({
-    slug: post.slug,
-  }))
-}
-
-async function generateMetadata({ params }) {
-  const post = allBlogs.find((post) => post.slug === params.slug)
-  const { title, summary: description, publishedAt: publishedTime } = post
-
-  return {
-    title,
-    description,
-  }
-}
+import ViewCounter from '../view-counter'
 
 export async function Blog({ params }): Promise<JSX.Element> {
   const post = allBlogs.find((post) => post.slug === params.slug)
@@ -93,6 +78,7 @@ export async function Blog({ params }): Promise<JSX.Element> {
               })}
             </span>
           </div>
+          <ViewCounter slug={post.slug} trackView={false} />
         </article>
       </div>
     </section>
