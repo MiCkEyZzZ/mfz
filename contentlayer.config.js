@@ -19,26 +19,32 @@ export const Post = defineDocumentType(() => ({
   fields: {
     title: {
       type: 'string',
+      description: 'Заголовок поста',
       required: true,
     },
     seoTitle: {
       type: 'string',
+      description: 'СЕО Заголовок поста',
       required: true,
     },
     isPublished: {
       type: 'boolean',
+      description: 'Флаг на публикацию поста',
       required: true,
     },
     publishedAt: {
       type: 'date',
+      description: 'Дата публикации поста',
       required: true,
     },
     summary: {
       type: 'string',
+      description: 'Краткое описание поста',
       required: true,
     },
     image: {
       type: 'string',
+      description: 'Картинка поста',
     },
   },
   computedFields,
