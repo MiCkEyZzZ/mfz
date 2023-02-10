@@ -1,4 +1,4 @@
-import { allBlogs } from 'contentlayer/generated'
+import { allPosts } from 'contentlayer/generated'
 import { format, parseISO } from 'date-fns'
 import { ru } from 'date-fns/locale'
 
@@ -6,7 +6,7 @@ import { Breadcrumbs, Mdx } from 'components'
 import ViewCounter from '../view-counter'
 
 export async function Blog({ params }): Promise<JSX.Element> {
-  const post = allBlogs.find((post) => post.slug === params.slug)
+  const post = allPosts.find((post) => post.slug === params.slug)
 
   if (!post) return
 
@@ -72,11 +72,11 @@ export async function Blog({ params }): Promise<JSX.Element> {
           <Mdx code={post.body.code} />
           <div className='flex flex-row mt-5 py-1 tracking-tighter rounded-md'>
             <span className='font-semibold mr-2'>Дата публикации:</span>
-            <span className='text-gray-500 italic'>
+            <time dateTime={post.publishedAt} className='text-gray-500 italic'>
               {format(parseISO(post.publishedAt), 'dd MMMM yyyy', {
                 locale: ru,
               })}
-            </span>
+            </time>
           </div>
           <ViewCounter slug={post.slug} trackView={false} />
         </article>
