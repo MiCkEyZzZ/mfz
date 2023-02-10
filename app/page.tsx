@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Balancer from 'react-wrap-balancer'
-import { allBlogs, Blog } from 'contentlayer/generated'
+import { allPosts, Post } from 'contentlayer/generated'
 
 import information from 'lib/information'
 
@@ -17,7 +17,7 @@ export const metadata = {
   },
 }
 
-function mergeSort(arr: Blog[]): Blog[] {
+function mergeSort(arr: Post[]): Post[] {
   if (arr.length === 1) return arr
 
   const center = Math.floor(arr.length / 2)
@@ -27,8 +27,8 @@ function mergeSort(arr: Blog[]): Blog[] {
   return merge(mergeSort(left), mergeSort(right))
 }
 
-function merge(left: Blog[], right: Blog[]): Blog[] {
-  const results: Blog[] = []
+function merge(left: Post[], right: Post[]): Post[] {
+  const results: Post[] = []
 
   while (left.length && right.length) {
     left[0] < right[0]
@@ -40,13 +40,13 @@ function merge(left: Blog[], right: Blog[]): Blog[] {
 }
 
 function getLatestPost(limit: number): JSX.Element[] {
-  return mergeSort(allBlogs)
+  return mergeSort(allPosts)
     .sort((a, b) =>
       new Date(a.publishedAt) > new Date(b.publishedAt) ? -1 : 1
     )
     .filter((n: { isPublished: boolean }) => n.isPublished === true)
     .slice(0, limit)
-    .map((post: Blog) => (
+    .map((post: Post) => (
       <li key={post.slug} className='w-full first:mt-0 mt-12'>
         <article className='text-black'>
           <Link href={`/blog/${post.slug}`} className='group flex flex-col'>

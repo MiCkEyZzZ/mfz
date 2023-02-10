@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Balancer from 'react-wrap-balancer'
 
-import { allBlogs } from 'contentlayer/generated'
+import { allPosts } from 'contentlayer/generated'
 
 export const metadata = {
   title: 'Посты',
@@ -10,7 +10,7 @@ export const metadata = {
 }
 
 function renderPosts() {
-  return allBlogs
+  return allPosts
     .sort((a, b) =>
       Number(new Date(a.publishedAt)) > Number(new Date(b.publishedAt)) ? -1 : 1
     )
@@ -36,7 +36,7 @@ function renderPosts() {
 }
 
 function BlogPage(): JSX.Element {
-  const count = allBlogs.length
+  const count = allPosts.length
 
   return (
     <section className='flex flex-col w-full max-w-6xl pt-32'>
@@ -54,4 +54,3 @@ function BlogPage(): JSX.Element {
 }
 
 export default BlogPage
-1
