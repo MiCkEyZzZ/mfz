@@ -24,7 +24,7 @@ export const Post = defineDocumentType(() => ({
     },
     seoTitle: {
       type: 'string',
-      description: 'СЕО Заголовок поста',
+      description: 'ПО Заголовок поста',
       required: true,
     },
     isPublished: {

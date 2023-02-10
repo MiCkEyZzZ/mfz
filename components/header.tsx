@@ -55,12 +55,19 @@ function Header(): JSX.Element {
           <div className='hidden md:flex items-center'>
             <ul className='flex flex-row'>
               <li className='flex items-center'>
-                <button className='px-3 py-2'>
+                <button
+                  aria-label='Переключение темы сайта'
+                  className='px-3 py-2'
+                >
                   <SunIcon className='w-5 h-5' />
                 </button>
               </li>
               <li className='flex items-center'>
-                <Link href='/' className='px-3 py-2'>
+                <Link
+                  href='/'
+                  aria-label='Ссылка на обогащённую сводку сайта'
+                  className='px-3 py-2'
+                >
                   <RssIcon className='w-5 h-5' />
                 </Link>
               </li>
