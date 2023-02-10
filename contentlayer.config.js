@@ -8,7 +8,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 const computedFields = {
   slug: {
     type: 'string',
-    resolve: (post) => post._raw.flattenedPath,
+    resolve: (doc) => doc._raw.flattenedPath,
   },
 }
 
@@ -30,7 +30,7 @@ export const Blog = defineDocumentType(() => ({
       required: true,
     },
     publishedAt: {
-      type: 'string',
+      type: 'date',
       required: true,
     },
     summary: {

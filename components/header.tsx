@@ -67,7 +67,7 @@ function Header(): JSX.Element {
             </ul>
           </div>
           <div className='block md:hidden w-10 h-10'>
-            <button className='w-10 h-10'>
+            <button className='w-10 h-10' aria-label='Меню'>
               <span className='hidden'>Меню</span>
               <Bars2Icon />
             </button>

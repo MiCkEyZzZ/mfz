@@ -1,4 +1,4 @@
 export default {
   name: 'Михаил Журавлёв',
-  about: '',
+  about: 'Hi there!',
 }

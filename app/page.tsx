@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { allBlogs } from 'contentlayer/generated'
+import Balancer from 'react-wrap-balancer'
+import { allBlogs, Blog } from 'contentlayer/generated'
 
 import information from 'lib/information'
 
@@ -16,19 +17,42 @@ export const metadata = {
   },
 }
 
+function mergeSort(arr: Blog[]): Blog[] {
+  if (arr.length === 1) return arr
+
+  const center = Math.floor(arr.length / 2)
+  const left = arr.slice(0, center)
+  const right = arr.slice(center)
+
+  return merge(mergeSort(left), mergeSort(right))
+}
+
+function merge(left: Blog[], right: Blog[]): Blog[] {
+  const results: Blog[] = []
+
+  while (left.length && right.length) {
+    left[0] < right[0]
+      ? results.push(left.shift())
+      : results.push(right.shift())
+
+    return [...results, ...left, ...right]
+  }
+}
+
 function getLatestPost(limit: number): JSX.Element[] {
-  return allBlogs
-    .sort((a: any, b: any) => a.isPublished - b.isPublished)
-    .filter((n) => n.isPublished === true)
-    .splice(1, limit)
+  return mergeSort(allBlogs)
     .sort((a, b) =>
       new Date(a.publishedAt) > new Date(b.publishedAt) ? -1 : 1
     )
-    .map((post) => (
+    .filter((n: { isPublished: boolean }) => n.isPublished === true)
+    .slice(0, limit)
+    .map((post: Blog) => (
       <li key={post.slug} className='w-full first:mt-0 mt-12'>
         <article className='text-black'>
-          <Link href={`/blog/${post.slug}`} className='flex flex-col'>
-            <h3 className='text-md font-bold'>{post.title}</h3>
+          <Link href={`/blog/${post.slug}`} className='group flex flex-col'>
+            <h3 className='text-md font-bold group-hover:underline'>
+              <Balancer>{post.title}</Balancer>
+            </h3>
             <p className='w-full mt-4'>{post.summary}</p>
             <div className='flex flex-row items-center w-full h-7 mt-4'>
               <span className='text-base font-semibold'>Читать дальше</span>
@@ -99,42 +123,60 @@ export default function HomePage(): JSX.Element {
           <ul className='flex flex-col w-full max-w-xs'>
             <li className='w-full mb-4'>
               <div>
-                <a href='/animation/css-transitions/' className='font-medium'>
+                <a
+                  href='/animation/css-transitions/'
+                  className='font-medium hover:underline'
+                >
                   Кант И. "Логика. Антропология"
                 </a>
               </div>
             </li>
             <li className='w-full mb-4'>
               <div>
-                <a href='/animation/css-transitions/' className='font-medium'>
+                <a
+                  href='/animation/css-transitions/'
+                  className='font-medium hover:underline'
+                >
                   Тейяр де Шарден П. Феномен человека
                 </a>
               </div>
             </li>
             <li className='w-full mb-4'>
               <div>
-                <a href='/animation/css-transitions/' className='font-medium'>
+                <a
+                  href='/animation/css-transitions/'
+                  className='font-medium hover:underline'
+                >
                   Мавр. Принципы этики
                 </a>
               </div>
             </li>
             <li className='w-full mb-4'>
               <div>
-                <a href='/animation/css-transitions/' className='font-medium'>
+                <a
+                  href='/animation/css-transitions/'
+                  className='font-medium hover:underline'
+                >
                   Аристотель. Этика
                 </a>
               </div>
             </li>
             <li className='w-full mb-4'>
               <div>
-                <a href='/animation/css-transitions/' className='font-medium'>
+                <a
+                  href='/animation/css-transitions/'
+                  className='font-medium hover:underline'
+                >
                   О достоинстве и приумножении наук
                 </a>
               </div>
             </li>
             <li className='w-full mb-0'>
               <div>
-                <a href='/animation/css-transitions/' className='font-medium'>
+                <a
+                  href='/animation/css-transitions/'
+                  className='font-medium hover:underline'
+                >
                   Энгельс Ф. Происхождение семьи...
                 </a>
               </div>
