@@ -47,13 +47,13 @@ function getLatestPost(limit: number): JSX.Element[] {
     .filter((n: { isPublished: boolean }) => n.isPublished === true)
     .slice(0, limit)
     .map((post: Post) => (
-      <li key={post.slug} className='w-full first:mt-0 mt-12'>
+      <li key={post.slug} className='w-full first:mt-0 mt-12 text-gray-900'>
         <article className='text-black'>
           <Link href={`/blog/${post.slug}`} className='group flex flex-col'>
-            <h3 className='text-md font-bold group-hover:underline'>
+            <h3 className='text-md leading-5 font-bold group-hover:underline'>
               <Balancer>{post.title}</Balancer>
             </h3>
-            <p className='w-full mt-4'>{post.summary}</p>
+            <p className='w-full leading-6 mt-4 opacity-70'>{post.summary}</p>
             <div className='flex flex-row items-center w-full h-7 mt-4'>
               <span className='text-base font-semibold'>Читать дальше</span>
             </div>

@@ -17,13 +17,13 @@ function Subscribe(): JSX.Element {
               <input
                 type='text'
                 placeholder='вы@домен.ру'
-                className='w-full px-3 py-3 md:py-5 border rounded-md'
+                className='w-full px-3 py-3 md:py-3 border rounded-md appearance-none'
               />
             </fieldset>
             <div className='mt-5 ml-auto md:ml-5 md:mt-0'>
               <button
                 aria-label='Подписаться'
-                className='px-5 md:px-7 py-3 md:py-5 border rounded-md'
+                className='px-5 md:px-7 py-3 md:py-3 text-white bg-black border border-black rounded-md md:leading-6 transition-all duration-300'
               >
                 Подписаться
               </button>
