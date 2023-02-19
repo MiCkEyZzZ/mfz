@@ -10,6 +10,17 @@ const computedFields = {
     type: 'string',
     resolve: (doc) => doc._raw.flattenedPath,
   },
+  structuredData: {
+    type: 'object',
+    resolve: (doc) => ({
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: doc.title,
+      datePublished: doc.publishedAt,
+      dateModified: doc.publishedAt,
+      description: doc.summary,
+    }),
+  },
 }
 
 export const Post = defineDocumentType(() => ({
@@ -69,7 +80,7 @@ export default makeSource({
           onVisitHighlightedLine(node) {
             node.properties.className.push('line--highlighted')
           },
-          onVisitHighlightedLine(node) {
+          onVisitHighlightedWord(node) {
             node.properties.className = ['word--highlighted']
           },
         },
