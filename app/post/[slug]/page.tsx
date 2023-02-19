@@ -30,15 +30,24 @@ export async function generateMetadata({
     slug,
   } = post
 
+  const ogImage = image
+    ? `http://localhost:3000/${image}`
+    : `http://localhost:3000/api/og?title=${title}`
+
   return {
     title,
     description,
     openGraph: {
       title,
       description,
+      type: 'article',
       publishedTime,
       url: `http://localhost:3000/post/${slug}`,
-      images: [],
+      images: [
+        {
+          url: ogImage,
+        },
+      ],
     },
   }
 }
