@@ -9,7 +9,7 @@ import { RssIcon } from '@heroicons/react/24/solid'
 
 function Header(): JSX.Element {
   const router = usePathname()
-  const isSticky = router.includes('/blog')
+  const isSticky = router.includes('/post')
 
   return (
     <div
@@ -43,7 +43,7 @@ function Header(): JSX.Element {
                 </li>
                 <li>
                   <Link
-                    href='/blog'
+                    href='/post'
                     className='text-base font-medium mr-2.5 p-2.5'
                   >
                     Посты

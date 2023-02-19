@@ -21,7 +21,7 @@ function renderPosts() {
       >
         <article>
           <Link
-            href={`/blog/${post.slug}`}
+            href={`/post/${post.slug}`}
             className='group flex flex-col w-full'
           >
             <h3 className='text-xl font-semibold group-hover:underline'>
