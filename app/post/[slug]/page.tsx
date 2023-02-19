@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import { allPosts } from 'contentlayer/generated'
 import { format, parseISO } from 'date-fns'
 import { ru } from 'date-fns/locale'
@@ -5,13 +7,54 @@ import { ru } from 'date-fns/locale'
 import { Breadcrumbs, Mdx } from 'components'
 import ViewCounter from '../view-counter'
 
-export async function Blog({ params }): Promise<JSX.Element> {
+export async function generateStaticParams() {
+  return allPosts.map((post) => ({
+    slug: post.slug,
+  }))
+}
+
+export async function generateMetadata({
+  params,
+}): Promise<Metadata | undefined> {
   const post = allPosts.find((post) => post.slug === params.slug)
 
-  if (!post) return
+  if (!post) {
+    return
+  }
+
+  const {
+    title,
+    publishedAt: publishedTime,
+    summary: description,
+    image,
+    slug,
+  } = post
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      publishedTime,
+      url: `http://localhost:3000/post/${slug}`,
+      images: [],
+    },
+  }
+}
+
+export async function Post({ params }): Promise<JSX.Element> {
+  const post = allPosts.find((post) => post.slug === params.slug)
+
+  if (!post) {
+    notFound()
+  }
 
   return (
     <section className='flex flex-col w-full max-w-6xl'>
+      <script type='application/ld+json'>
+        {JSON.stringify(post.structuredData)}
+      </script>
       <Breadcrumbs title={post.title} />
       <div className='flex flex-row-reverse justify-center items-start pt-5'>
         <aside className='sticky top-36 hidden lg:flex w-full max-w-xs h-96 ml-auto overflow-auto'>
@@ -85,4 +128,4 @@ export async function Blog({ params }): Promise<JSX.Element> {
   )
 }
 
-export default Blog
+export default Post

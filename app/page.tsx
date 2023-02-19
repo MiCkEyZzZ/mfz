@@ -34,7 +34,7 @@ function getLatestPost(limit: number): JSX.Element[] {
     .map((post: Post) => (
       <li key={post.slug} className='w-full first:mt-0 mt-12 text-gray-900'>
         <article className='text-black'>
-          <Link href={`/blog/${post.slug}`} className='group flex flex-col'>
+          <Link href={`/post/${post.slug}`} className='group flex flex-col'>
             <h3 className='text-md leading-5 font-bold group-hover:underline'>
               <Balancer>{post.title}</Balancer>
             </h3>
@@ -68,17 +68,17 @@ export default function HomePage(): JSX.Element {
             </li>
             <li className='flex flex-col mt-2 mr-2 overflow-hidden'>
               <Link href='#' className='text-xs px-2 py-2 border rounded-xl'>
-                Этика
-              </Link>
-            </li>
-            <li className='flex flex-col mt-2 mr-2 overflow-hidden'>
-              <Link href='#' className='text-xs px-2 py-2 border rounded-xl'>
                 Next
               </Link>
             </li>
             <li className='flex flex-col mt-2 mr-2 overflow-hidden'>
               <Link href='#' className='text-xs px-2 py-2 border rounded-xl'>
                 Rust
+              </Link>
+            </li>
+            <li className='flex flex-col mt-2 mr-2 overflow-hidden'>
+              <Link href='#' className='text-xs px-2 py-2 border rounded-xl'>
+                Религия
               </Link>
             </li>
             <li className='flex flex-col mt-2 mr-2 overflow-hidden'>
