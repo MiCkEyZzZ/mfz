@@ -18,70 +18,106 @@ function Footer(): JSX.Element {
         </div>
         <div className='flex flex-row justify-around w-full md:max-w-lg md:h-auto'>
           <div className='h-44 ml-0 md:ml-24'>
-            <h3 className='text-sm text-gray-500'>Разделы</h3>
+            <h3 className='text-sm text-black'>Разделы</h3>
             <ul className='grid grid-rows-4 grid-flow-col gap-1.5 pt-3'>
               <li>
-                <Link href='#' className='text-sm'>
+                <Link
+                  href='#'
+                  className='text-sm text-gray-500 hover:text-gray-700'
+                >
                   Философия
                 </Link>
               </li>
               <li>
-                <Link href='#' className='text-sm'>
+                <Link
+                  href='#'
+                  className='text-sm text-gray-500 hover:text-gray-700'
+                >
                   Rust
                 </Link>
               </li>
               <li>
-                <Link href='#' className='text-sm'>
+                <Link
+                  href='#'
+                  className='text-sm text-gray-500 hover:text-gray-700'
+                >
                   Ruby
                 </Link>
               </li>
               <li>
-                <Link href='#' className='text-sm'>
+                <Link
+                  href='#'
+                  className='text-sm text-gray-500 hover:text-gray-700'
+                >
                   JavaScript
                 </Link>
               </li>
               <li>
-                <Link href='#' className='text-sm'>
+                <Link
+                  href='#'
+                  className='text-sm text-gray-500 hover:text-gray-700'
+                >
                   Next
                 </Link>
               </li>
               <li>
-                <Link href='#' className='text-sm'>
+                <Link
+                  href='#'
+                  className='text-sm text-gray-500 hover:text-gray-700'
+                >
                   React
                 </Link>
               </li>
               <li>
-                <Link href='#' className='text-sm'>
+                <Link
+                  href='#'
+                  className='text-sm text-gray-500 hover:text-gray-700'
+                >
                   Религия
                 </Link>
               </li>
               <li>
-                <Link href='#' className='text-sm'>
+                <Link
+                  href='#'
+                  className='text-sm text-gray-500 hover:text-gray-700'
+                >
                   Законы
                 </Link>
               </li>
             </ul>
           </div>
           <div className='h-44 ml-0 md:ml-24'>
-            <h3 className='text-sm text-gray-500'>Ссылки</h3>
+            <h3 className='text-sm text-black'>Ссылки</h3>
             <ul className='grid grid-rows-4 grid-flow-col gap-1.5 pt-3'>
               <li>
-                <Link href='#' className='text-sm'>
+                <Link
+                  href='#'
+                  className='text-sm text-gray-500 hover:text-gray-700'
+                >
                   Телеграм
                 </Link>
               </li>
               <li>
-                <Link href='#' className='text-sm'>
+                <Link
+                  href='#'
+                  className='text-sm text-gray-500 hover:text-gray-700'
+                >
                   Контакты
                 </Link>
               </li>
               <li>
-                <Link href='#' className='text-sm'>
+                <Link
+                  href='#'
+                  className='text-sm text-gray-500 hover:text-gray-700'
+                >
                   Правила использования
                 </Link>
               </li>
               <li>
-                <Link href='#' className='text-sm'>
+                <Link
+                  href='#'
+                  className='text-sm text-gray-500 hover:text-gray-700'
+                >
                   Конфиденциальность
                 </Link>
               </li>

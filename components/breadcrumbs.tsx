@@ -9,7 +9,11 @@ function Breadcrumbs({ title }): JSX.Element {
         <div>
           <ul className='flex flex-row items-center'>
             <li>
-              <Link href='/' className='text-sm md:text-base'>
+              <Link
+                href='/'
+                className='text-sm md:text-base'
+                title='Главная страница'
+              >
                 Главная страница
               </Link>
             </li>
@@ -17,7 +21,7 @@ function Breadcrumbs({ title }): JSX.Element {
               <ChevronRightIcon className='w-3.5 h-3.5' />
             </li>
             <li>
-              <Link href='/blog' className='text-sm md:text-base'>
+              <Link href='/blog' className='text-sm md:text-base' title='Посты'>
                 Посты
               </Link>
             </li>
@@ -25,9 +29,12 @@ function Breadcrumbs({ title }): JSX.Element {
               <ChevronRightIcon className='w-3.5 h-3.5' />
             </li>
             <li>
-              <Link href='/philosophy' className='text-sm md:text-base'>
+              <p
+                className='text-sm md:text-base text-gray-700 cursor-text'
+                title='Философия'
+              >
                 Философия
-              </Link>
+              </p>
             </li>
           </ul>
         </div>

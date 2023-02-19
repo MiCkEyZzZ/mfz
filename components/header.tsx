@@ -59,7 +59,7 @@ function Header(): JSX.Element {
                   aria-label='Переключение темы сайта'
                   className='px-3 py-2'
                 >
-                  <SunIcon className='w-5 h-5' />
+                  <SunIcon className='w-5 h-5' title='Смена темы' />
                 </button>
               </li>
               <li className='flex items-center'>
@@ -68,7 +68,7 @@ function Header(): JSX.Element {
                   aria-label='Ссылка на обогащённую сводку сайта'
                   className='px-3 py-2'
                 >
-                  <RssIcon className='w-5 h-5' />
+                  <RssIcon className='w-5 h-5' title='ОСС' />
                 </Link>
               </li>
             </ul>

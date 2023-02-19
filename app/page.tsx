@@ -81,38 +81,38 @@ export default function HomePage(): JSX.Element {
         <div className='w-full col-span-2 md:col-span-1'>
           <h2 className='text-base uppercase mb-9'>Популярные категории</h2>
           <ul className='flex flex-wrap w-full max-w-xs'>
-            <li className='flex flex-col mt-2 mr-2 border rounded-2xl'>
-              <Link href='#' className='text-xs px-2.5 py-2.5'>
+            <li className='flex flex-col mt-2 mr-2 overflow-hidden'>
+              <Link href='#' className='text-xs px-2 py-2 border rounded-xl'>
                 Философия
               </Link>
             </li>
-            <li className='flex flex-col mt-2 mr-2 border rounded-2xl'>
-              <Link href='#' className='text-xs px-2.5 py-2.5'>
+            <li className='flex flex-col mt-2 mr-2 overflow-hidden'>
+              <Link href='#' className='text-xs px-2 py-2 border rounded-xl'>
                 Этика
               </Link>
             </li>
-            <li className='flex flex-col mt-2 mr-2 border rounded-2xl'>
-              <Link href='#' className='text-xs px-2.5 py-2.5'>
+            <li className='flex flex-col mt-2 mr-2 overflow-hidden'>
+              <Link href='#' className='text-xs px-2 py-2 border rounded-xl'>
                 Next
               </Link>
             </li>
-            <li className='flex flex-col mt-2 mr-2 border rounded-2xl'>
-              <Link href='#' className='text-xs px-2.5 py-2.5'>
+            <li className='flex flex-col mt-2 mr-2 overflow-hidden'>
+              <Link href='#' className='text-xs px-2 py-2 border rounded-xl'>
                 Rust
               </Link>
             </li>
-            <li className='flex flex-col mt-2 mr-2 border rounded-2xl'>
-              <Link href='#' className='text-xs px-2.5 py-2.5'>
+            <li className='flex flex-col mt-2 mr-2 overflow-hidden'>
+              <Link href='#' className='text-xs px-2 py-2 border rounded-xl'>
                 Animation
               </Link>
             </li>
-            <li className='flex flex-col mt-2 mr-2 border rounded-2xl'>
-              <Link href='#' className='text-xs px-2.5 py-2.5'>
+            <li className='flex flex-col mt-2 mr-2 overflow-hidden'>
+              <Link href='#' className='text-xs px-2 py-2 border rounded-xl'>
                 Node
               </Link>
             </li>
-            <li className='flex flex-col mt-2 mr-2 border rounded-2xl'>
-              <Link href='#' className='text-xs px-2.5 py-2.5'>
+            <li className='flex flex-col mt-2 mr-2 overflow-hidden'>
+              <Link href='#' className='text-xs px-2 py-2 border rounded-xl'>
                 React
               </Link>
             </li>
