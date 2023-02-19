@@ -120,7 +120,7 @@ export async function Post({ params }): Promise<JSX.Element> {
             </ul>
           </nav>
         </aside>
-        <article className='flex flex-col w-full lg:max-w-2xlx'>
+        <div className='flex flex-col w-full lg:max-w-2xlx'>
           <Mdx code={post.body.code} />
           <div className='flex flex-row mt-5 py-1 tracking-tighter rounded-md'>
             <span className='font-semibold mr-2'>Дата публикации:</span>
@@ -131,7 +131,7 @@ export async function Post({ params }): Promise<JSX.Element> {
             </time>
           </div>
           <ViewCounter slug={post.slug} trackView={false} />
-        </article>
+        </div>
       </div>
     </section>
   )
