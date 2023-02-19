@@ -26,7 +26,7 @@ function Header(): JSX.Element {
       const isActive = nav.path === pathname
 
       return (
-        <li>
+        <li key={nav.path}>
           <Link
             href={nav.path}
             className={clsx('text-base font-medium mr-2.5 p-2.5', {
