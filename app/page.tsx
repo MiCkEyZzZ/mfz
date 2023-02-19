@@ -35,7 +35,7 @@ function getLatestPost(limit: number): JSX.Element[] {
       <li key={post.slug} className='w-full first:mt-0 mt-12 text-gray-900'>
         <article className='text-black'>
           <Link href={`/post/${post.slug}`} className='group flex flex-col'>
-            <h3 className='text-md leading-5 font-bold group-hover:underline'>
+            <h3 className='text-md leading-5 font-bold group-hover:underline transition-all duration-300'>
               <Balancer>{post.title}</Balancer>
             </h3>
             <p className='w-full leading-6 mt-4 opacity-70'>{post.summary}</p>
@@ -115,7 +115,7 @@ export default function HomePage(): JSX.Element {
               <div>
                 <Link
                   href='/animation/css-transitions/'
-                  className='font-medium hover:underline'
+                  className='font-medium hover:underline hover:transition transition-all duration-300'
                 >
                   Тейяр де Шарден П. Феномен человека
                 </Link>
