@@ -2,14 +2,44 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import clsx from 'clsx'
 
 import { Bars2Icon } from '@heroicons/react/24/outline'
 import { SunIcon } from '@heroicons/react/24/solid'
 import { RssIcon } from '@heroicons/react/24/solid'
 
+const navItems = [
+  { title: 'Главная', path: '/' },
+  { title: 'Посты', path: '/post' },
+]
+
 function Header(): JSX.Element {
-  const router = usePathname()
-  const isSticky = router.includes('/post')
+  let pathname = usePathname() || '/'
+  const isSticky = pathname.includes('/post')
+
+  if (pathname.includes('/post')) {
+    pathname = '/post'
+  }
+
+  function renderNavigate() {
+    return navItems.map((nav) => {
+      const isActive = nav.path === pathname
+
+      return (
+        <li key={nav.path}>
+          <Link
+            href={nav.path}
+            className={clsx('text-base font-medium mr-2.5 p-2.5', {
+              'text-gray-500': !isActive,
+              'text-black font-bold': isActive,
+            })}
+          >
+            {nav.title}
+          </Link>
+        </li>
+      )
+    })
+  }
 
   return (
     <div
@@ -35,21 +65,7 @@ function Header(): JSX.Element {
               Михаил Журавлёв
             </Link>
             <nav className='hidden md:block text-black'>
-              <ul className='flex flex-row'>
-                <li>
-                  <Link href='/' className='text-base font-medium mr-2.5 p-2.5'>
-                    Главная
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href='/post'
-                    className='text-base font-medium mr-2.5 p-2.5'
-                  >
-                    Посты
-                  </Link>
-                </li>
-              </ul>
+              <ul className='flex flex-row'>{renderNavigate()}</ul>
             </nav>
           </div>
           <div className='hidden md:flex items-center'>
