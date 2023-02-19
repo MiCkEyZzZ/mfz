@@ -1,6 +1,12 @@
+'use client'
+
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import clsx from 'clsx'
 
 function Footer(): JSX.Element {
+  let pathname = usePathname() || '/'
+
   return (
     <footer className='flex flex-row justify-center items-center w-full px-5 md:px-5 border-t'>
       <div className='flex flex-col md:flex-row md:justify-between w-full max-w-6xl h-96 md:h-60 py-8'>
@@ -109,7 +115,10 @@ function Footer(): JSX.Element {
               <li>
                 <Link
                   href='/terms'
-                  className='text-sm text-gray-500 hover:text-gray-700'
+                  className={clsx('text-sm hover:text-gray-700', {
+                    'text-black font-bold': pathname === '/terms',
+                    'text-gray-500': pathname !== '/terms',
+                  })}
                 >
                   Правила использования
                 </Link>
@@ -117,7 +126,10 @@ function Footer(): JSX.Element {
               <li>
                 <Link
                   href='privacy'
-                  className='text-sm text-gray-500 hover:text-gray-700'
+                  className={clsx('text-sm hover:text-gray-700', {
+                    'text-black font-bold': pathname === '/privacy',
+                    'text-gray-500': pathname !== '/privacy',
+                  })}
                 >
                   Конфиденциальность
                 </Link>
