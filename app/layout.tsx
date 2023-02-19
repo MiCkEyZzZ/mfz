@@ -20,15 +20,24 @@ export const metadata: Metadata = {
   },
   description: 'Разработчик, философ',
   openGraph: {
+    title: 'Михаил Журавлёв',
+    description: 'Разработчик, философ',
     url: 'https://mfz.ru',
     siteName: 'Михаил Журавлёв',
     images: [],
     locale: 'ru-RU',
     type: 'website',
   },
-  robots: {},
-  icons: {},
-  verification: {},
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    shortcut: '/favicon.ico',
+  },
+  verification: {
+    yandex: '',
+  },
 }
 
 export default function RootLayout({

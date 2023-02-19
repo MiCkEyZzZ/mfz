@@ -1,9 +1,10 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import Balancer from 'react-wrap-balancer'
 
 import { allPosts } from 'contentlayer/generated'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Посты',
   description:
     'В блоге Я публикую свои мысли о происходящем и просто философствую о бытие',
