@@ -49,6 +49,26 @@ function BlogPage(): JSX.Element {
           {renderPosts()}
         </ul>
       </div>
+
+      <div className='flex flex-col mt-16'>
+        <div className='flex flex-row justify-between items-center w-full h-20 pl-5 pr-10'>
+          <h1 className='text-4xl font-semibold'>Rust</h1>
+          <p className='hidden sm:block text-lg font-normal'>{count} статей</p>
+        </div>
+        <ul className='grid grid-cols-1 md:grid-cols-auto gap-8'>
+          {renderPosts()}
+        </ul>
+      </div>
+
+      <div className='flex flex-col mt-16'>
+        <div className='flex flex-row justify-between items-center w-full h-20 pl-5 pr-10'>
+          <h1 className='text-4xl font-semibold'>Next</h1>
+          <p className='hidden sm:block text-lg font-normal'>{count} статей</p>
+        </div>
+        <ul className='grid grid-cols-1 md:grid-cols-auto gap-8'>
+          {renderPosts()}
+        </ul>
+      </div>
     </section>
   )
 }

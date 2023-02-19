@@ -63,7 +63,7 @@ function getLatestPost(limit: number): JSX.Element[] {
     ))
 }
 
-function getPopularPost(limit: number) {
+function getPopularPost(limit: number): void {
   console.log('Populate Posts', limit)
 }
 

@@ -17,6 +17,9 @@ export const Post = defineDocumentType(() => ({
   filePathPattern: '**/*.mdx',
   contentType: 'mdx',
   fields: {
+    id: {
+      type: 'string',
+    },
     title: {
       type: 'string',
       description: 'Заголовок поста',
@@ -66,10 +69,10 @@ export default makeSource({
               node.children = [{ type: 'text', value: ' ' }]
             }
           },
-          onVisitHighlughtedLine(node) {
+          onVisitHighlightedLine(node) {
             node.properties.className.push('line--highlighted')
           },
-          onVisitHighlughtedWord(node) {
+          onVisitHighlightedLine(node) {
             node.properties.className = ['word--highlighted']
           },
         },

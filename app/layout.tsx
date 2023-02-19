@@ -1,8 +1,8 @@
 import clsx from 'clsx'
+import type { Metadata } from 'next'
 import localFont from '@next/font/local'
 
 import './globals.css'
-import globalMetadata from './metadata'
 
 import { Header, Footer, Subscribe } from 'components'
 
@@ -13,7 +13,23 @@ const gteestipro = localFont({
   display: 'swap',
 })
 
-export const metadata = globalMetadata
+export const metadata: Metadata = {
+  title: {
+    default: 'Михаил Журавлёв',
+    template: '%s | Михаил Журавлёв',
+  },
+  description: '',
+  openGraph: {
+    url: 'https://mfz.ru',
+    siteName: 'Михаил Журавлёв',
+    images: [],
+    locale: 'ru-RU',
+    type: 'website',
+  },
+  robots: {},
+  icons: {},
+  verification: {},
+}
 
 export default function RootLayout({
   children,
