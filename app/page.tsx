@@ -2,21 +2,6 @@ import Link from 'next/link'
 import Balancer from 'react-wrap-balancer'
 import { allPosts, Post } from 'contentlayer/generated'
 
-import information from 'lib/information'
-
-export const metadata = {
-  description: 'Разработчик, философ',
-  openGraph: {
-    title: 'Михаил Журавлёв',
-    description: 'Разработчик, философ',
-    url: 'https://mfz.ru',
-    siteName: 'Михаил Журавлёв',
-    images: [],
-    locale: 'ru-RU',
-    type: 'website',
-  },
-}
-
 function mergeSort(arr: Post[]): Post[] {
   if (arr.length === 1) return arr
 
@@ -63,13 +48,8 @@ function getLatestPost(limit: number): JSX.Element[] {
     ))
 }
 
-function getPopularPost(limit: number) {
-  console.log('Populate Posts', limit)
-}
-
 export default function HomePage(): JSX.Element {
   const newestPosts = getLatestPost(20)
-  const populatePosts = getPopularPost(10)
 
   return (
     <section className='flex flex-col w-full max-w-6xl'>
@@ -123,62 +103,62 @@ export default function HomePage(): JSX.Element {
           <ul className='flex flex-col w-full max-w-xs'>
             <li className='w-full mb-4'>
               <div>
-                <a
+                <Link
                   href='/animation/css-transitions/'
                   className='font-medium hover:underline'
                 >
                   Кант И. "Логика. Антропология"
-                </a>
+                </Link>
               </div>
             </li>
             <li className='w-full mb-4'>
               <div>
-                <a
+                <Link
                   href='/animation/css-transitions/'
                   className='font-medium hover:underline'
                 >
                   Тейяр де Шарден П. Феномен человека
-                </a>
+                </Link>
               </div>
             </li>
             <li className='w-full mb-4'>
               <div>
-                <a
+                <Link
                   href='/animation/css-transitions/'
                   className='font-medium hover:underline'
                 >
                   Мавр. Принципы этики
-                </a>
+                </Link>
               </div>
             </li>
             <li className='w-full mb-4'>
               <div>
-                <a
+                <Link
                   href='/animation/css-transitions/'
                   className='font-medium hover:underline'
                 >
                   Аристотель. Этика
-                </a>
+                </Link>
               </div>
             </li>
             <li className='w-full mb-4'>
               <div>
-                <a
+                <Link
                   href='/animation/css-transitions/'
                   className='font-medium hover:underline'
                 >
                   О достоинстве и приумножении наук
-                </a>
+                </Link>
               </div>
             </li>
             <li className='w-full mb-0'>
               <div>
-                <a
+                <Link
                   href='/animation/css-transitions/'
                   className='font-medium hover:underline'
                 >
                   Энгельс Ф. Происхождение семьи...
-                </a>
+                </Link>
               </div>
             </li>
           </ul>

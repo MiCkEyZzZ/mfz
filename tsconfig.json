@@ -28,7 +28,8 @@
       "contentlayer/generated": [
         "./.contentlayer/generated"
       ]
-    }
+    },
+    "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",
