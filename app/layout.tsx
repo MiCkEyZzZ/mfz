@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     default: 'Михаил Журавлёв',
     template: '%s | Михаил Журавлёв',
   },
-  description: '',
+  description: 'Разработчик, философ',
   openGraph: {
     url: 'https://mfz.ru',
     siteName: 'Михаил Журавлёв',

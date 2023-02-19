@@ -2,21 +2,6 @@ import Link from 'next/link'
 import Balancer from 'react-wrap-balancer'
 import { allPosts, Post } from 'contentlayer/generated'
 
-import information from 'lib/information'
-
-export const metadata = {
-  description: 'Разработчик, философ',
-  openGraph: {
-    title: 'Михаил Журавлёв',
-    description: 'Разработчик, философ',
-    url: 'https://mfz.ru',
-    siteName: 'Михаил Журавлёв',
-    images: [],
-    locale: 'ru-RU',
-    type: 'website',
-  },
-}
-
 function mergeSort(arr: Post[]): Post[] {
   if (arr.length === 1) return arr
 
