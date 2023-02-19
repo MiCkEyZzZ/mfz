@@ -23,7 +23,7 @@ function Subscribe(): JSX.Element {
             <div className='mt-5 ml-auto md:ml-5 md:mt-0'>
               <button
                 aria-label='Подписаться'
-                className='px-5 md:px-7 py-3 md:py-3 text-white bg-black border border-black rounded-md md:leading-6 transition-all duration-300'
+                className='text-base font-medium px-4 md:px-7 py-3 md:py-3 text-white bg-black hover:bg-gray-600 border border-transparent rounded-md md:leading-6 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-800'
               >
                 Подписаться
               </button>
