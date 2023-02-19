@@ -91,7 +91,8 @@ function Footer(): JSX.Element {
             <ul className='grid grid-rows-4 grid-flow-col gap-1.5 pt-3'>
               <li>
                 <Link
-                  href='#'
+                  href='https://t.me/Mickey_Zzz'
+                  target='_blank'
                   className='text-sm text-gray-500 hover:text-gray-700'
                 >
                   Телеграм
@@ -107,7 +108,7 @@ function Footer(): JSX.Element {
               </li>
               <li>
                 <Link
-                  href='#'
+                  href='/terms'
                   className='text-sm text-gray-500 hover:text-gray-700'
                 >
                   Правила использования
@@ -115,7 +116,7 @@ function Footer(): JSX.Element {
               </li>
               <li>
                 <Link
-                  href='#'
+                  href='privacy'
                   className='text-sm text-gray-500 hover:text-gray-700'
                 >
                   Конфиденциальность
