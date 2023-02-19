@@ -17,8 +17,76 @@ function Footer(): JSX.Element {
           </div>
         </div>
         <div className='flex flex-row justify-around w-full md:max-w-lg md:h-auto'>
-          <div className='w-52 h-44 ml-0 md:ml-24 border'></div>
-          <div className='w-28 h-44 ml-0 md:ml-24 border'></div>
+          <div className='h-44 ml-0 md:ml-24'>
+            <h3 className='text-sm text-gray-500'>Разделы</h3>
+            <ul className='grid grid-rows-4 grid-flow-col gap-1.5 pt-3'>
+              <li>
+                <Link href='#' className='text-sm'>
+                  Философия
+                </Link>
+              </li>
+              <li>
+                <Link href='#' className='text-sm'>
+                  Rust
+                </Link>
+              </li>
+              <li>
+                <Link href='#' className='text-sm'>
+                  Ruby
+                </Link>
+              </li>
+              <li>
+                <Link href='#' className='text-sm'>
+                  JavaScript
+                </Link>
+              </li>
+              <li>
+                <Link href='#' className='text-sm'>
+                  Next
+                </Link>
+              </li>
+              <li>
+                <Link href='#' className='text-sm'>
+                  React
+                </Link>
+              </li>
+              <li>
+                <Link href='#' className='text-sm'>
+                  Религия
+                </Link>
+              </li>
+              <li>
+                <Link href='#' className='text-sm'>
+                  Законы
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className='h-44 ml-0 md:ml-24'>
+            <h3 className='text-sm text-gray-500'>Ссылки</h3>
+            <ul className='grid grid-rows-4 grid-flow-col gap-1.5 pt-3'>
+              <li>
+                <Link href='#' className='text-sm'>
+                  Телеграм
+                </Link>
+              </li>
+              <li>
+                <Link href='#' className='text-sm'>
+                  Контакты
+                </Link>
+              </li>
+              <li>
+                <Link href='#' className='text-sm'>
+                  Правила использования
+                </Link>
+              </li>
+              <li>
+                <Link href='#' className='text-sm'>
+                  Конфиденциальность
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
         <div className='flex md:hidden justify-center items-center w-full h-16 md:h-auto mt-6 md:mt-0'>
           <span className='text-xs'>
