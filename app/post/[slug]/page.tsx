@@ -4,8 +4,8 @@ import { allPosts } from 'contentlayer/generated'
 import { format, parseISO } from 'date-fns'
 import { ru } from 'date-fns/locale'
 
-import { Breadcrumbs, Mdx } from 'components'
 import ViewCounter from '../view-counter'
+import { Breadcrumbs, Mdx } from 'components'
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
@@ -15,7 +15,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}): Promise<Metadata | undefined> {
+}: any): Promise<Metadata | undefined> {
   const post = allPosts.find((post) => post.slug === params.slug)
 
   if (!post) {
@@ -61,7 +61,7 @@ const links = [
   { name: 'VI глава', path: '/#' },
 ]
 
-export async function Post({ params }): Promise<JSX.Element> {
+export async function Post({ params }: any): Promise<JSX.Element> {
   const post = allPosts.find((post) => post.slug === params.slug)
 
   if (!post) {
