@@ -2,6 +2,25 @@ import Link from 'next/link'
 import Balancer from 'react-wrap-balancer'
 import { allPosts, Post } from 'contentlayer/generated'
 
+const tags = [
+  { name: 'Философия', path: '#' },
+  { name: 'Next', path: '#' },
+  { name: 'Rust', path: '#' },
+  { name: 'Религия', path: '#' },
+  { name: 'Animation', path: '#' },
+  { name: 'Node', path: '#' },
+  { name: 'React', path: '#' },
+]
+
+const posts = [
+  { name: 'Кант И. "Логика. Антропология"', path: '#' },
+  { name: 'Тейяр де Шарден П. Феномен человека', path: '#' },
+  { name: 'Мавр. Принципы этики', path: '#' },
+  { name: 'Аристотель. Этика', path: '#' },
+  { name: 'О достоинстве и приумножении наук', path: '#' },
+  { name: 'Энгельс Ф. Происхождение семьи...', path: '#' },
+]
+
 function mergeSort(arr: Post[]): Post[] {
   if (arr.length === 1) return arr
 
@@ -48,30 +67,34 @@ function getLatestPost(limit: number): JSX.Element[] {
     ))
 }
 
-const tags = [
-  { name: 'Философия', path: '' },
-  { name: 'Next', path: '' },
-  { name: 'Rust', path: '' },
-  { name: 'Религия', path: '' },
-  { name: 'Animation', path: '' },
-  { name: 'Node', path: '' },
-  { name: 'React', path: '' },
-]
+function getPopularPosts(): JSX.Element[] {
+  return posts.map((post) => (
+    <li key={post.name} className='w-full mb-4'>
+      <div>
+        <Link href={post.path} className='font-medium hover:underline'>
+          {post.name}
+        </Link>
+      </div>
+    </li>
+  ))
+}
+
+function renderTags() {
+  return tags.map((tag) => {
+    return (
+      <li key={tag.name} className='flex flex-col mt-2 mr-2 overflow-hidden'>
+        <Link href={tag.path} className='text-xs px-2 py-2 border rounded-xl'>
+          {tag.name}
+        </Link>
+      </li>
+    )
+  })
+}
 
 export default function HomePage(): JSX.Element {
   const newestPosts = getLatestPost(20)
-
-  function renderTags() {
-    return tags.map((tag) => {
-      return (
-        <li key={tag.name} className='flex flex-col mt-2 mr-2 overflow-hidden'>
-          <Link href={tag.path} className='text-xs px-2 py-2 border rounded-xl'>
-            {tag.name}
-          </Link>
-        </li>
-      )
-    })
-  }
+  const popularPosts = getPopularPosts()
+  const mostPopularTags = renderTags()
 
   return (
     <section className='flex flex-col w-full max-w-6xl'>
@@ -82,72 +105,11 @@ export default function HomePage(): JSX.Element {
         </div>
         <div className='w-full col-span-2 md:col-span-1'>
           <h2 className='text-base uppercase mb-9'>Популярные категории</h2>
-          <ul className='flex flex-wrap w-full max-w-xs'>{renderTags()}</ul>
+          <ul className='flex flex-wrap w-full max-w-xs'>{mostPopularTags}</ul>
         </div>
         <div className='md:sticky top-8 w-full row-span-1 md:row-span-1 col-span-2 md:col-span-1'>
           <h2 className='text-base uppercase mb-9'>Популярные посты</h2>
-          <ul className='flex flex-col w-full max-w-xs'>
-            <li className='w-full mb-4'>
-              <div>
-                <Link
-                  href='/animation/css-transitions/'
-                  className='font-medium hover:underline'
-                >
-                  Кант И. "Логика. Антропология"
-                </Link>
-              </div>
-            </li>
-            <li className='w-full mb-4'>
-              <div>
-                <Link
-                  href='/animation/css-transitions/'
-                  className='font-medium hover:underline hover:transition transition-all duration-300'
-                >
-                  Тейяр де Шарден П. Феномен человека
-                </Link>
-              </div>
-            </li>
-            <li className='w-full mb-4'>
-              <div>
-                <Link
-                  href='/animation/css-transitions/'
-                  className='font-medium hover:underline'
-                >
-                  Мавр. Принципы этики
-                </Link>
-              </div>
-            </li>
-            <li className='w-full mb-4'>
-              <div>
-                <Link
-                  href='/animation/css-transitions/'
-                  className='font-medium hover:underline'
-                >
-                  Аристотель. Этика
-                </Link>
-              </div>
-            </li>
-            <li className='w-full mb-4'>
-              <div>
-                <Link
-                  href='/animation/css-transitions/'
-                  className='font-medium hover:underline'
-                >
-                  О достоинстве и приумножении наук
-                </Link>
-              </div>
-            </li>
-            <li className='w-full mb-0'>
-              <div>
-                <Link
-                  href='/animation/css-transitions/'
-                  className='font-medium hover:underline'
-                >
-                  Энгельс Ф. Происхождение семьи...
-                </Link>
-              </div>
-            </li>
-          </ul>
+          <ul className='flex flex-col w-full max-w-xs'>{popularPosts}</ul>
         </div>
       </div>
     </section>
