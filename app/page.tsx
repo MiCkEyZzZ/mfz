@@ -48,8 +48,30 @@ function getLatestPost(limit: number): JSX.Element[] {
     ))
 }
 
+const tags = [
+  { name: 'Философия', path: '' },
+  { name: 'Next', path: '' },
+  { name: 'Rust', path: '' },
+  { name: 'Религия', path: '' },
+  { name: 'Animation', path: '' },
+  { name: 'Node', path: '' },
+  { name: 'React', path: '' },
+]
+
 export default function HomePage(): JSX.Element {
   const newestPosts = getLatestPost(20)
+
+  function renderTags() {
+    return tags.map((tag) => {
+      return (
+        <li key={tag.name} className='flex flex-col mt-2 mr-2 overflow-hidden'>
+          <Link href={tag.path} className='text-xs px-2 py-2 border rounded-xl'>
+            {tag.name}
+          </Link>
+        </li>
+      )
+    })
+  }
 
   return (
     <section className='flex flex-col w-full max-w-6xl'>
@@ -60,43 +82,7 @@ export default function HomePage(): JSX.Element {
         </div>
         <div className='w-full col-span-2 md:col-span-1'>
           <h2 className='text-base uppercase mb-9'>Популярные категории</h2>
-          <ul className='flex flex-wrap w-full max-w-xs'>
-            <li className='flex flex-col mt-2 mr-2 overflow-hidden'>
-              <Link href='#' className='text-xs px-2 py-2 border rounded-xl'>
-                Философия
-              </Link>
-            </li>
-            <li className='flex flex-col mt-2 mr-2 overflow-hidden'>
-              <Link href='#' className='text-xs px-2 py-2 border rounded-xl'>
-                Next
-              </Link>
-            </li>
-            <li className='flex flex-col mt-2 mr-2 overflow-hidden'>
-              <Link href='#' className='text-xs px-2 py-2 border rounded-xl'>
-                Rust
-              </Link>
-            </li>
-            <li className='flex flex-col mt-2 mr-2 overflow-hidden'>
-              <Link href='#' className='text-xs px-2 py-2 border rounded-xl'>
-                Религия
-              </Link>
-            </li>
-            <li className='flex flex-col mt-2 mr-2 overflow-hidden'>
-              <Link href='#' className='text-xs px-2 py-2 border rounded-xl'>
-                Animation
-              </Link>
-            </li>
-            <li className='flex flex-col mt-2 mr-2 overflow-hidden'>
-              <Link href='#' className='text-xs px-2 py-2 border rounded-xl'>
-                Node
-              </Link>
-            </li>
-            <li className='flex flex-col mt-2 mr-2 overflow-hidden'>
-              <Link href='#' className='text-xs px-2 py-2 border rounded-xl'>
-                React
-              </Link>
-            </li>
-          </ul>
+          <ul className='flex flex-wrap w-full max-w-xs'>{renderTags()}</ul>
         </div>
         <div className='md:sticky top-8 w-full row-span-1 md:row-span-1 col-span-2 md:col-span-1'>
           <h2 className='text-base uppercase mb-9'>Популярные посты</h2>

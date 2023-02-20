@@ -4,8 +4,35 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
 
+const links = [
+  { name: 'Философия', path: '' },
+  { name: 'Rust', path: '' },
+  { name: 'Ruby', path: '' },
+  { name: 'JavaScript', path: '' },
+  { name: 'Next', path: '' },
+  { name: 'React', path: '' },
+  { name: 'Религия', path: '' },
+  { name: 'Законы', path: '' },
+]
+
 function Footer(): JSX.Element {
   let pathname = usePathname() || '/'
+
+  function renderPartitions() {
+    return links.map((link) => {
+      return (
+        <li>
+          <Link
+            key={link.name}
+            href={link.path}
+            className='text-sm text-gray-500 hover:text-gray-700'
+          >
+            {link.name}
+          </Link>
+        </li>
+      )
+    })
+  }
 
   return (
     <footer className='flex flex-row justify-center items-center w-full px-5 md:px-5 border-t'>
@@ -26,70 +53,7 @@ function Footer(): JSX.Element {
           <div className='h-44 ml-0 md:ml-24'>
             <h3 className='text-sm text-black'>Разделы</h3>
             <ul className='grid grid-rows-4 grid-flow-col gap-1.5 pt-3'>
-              <li>
-                <Link
-                  href='#'
-                  className='text-sm text-gray-500 hover:text-gray-700'
-                >
-                  Философия
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href='#'
-                  className='text-sm text-gray-500 hover:text-gray-700'
-                >
-                  Rust
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href='#'
-                  className='text-sm text-gray-500 hover:text-gray-700'
-                >
-                  Ruby
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href='#'
-                  className='text-sm text-gray-500 hover:text-gray-700'
-                >
-                  JavaScript
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href='#'
-                  className='text-sm text-gray-500 hover:text-gray-700'
-                >
-                  Next
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href='#'
-                  className='text-sm text-gray-500 hover:text-gray-700'
-                >
-                  React
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href='#'
-                  className='text-sm text-gray-500 hover:text-gray-700'
-                >
-                  Религия
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href='#'
-                  className='text-sm text-gray-500 hover:text-gray-700'
-                >
-                  Законы
-                </Link>
-              </li>
+              {renderPartitions()}
             </ul>
           </div>
           <div className='h-44 ml-0 md:ml-24'>
