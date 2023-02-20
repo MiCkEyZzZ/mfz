@@ -21,7 +21,11 @@ function Breadcrumbs({ title }): JSX.Element {
               <ChevronRightIcon className='w-3.5 h-3.5' />
             </li>
             <li>
-              <Link href='/post' className='text-sm md:text-base' title='Посты'>
+              <Link
+                href='/posts'
+                className='text-sm md:text-base'
+                title='Посты'
+              >
                 Посты
               </Link>
             </li>
