@@ -71,7 +71,7 @@ export async function Post({ params }): Promise<JSX.Element> {
   function renderContentLink() {
     return links.map((link) => {
       return (
-        <li className='mt-3.5'>
+        <li key={link.name} className='mt-3.5'>
           <a href={link.path} className='text-smb opacity-70 hover:opacity-100'>
             {link.name}
           </a>
