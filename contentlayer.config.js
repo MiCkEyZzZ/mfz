@@ -33,6 +33,11 @@ export const Post = defineDocumentType(() => ({
       description: 'Заголовок поста',
       required: true,
     },
+    tag: {
+      type: 'string',
+      description: 'Тег документа',
+      required: true,
+    },
     seoTitle: {
       type: 'string',
       description: 'ПО Заголовок поста',

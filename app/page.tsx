@@ -2,16 +2,6 @@ import Link from 'next/link'
 import Balancer from 'react-wrap-balancer'
 import { allPosts, Post } from 'contentlayer/generated'
 
-const tags = [
-  { name: 'Философия', path: '#' },
-  { name: 'Next', path: '#' },
-  { name: 'Rust', path: '#' },
-  { name: 'Религия', path: '#' },
-  { name: 'Animation', path: '#' },
-  { name: 'Node', path: '#' },
-  { name: 'React', path: '#' },
-]
-
 const posts = [
   { name: 'Кант И. "Логика. Антропология"', path: '#' },
   { name: 'Тейяр де Шарден П. Феномен человека', path: '#' },
@@ -31,13 +21,13 @@ function mergeSort(arr: Post[]): Post[] {
   return merge(mergeSort(left), mergeSort(right))
 }
 
-function merge(left: Post[], right: Post[]): Post[] {
+function merge(left: Post[], right: Post[]): Post[] | undefined {
   const results: Post[] = []
 
   while (left.length && right.length) {
     left[0] < right[0]
-      ? results.push(left.shift())
-      : results.push(right.shift())
+      ? results.push(left.shift() as Post)
+      : results.push(right.shift() as Post)
 
     return [...results, ...left, ...right]
   }
@@ -53,7 +43,7 @@ function getLatestPost(limit: number): JSX.Element[] {
     .map((post: Post) => (
       <li key={post.slug} className='w-full first:mt-0 mt-12 text-gray-900'>
         <article className='text-black'>
-          <Link href={`/post/${post.slug}`} className='group flex flex-col'>
+          <Link href={`/posts/${post.slug}`} className='group flex flex-col'>
             <h3 className='text-md leading-5 font-bold group-hover:underline transition-all duration-300'>
               <Balancer>{post.title}</Balancer>
             </h3>
@@ -79,12 +69,19 @@ function getPopularPosts(): JSX.Element[] {
   ))
 }
 
+function getTags() {
+  return allPosts.filter((doc) => ['Post'].includes(doc.tag))
+}
+
 function renderTags() {
-  return tags.map((tag) => {
+  return allPosts.map((post: Post) => {
     return (
-      <li key={tag.name} className='flex flex-col mt-2 mr-2 overflow-hidden'>
-        <Link href={tag.path} className='text-xs px-2 py-2 border rounded-xl'>
-          {tag.name}
+      <li key={post.slug} className='flex flex-col mt-2 mr-2 overflow-hidden'>
+        <Link
+          href={`posts/${post.tag}`}
+          className='text-xs px-2 py-2 border rounded-xl'
+        >
+          {post.tag}
         </Link>
       </li>
     )
@@ -95,6 +92,8 @@ export default function HomePage(): JSX.Element {
   const newestPosts = getLatestPost(20)
   const popularPosts = getPopularPosts()
   const mostPopularTags = renderTags()
+  const t = getTags()
+  console.log(t)
 
   return (
     <section className='flex flex-col w-full max-w-6xl'>

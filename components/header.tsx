@@ -10,15 +10,15 @@ import { RssIcon } from '@heroicons/react/24/solid'
 
 const navItems = [
   { title: 'Главная', path: '/' },
-  { title: 'Посты', path: '/post' },
+  { title: 'Посты', path: '/posts' },
 ]
 
 function Header(): JSX.Element {
   let pathname = usePathname() || '/'
-  const isSticky = pathname.includes('/post')
+  const isSticky = pathname.includes('/posts')
 
-  if (pathname.includes('/post')) {
-    pathname = '/post'
+  if (pathname.includes('/posts')) {
+    pathname = '/posts'
   }
 
   function renderNavigate() {
