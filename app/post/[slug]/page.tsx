@@ -52,11 +52,32 @@ export async function generateMetadata({
   }
 }
 
+const links = [
+  { name: 'I глава', path: '/#' },
+  { name: 'II глава', path: '/#' },
+  { name: 'III глава', path: '/#' },
+  { name: 'IV глава', path: '/#' },
+  { name: 'V глава', path: '/#' },
+  { name: 'VI глава', path: '/#' },
+]
+
 export async function Post({ params }): Promise<JSX.Element> {
   const post = allPosts.find((post) => post.slug === params.slug)
 
   if (!post) {
     notFound()
+  }
+
+  function renderContentLink() {
+    return links.map((link) => {
+      return (
+        <li key={link.name} className='mt-3.5'>
+          <a href={link.path} className='text-smb opacity-70 hover:opacity-100'>
+            {link.name}
+          </a>
+        </li>
+      )
+    })
   }
 
   return (
@@ -71,53 +92,7 @@ export async function Post({ params }): Promise<JSX.Element> {
             <h2 className='text-base font-semibold uppercase mb-5'>
               Содержание
             </h2>
-            <ul className='mt-3.5'>
-              <li className='mt-3.5'>
-                <a href='#' className='text-smb opacity-70'>
-                  Пример ссылки содержание контента
-                </a>
-              </li>
-              <li className='mt-3.5'>
-                <a href='#' className='text-smb opacity-70'>
-                  Пример ссылки содержание
-                </a>
-              </li>
-              <li className='mt-3.5'>
-                <a href='#' className='text-smb opacity-70'>
-                  Пример ссылки содержание контента
-                </a>
-              </li>
-              <li className='mt-3.5'>
-                <a href='#' className='text-smb opacity-70'>
-                  Пример ссылки содержание
-                </a>
-              </li>
-              <li className='mt-3.5'>
-                <a href='#' className='text-smb opacity-70'>
-                  Пример ссылки содержание контента
-                </a>
-              </li>
-              <li className='mt-3.5'>
-                <a href='#' className='text-smb opacity-70'>
-                  Пример ссылки содержание контента
-                </a>
-              </li>
-              <li className='mt-3.5'>
-                <a href='#' className='text-smb opacity-70'>
-                  Пример ссылки содержание
-                </a>
-              </li>
-              <li className='mt-3.5'>
-                <a href='#' className='text-smb opacity-70'>
-                  Пример ссылки содержание контента
-                </a>
-              </li>
-              <li className='mt-3.5'>
-                <a href='#' className='text-smb opacity-70'>
-                  Пример ссылки содержание контента
-                </a>
-              </li>
-            </ul>
+            <ul className='mt-3.5'>{renderContentLink()}</ul>
           </nav>
         </aside>
         <div className='flex flex-col w-full lg:max-w-2xlx'>
