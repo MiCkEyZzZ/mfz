@@ -85,7 +85,7 @@ export async function Post({ params }: any): Promise<JSX.Element> {
       <script type='application/ld+json'>
         {JSON.stringify(post.structuredData)}
       </script>
-      <Breadcrumbs title={post.title} />
+      <Breadcrumbs title={post.title} tag={post.tag} />
       <div className='flex flex-row-reverse justify-center items-start pt-5'>
         <aside className='sticky top-36 hidden lg:flex w-full max-w-xs h-96 ml-auto overflow-auto'>
           <nav>

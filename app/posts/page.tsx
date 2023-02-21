@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import Balancer from 'react-wrap-balancer'
 
 import { allPosts } from 'contentlayer/generated'
+import { PostCard } from 'components'
 
 export const metadata: Metadata = {
   title: 'Посты',
@@ -20,18 +19,7 @@ function renderPosts(): JSX.Element[] {
         key={post.slug}
         className='w-full p-8 border border-gray-200 rounded-lg'
       >
-        <article>
-          <Link
-            href={`/posts/${post.slug}`}
-            className='group flex flex-col w-full'
-          >
-            <h3 className='text-xl font-semibold group-hover:underline'>
-              <Balancer>{post.title}</Balancer>
-            </h3>
-            <p className='text-base font-normal mt-4'>{post.summary}</p>
-            <div className='text-base font-semibold mt-4'>Читать дальше</div>
-          </Link>
-        </article>
+        <PostCard post={post} />
       </li>
     ))
 }

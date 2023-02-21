@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import Balancer from 'react-wrap-balancer'
+
 import { allPosts, Post } from 'contentlayer/generated'
+import { PostCard } from 'components'
 
 const posts = [
   { name: 'Кант И. "Логика. Антропология"', path: '#' },
@@ -42,17 +43,7 @@ function getLatestPost(limit: number): JSX.Element[] {
     .slice(0, limit)
     .map((post: Post) => (
       <li key={post.slug} className='w-full first:mt-0 mt-12 text-gray-900'>
-        <article className='text-black'>
-          <Link href={`/posts/${post.slug}`} className='group flex flex-col'>
-            <h3 className='text-md leading-5 font-bold group-hover:underline transition-all duration-300'>
-              <Balancer>{post.title}</Balancer>
-            </h3>
-            <p className='w-full leading-6 mt-4 opacity-70'>{post.summary}</p>
-            <div className='flex flex-row items-center w-full h-7 mt-4'>
-              <span className='text-base font-semibold'>Читать дальше</span>
-            </div>
-          </Link>
-        </article>
+        <PostCard post={post} />
       </li>
     ))
 }

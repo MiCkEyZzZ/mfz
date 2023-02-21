@@ -4,7 +4,7 @@ import Balancer from 'react-wrap-balancer'
 
 import { BreadcrumbsProps } from 'interfaces'
 
-function Breadcrumbs({ title }: BreadcrumbsProps): JSX.Element {
+function Breadcrumbs({ title, tag }: BreadcrumbsProps): JSX.Element {
   return (
     <div className='flex justify-center w-full px-2 md:px-0'>
       <div className='flex flex-col justify-end w-full h-64 max-w-6xl pt-12 pb-9'>
@@ -39,7 +39,7 @@ function Breadcrumbs({ title }: BreadcrumbsProps): JSX.Element {
                 className='text-sm md:text-base text-gray-700 cursor-text'
                 title='Философия'
               >
-                Философия
+                {tag}
               </p>
             </li>
           </ul>
