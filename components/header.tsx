@@ -78,7 +78,7 @@ function Header(): JSX.Element {
             <ul className='flex flex-row'>
               <li className='flex items-center'>
                 <Link
-                  href='/auth'
+                  href='/login'
                   aria-label='Ссылка на авторизацию на сайте'
                   className='px-3 py-2'
                 >
