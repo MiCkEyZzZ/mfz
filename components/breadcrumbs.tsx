@@ -16,7 +16,7 @@ function Breadcrumbs({ title, tag }: BreadcrumbsProps): JSX.Element {
                 className='text-sm md:text-base'
                 title='Главная страница'
               >
-                Главная страница
+                Главная
               </Link>
             </li>
             <li className='mx-2'>
@@ -26,7 +26,7 @@ function Breadcrumbs({ title, tag }: BreadcrumbsProps): JSX.Element {
               <Link
                 href='/posts'
                 className='text-sm md:text-base'
-                title='Посты'
+                title='Страница с постами'
               >
                 Посты
               </Link>
@@ -37,7 +37,7 @@ function Breadcrumbs({ title, tag }: BreadcrumbsProps): JSX.Element {
             <li>
               <p
                 className='text-sm md:text-base text-gray-700 cursor-text'
-                title='Философия'
+                title='Страница поста'
               >
                 {tag}
               </p>

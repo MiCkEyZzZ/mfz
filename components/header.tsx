@@ -7,6 +7,7 @@ import clsx from 'clsx'
 import { Bars2Icon } from '@heroicons/react/24/outline'
 import { SunIcon } from '@heroicons/react/24/solid'
 import { RssIcon } from '@heroicons/react/24/solid'
+import { UserCircleIcon } from '@heroicons/react/24/solid'
 
 const navItems = [
   { title: 'Главная', path: '/' },
@@ -50,8 +51,8 @@ function Header(): JSX.Element {
     <div
       className={
         isSticky
-          ? 'sticky top-0 flex flex-col items-center w-full h-16 px-5 md:px-5 bg-white border-b'
-          : 'relative flex flex-col items-center w-full h-96 px-5 md:px-5 bg-white border-b'
+          ? 'sticky top-0 flex flex-col items-center w-full h-16 px-5 md:px-5 bg-white border-b z-50'
+          : 'relative flex flex-col items-center w-full h-96 px-5 md:px-5 bg-white border-b z-50'
       }
     >
       <div
@@ -75,6 +76,18 @@ function Header(): JSX.Element {
           </div>
           <div className='hidden md:flex items-center'>
             <ul className='flex flex-row'>
+              <li className='flex items-center'>
+                <Link
+                  href='/auth'
+                  aria-label='Ссылка на авторизацию на сайте'
+                  className='px-3 py-2'
+                >
+                  <UserCircleIcon
+                    className='w-5 h-5 hover:opacity-70'
+                    title='Авторизации'
+                  />
+                </Link>
+              </li>
               <li className='flex items-center'>
                 <button
                   type='button'
