@@ -11,7 +11,7 @@ const posts = [
   { name: 'Энгельс Ф. Происхождение семьи...', path: '#' },
 ]
 
-function mergeSort(arr: Post[]): Post[] {
+function mergeSort(arr: Post[]) {
   if (arr.length === 1) return arr
 
   const center = Math.floor(arr.length / 2)
@@ -21,7 +21,7 @@ function mergeSort(arr: Post[]): Post[] {
   return merge(mergeSort(left), mergeSort(right))
 }
 
-function merge(left: Post[], right: Post[]): Post[] | undefined {
+function merge(left: Post[], right: Post[]) {
   const results: Post[] = []
 
   while (left.length && right.length) {
@@ -35,7 +35,7 @@ function merge(left: Post[], right: Post[]): Post[] | undefined {
 
 function getLatestPost(limit: number): JSX.Element[] {
   return mergeSort(allPosts)
-    .sort((a, b) =>
+    .sort((a: Post, b: Post) =>
       new Date(a.publishedAt) > new Date(b.publishedAt) ? -1 : 1
     )
     .filter((n: { isPublished: boolean }) => n.isPublished === true)
