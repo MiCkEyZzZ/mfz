@@ -30,7 +30,7 @@ function Subscribe(): JSX.Element {
               <button
                 type='submit'
                 aria-label='Подписаться'
-                className='text-base font-medium px-4 md:px-7 py-3 md:py-3 text-white bg-black hover:bg-gray-600 border border-transparent rounded-md md:leading-6 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-800'
+                className='text-base font-medium px-4 md:px-7 py-3 md:py-3 text-white bg-black hover:bg-gray-600 border border-transparent rounded-md md:leading-6 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:scale-105 transform-gpu'
               >
                 Подписаться
               </button>

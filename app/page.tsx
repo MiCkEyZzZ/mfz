@@ -53,7 +53,10 @@ function getPopularPosts(): JSX.Element[] {
   return posts.map((post) => (
     <li key={post.name} className='w-full mb-4'>
       <div>
-        <Link href={post.path} className='font-medium hover:underline'>
+        <Link
+          href={post.path}
+          className='font-semibold text-black hover:underline'
+        >
           {post.name}
         </Link>
       </div>
@@ -68,10 +71,13 @@ function getTags() {
 function renderTags() {
   return allPosts.map((post: Post) => {
     return (
-      <li key={post.slug} className='flex flex-col mt-2 mr-2 overflow-hidden'>
+      <li
+        key={post.slug}
+        className='flex flex-col mt-2 mr-2 overflow-hidden hover:scale-95 transform-gpu'
+      >
         <Link
           href={`posts/${post.tag}`}
-          className='text-sm px-3 py-1.5 text-black hover:text-white bg-transparent hover:bg-black border hover:border-black rounded-lg transition-all duration-300'
+          className='text-sm px-3 py-1.5 text-black hover:text-white bg-transparent hover:bg-black border hover:border-black rounded-lg  transition-all duration-300'
         >
           {capitalize(post.tag)}
         </Link>
