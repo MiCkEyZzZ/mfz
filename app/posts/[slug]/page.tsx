@@ -5,7 +5,7 @@ import { format, parseISO } from 'date-fns'
 import { ru } from 'date-fns/locale'
 
 import ViewCounter from '../view-counter'
-import { Breadcrumbs, Mdx } from 'components'
+import { Breadcrumbs, Comments, Mdx } from 'components'
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
@@ -106,6 +106,7 @@ export async function Post({ params }: any): Promise<JSX.Element> {
             </time>
           </div>
           <ViewCounter slug={post.slug} trackView={false} />
+          <Comments />
         </div>
       </div>
     </section>
