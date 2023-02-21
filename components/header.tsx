@@ -10,12 +10,13 @@ import { RssIcon } from '@heroicons/react/24/solid'
 
 const navItems = [
   { title: 'Главная', path: '/' },
+  { title: 'Последние', path: '/latest' },
   { title: 'Посты', path: '/posts' },
 ]
 
 function Header(): JSX.Element {
   let pathname = usePathname() || '/'
-  const isSticky = pathname.includes('/posts')
+  const isSticky = pathname.includes('/posts') || pathname.includes('/latest')
 
   if (pathname.includes('/posts')) {
     pathname = '/posts'
