@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 import { allPosts, Post } from 'contentlayer/generated'
 import { PostCard } from 'components'
+import { capitalize } from 'lib/helper'
 
 const posts = [
   { name: 'Кант И. "Логика. Антропология"', path: '#' },
@@ -70,9 +71,9 @@ function renderTags() {
       <li key={post.slug} className='flex flex-col mt-2 mr-2 overflow-hidden'>
         <Link
           href={`posts/${post.tag}`}
-          className='text-xs px-2 py-2 border rounded-xl'
+          className='text-sm px-3 py-1.5 text-black hover:text-white bg-transparent hover:bg-black border hover:border-black rounded-lg transition-all duration-300'
         >
-          {post.tag}
+          {capitalize(post.tag)}
         </Link>
       </li>
     )
@@ -98,7 +99,7 @@ export default function HomePage(): JSX.Element {
           <ul className='flex flex-wrap w-full max-w-xs'>{mostPopularTags}</ul>
         </div>
         <div className='md:sticky top-8 w-full row-span-1 md:row-span-1 col-span-2 md:col-span-1'>
-          <h2 className='text-base uppercase mb-9'>Популярные посты</h2>
+          <h2 className='text-base uppercase mb-9'>Популярные статьи</h2>
           <ul className='flex flex-col w-full max-w-xs'>{popularPosts}</ul>
         </div>
       </div>

@@ -51,7 +51,7 @@ function Footer(): JSX.Element {
         </div>
         <div className='flex flex-row justify-around w-full md:max-w-lg md:h-auto'>
           <div className='h-44 ml-0 md:ml-24'>
-            <h3 className='text-sm text-black'>Разделы</h3>
+            <h3 className='text-sm text-black'>Категории</h3>
             <ul className='grid grid-rows-4 grid-flow-col gap-1.5 pt-3'>
               {renderPartitions()}
             </ul>
