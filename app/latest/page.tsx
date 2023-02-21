@@ -17,7 +17,10 @@ function getLatesPost(limit: number): JSX.Element[] {
     .filter((n: { isPublished: boolean }) => n.isPublished === true)
     .slice(0, limit)
     .map((post: Post) => (
-      <li className='w-full p-8 border border-gray-200 rounded-lg'>
+      <li
+        key={post.title}
+        className='w-full p-8 border border-gray-200 rounded-lg'
+      >
         <article>
           <Link
             href={`/posts/${post.slug}`}
