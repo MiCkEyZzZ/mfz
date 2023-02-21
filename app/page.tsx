@@ -1,8 +1,7 @@
 import Link from 'next/link'
 
 import { allPosts, Post } from 'contentlayer/generated'
-import { PostCard } from 'components'
-import { capitalize } from 'lib/helper'
+import { PostCard, Tags } from 'components'
 
 const posts = [
   { name: 'Кант И. "Логика. Антропология"', path: '#' },
@@ -68,28 +67,9 @@ function getTags() {
   return allPosts.filter((doc) => ['Post'].includes(doc.tag))
 }
 
-function renderTags() {
-  return allPosts.map((post: Post) => {
-    return (
-      <li
-        key={post.slug}
-        className='flex flex-col mt-2 mr-2 overflow-hidden hover:scale-95 transform-gpu'
-      >
-        <Link
-          href={`posts/${post.tag}`}
-          className='text-sm px-3 py-1.5 text-black hover:text-white bg-transparent hover:bg-black border hover:border-black rounded-lg  transition-all duration-300'
-        >
-          {capitalize(post.tag)}
-        </Link>
-      </li>
-    )
-  })
-}
-
 export default function HomePage(): JSX.Element {
   const newestPosts = getLatestPost(20)
   const popularPosts = getPopularPosts()
-  const mostPopularTags = renderTags()
   const t = getTags()
   console.log(t)
 
@@ -102,7 +82,7 @@ export default function HomePage(): JSX.Element {
         </div>
         <div className='w-full col-span-2 md:col-span-1'>
           <h2 className='text-base uppercase mb-9'>Популярные категории</h2>
-          <ul className='flex flex-wrap w-full max-w-xs'>{mostPopularTags}</ul>
+          <Tags posts={allPosts} />
         </div>
         <div className='md:sticky top-8 w-full row-span-1 md:row-span-1 col-span-2 md:col-span-1'>
           <h2 className='text-base uppercase mb-9'>Популярные статьи</h2>
