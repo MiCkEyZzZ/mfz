@@ -12,7 +12,7 @@ import { UserCircleIcon } from '@heroicons/react/24/solid'
 const navItems = [
   { title: 'Главная', path: '/' },
   { title: 'Последние', path: '/latest' },
-  { title: 'Посты', path: '/posts' },
+  { title: 'Статьи', path: '/posts' },
 ]
 
 function Header(): JSX.Element {
