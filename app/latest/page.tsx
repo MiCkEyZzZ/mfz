@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
-import Link from 'next/link'
-import Balancer from 'react-wrap-balancer'
+
 import { allPosts, Post } from 'contentlayer/generated'
+import { PostCard } from 'components'
 
 export const metadata: Metadata = {
   title: 'Последние посты',
@@ -19,20 +19,9 @@ function getLatesPost(limit: number): JSX.Element[] {
     .map((post: Post) => (
       <li
         key={post.title}
-        className='w-full p-8 border border-gray-200 rounded-lg'
+        className='w-full p-8 text-gray-900 border border-gray-200 rounded-lg'
       >
-        <article>
-          <Link
-            href={`/posts/${post.slug}`}
-            className='group flex flex-col w-full'
-          >
-            <h3 className='text-xl font-semibold group-hover:underline'>
-              <Balancer>{post.title}</Balancer>
-            </h3>
-            <p className='text-base font-normal mt-4'>{post.summary}</p>
-            <div className='text-base font-semibold mt-4'>Читать дальше</div>
-          </Link>
-        </article>
+        <PostCard post={post} />
       </li>
     ))
 }

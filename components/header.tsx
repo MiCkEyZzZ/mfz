@@ -16,7 +16,11 @@ const navItems = [
 
 function Header(): JSX.Element {
   let pathname = usePathname() || '/'
-  const isSticky = pathname.includes('/posts') || pathname.includes('/latest')
+  const isSticky =
+    pathname.includes('/posts') ||
+    pathname.includes('/latest') ||
+    pathname.includes('/terms') ||
+    pathname.includes('/privacy')
 
   if (pathname.includes('/posts')) {
     pathname = '/posts'
@@ -61,7 +65,7 @@ function Header(): JSX.Element {
         }
       >
         <header className='flex flex-row justify-between items-center w-full max-w-6xl'>
-          <div className='flex flex-row items-center w-full max-w-4xl h-14 md:h-16'>
+          <div className='flex flex-row items-center w-full max-w-4xl h-16'>
             <Link href='/' className='mr-8'>
               Михаил Журавлёв
             </Link>
@@ -73,10 +77,14 @@ function Header(): JSX.Element {
             <ul className='flex flex-row'>
               <li className='flex items-center'>
                 <button
+                  type='button'
                   aria-label='Переключение темы сайта'
                   className='px-3 py-2'
                 >
-                  <SunIcon className='w-5 h-5' title='Смена темы' />
+                  <SunIcon
+                    className='w-5 h-5 hover:opacity-70'
+                    title='Смена темы'
+                  />
                 </button>
               </li>
               <li className='flex items-center'>
@@ -85,13 +93,13 @@ function Header(): JSX.Element {
                   aria-label='Ссылка на обогащённую сводку сайта'
                   className='px-3 py-2'
                 >
-                  <RssIcon className='w-5 h-5' title='ОСС' />
+                  <RssIcon className='w-5 h-5 hover:opacity-70' title='ОСС' />
                 </Link>
               </li>
             </ul>
           </div>
           <div className='block md:hidden w-10 h-10'>
-            <button className='w-10 h-10' aria-label='Меню'>
+            <button type='button' className='w-10 h-10' aria-label='Меню'>
               <span className='hidden'>Меню</span>
               <Bars2Icon />
             </button>

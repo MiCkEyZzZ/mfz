@@ -9,4 +9,5 @@ export interface IErrorProps {
 
 export interface BreadcrumbsProps {
   title: string
+  tag: string
 }
