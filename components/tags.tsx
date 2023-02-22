@@ -1,32 +1,29 @@
-import Link from 'next/link'
-import { Post } from 'contentlayer/generated'
-
 import { capitalize } from 'lib/helper'
+import Link from 'next/link'
 
 type Props = {
-  posts: Post[]
+  tags: string[]
 }
 
-function renderTags(posts: Post[]): JSX.Element[] {
-  return posts.map((post: Post) => {
-    return (
-      <li
-        key={post.slug}
-        className='flex flex-col mt-2 mr-2 overflow-hidden hover:scale-95 transform-gpu'
+function renderTags(tags: string[]): JSX.Element[] {
+  return tags.map((tag: string) => (
+    <li
+      key={tag}
+      className='flex flex-col mt-2 mr-2 overflow-hidden hover:scale-95 transform-gpu'
+    >
+      <Link
+        href={tag}
+        className='text-sm px-3 py-1.5 text-black hover:text-white bg-transparent hover:bg-black border hover:border-black rounded-lg  transition-all duration-300'
       >
-        <Link
-          href={`posts/${post.tag}`}
-          className='text-sm px-3 py-1.5 text-black hover:text-white bg-transparent hover:bg-black border hover:border-black rounded-lg  transition-all duration-300'
-        >
-          {capitalize(post.tag)}
-        </Link>
-      </li>
-    )
-  })
+        {capitalize(tag)}
+      </Link>
+    </li>
+  ))
 }
 
-function Tags({ posts }: Props): JSX.Element {
-  const mostPopularTags = renderTags(posts)
+function Tags({ tags }: Props): JSX.Element {
+  const mostPopularTags = renderTags(tags)
+  console.log(mostPopularTags)
 
   return <ul className='flex flex-wrap w-full max-w-xs'>{mostPopularTags}</ul>
 }
