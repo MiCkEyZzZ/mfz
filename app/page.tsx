@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 import { allPosts, Post } from 'contentlayer/generated'
 import { PostCard, Tags } from 'components'
+import { getAllTags } from 'lib/tags'
 
 const posts = [
   { name: 'Кант И. "Логика. Антропология"', path: '#' },
@@ -63,15 +64,16 @@ function getPopularPosts(): JSX.Element[] {
   ))
 }
 
-function getTags() {
-  return allPosts.filter((doc) => ['Post'].includes(doc.tag))
+async function getTags(): Promise<string[]> {
+  const tags = await getAllTags()
+
+  return Object.keys(tags)
 }
 
-export default function HomePage(): JSX.Element {
+export default async function HomePage() {
   const newestPosts = getLatestPost(20)
   const popularPosts = getPopularPosts()
-  const t = getTags()
-  console.log(t)
+  const tags = await getTags()
 
   return (
     <section className='flex flex-col w-full max-w-6xl'>
@@ -82,7 +84,7 @@ export default function HomePage(): JSX.Element {
         </div>
         <div className='w-full col-span-2 md:col-span-1'>
           <h2 className='text-base uppercase mb-9'>Популярные категории</h2>
-          <Tags posts={allPosts} />
+          <Tags tags={tags} />
         </div>
         <div className='md:sticky top-8 w-full row-span-1 md:row-span-1 col-span-2 md:col-span-1'>
           <h2 className='text-base uppercase mb-9'>Популярные статьи</h2>
