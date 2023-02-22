@@ -23,7 +23,6 @@ function renderTags(tags: string[]): JSX.Element[] {
 
 function Tags({ tags }: Props): JSX.Element {
   const mostPopularTags = renderTags(tags)
-  console.log(mostPopularTags)
 
   return <ul className='flex flex-wrap w-full max-w-xs'>{mostPopularTags}</ul>
 }
