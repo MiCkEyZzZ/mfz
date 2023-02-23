@@ -3,10 +3,10 @@ import { ChevronRightIcon } from '@heroicons/react/24/solid'
 import Balancer from 'react-wrap-balancer'
 
 import { BreadcrumbsProps } from 'interfaces'
-import { capitalize } from 'lib/helper'
+import { convertName } from 'lib/helper'
 
 function Breadcrumbs({ title, tag }: BreadcrumbsProps): JSX.Element {
-  const label = capitalize(tag)
+  const label = convertName(tag)
 
   return (
     <div className='flex justify-center w-full px-2 md:px-0'>

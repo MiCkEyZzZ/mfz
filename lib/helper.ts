@@ -1,15 +1,11 @@
 import { slug } from 'github-slugger'
 
-export function capitalize(word: string): string {
-  return word[0].toUpperCase() + word.slice(1)
-}
+export const capitalize = (word: string): string =>
+  word[0].toUpperCase() + word.slice(1)
 
-export const kebabCase = (str: any) => slug(str)
+export const kebabCase = (str: string): string => slug(str)
 
-export function convertName(str: string) {
-  if (str === 'css') {
-    return str.toUpperCase()
-  }
+export const convertName = (str: string): string =>
+  str === 'css' ? str.toUpperCase().replace(/^\./, '') : capitalize(str)
 
-  return capitalize(str)
-}
+export const changeTagsPath = (str: string) => str.replaceAll('.', '')
