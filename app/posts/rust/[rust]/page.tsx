@@ -1,7 +1,7 @@
 function Tag() {
   return (
     <div>
-      <h1>Some Tag</h1>
+      <h1>Some Rust Tag</h1>
     </div>
   )
 }
