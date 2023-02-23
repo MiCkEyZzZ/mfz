@@ -5,3 +5,11 @@ export function capitalize(word: string): string {
 }
 
 export const kebabCase = (str: any) => slug(str)
+
+export function convertName(str: string) {
+  if (str === 'css') {
+    return str.toUpperCase()
+  }
+
+  return capitalize(str)
+}
