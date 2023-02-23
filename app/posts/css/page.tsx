@@ -7,12 +7,14 @@ function getPosts(type: string) {
 
 function ReactPage() {
   const posts = getPosts('css')
+  const count = posts.length
 
   return (
     <section className='flex flex-col w-full max-w-6xl pt-32'>
       <div className='flex flex-col'>
         <div className='flex flex-row justify-between items-center w-full h-20 pl-5 pr-10'>
           <h1 className='text-4xl font-semibold'>CSS</h1>
+          <p className='hidden sm:block text-lg font-normal'>{count} статей</p>
         </div>
         <ul className='grid grid-cols-1 md:grid-cols-auto gap-8'>
           {posts.map((post) => (
