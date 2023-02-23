@@ -72,8 +72,8 @@ async function getTags(): Promise<string[]> {
 
 export default async function HomePage() {
   const newestPosts = getLatestPost(20)
+  const popularCategory = await getTags()
   const popularPosts = getPopularPosts()
-  const tags = await getTags()
 
   return (
     <section className='flex flex-col w-full max-w-6xl'>
@@ -84,7 +84,7 @@ export default async function HomePage() {
         </div>
         <div className='w-full col-span-2 md:col-span-1'>
           <h2 className='text-base uppercase mb-9'>Популярные категории</h2>
-          <Tags tags={tags} />
+          <Tags tags={popularCategory} />
         </div>
         <div className='md:sticky top-8 w-full row-span-1 md:row-span-1 col-span-2 md:col-span-1'>
           <h2 className='text-base uppercase mb-9'>Популярные статьи</h2>
