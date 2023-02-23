@@ -14,6 +14,7 @@ function renderTags(tags: string[]): JSX.Element[] {
     >
       <Link
         href={`/posts/${changeTagsPath(tag)}/`}
+        title={tag}
         className='text-sm px-3 py-1.5 text-black hover:text-white bg-transparent hover:bg-black border hover:border-black rounded-lg  transition-all duration-300'
       >
         {convertName(tag)}
