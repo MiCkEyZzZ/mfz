@@ -1,6 +1,14 @@
+import { Metadata } from 'next'
+
 import { PostCard } from 'components'
 import { allPosts } from 'contentlayer/generated'
 import { getDeclensionsWorld } from 'lib/helper'
+
+export const metadata: Metadata = {
+  title: 'React статьи',
+  description:
+    'В блоге Я публикую свои мысли о происходящем и просто философствую о бытие',
+}
 
 function getPosts(type: string) {
   return allPosts.filter((post) => post.tag === type)
