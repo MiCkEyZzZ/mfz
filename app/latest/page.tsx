@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 
 import { allPosts, Post } from 'contentlayer/generated'
 import { PostCard } from 'components'
+import { getDeclensionsWorld } from 'lib/helper'
 
 export const metadata: Metadata = {
   title: 'Последние посты',
@@ -29,13 +30,16 @@ function getLatesPost(limit: number): JSX.Element[] {
 function LatestPage(): JSX.Element {
   const latestPost = getLatesPost(10)
   const count = latestPost.length
+  const postWord = getDeclensionsWorld(count)
 
   return (
     <section className='flex flex-col w-full max-w-6xl pt-32'>
       <div className='flex flex-col'>
         <div className='flex flex-row justify-between items-center w-full h-20 pl-5 pr-10'>
           <h1 className='text-4xl font-semibold'>Последние статьи</h1>
-          <p className='hidden sm:block text-lg font-normal'>{count} статей</p>
+          <p className='hidden sm:block text-lg font-normal'>
+            {count} {postWord}
+          </p>
         </div>
         <ul className='grid grid-cols-1 md:grid-cols-auto gap-8'>
           {latestPost}

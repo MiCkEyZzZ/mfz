@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 
 import { PostCard } from 'components'
-import { allPosts } from 'contentlayer/generated'
+import { allPosts, Post } from 'contentlayer/generated'
 import { getDeclensionsWorld } from 'lib/helper'
 
 export const metadata: Metadata = {
@@ -10,11 +10,11 @@ export const metadata: Metadata = {
     'В блоге Я публикую свои мысли о происходящем и просто философствую о бытие',
 }
 
-function getPosts(type: string) {
+function getPosts(type: string): Post[] {
   return allPosts.filter((post) => post.tag === type)
 }
 
-function PhilosophyPage() {
+function PhilosophyPage(): JSX.Element {
   const posts = getPosts('philosophy')
   const count = posts.length
   const postWord = getDeclensionsWorld(count)

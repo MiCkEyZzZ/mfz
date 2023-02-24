@@ -68,7 +68,7 @@ export async function Post({ params }: any): Promise<JSX.Element> {
     notFound()
   }
 
-  function renderContentLink() {
+  function renderContentLink(): JSX.Element[] {
     return links.map((link) => {
       return (
         <li key={link.name} className='mt-3.5'>

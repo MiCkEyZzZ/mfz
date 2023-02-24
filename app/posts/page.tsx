@@ -25,8 +25,8 @@ function renderPosts(): JSX.Element[] {
 }
 
 function BlogPage(): JSX.Element {
-  const count = allPosts.length
   const posts = renderPosts()
+  const count = allPosts.length
 
   return (
     <section className='flex flex-col w-full max-w-6xl pt-32'>

@@ -111,11 +111,13 @@ function Header(): JSX.Element {
               </li>
             </ul>
           </div>
-          <div className='block md:hidden w-10 h-10'>
+          <div className='relative block md:hidden w-10 h-10'>
             <button type='button' className='w-10 h-10' aria-label='Меню'>
               <span className='hidden'>Меню</span>
               <Bars2Icon />
             </button>
+
+            <div className='hidden fixed w-full h-full inset-0 bg-black/20 backdrop-blur-sm dark:bg-back-350'></div>
           </div>
         </header>
       </div>
