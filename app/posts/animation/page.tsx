@@ -14,7 +14,7 @@ function getPosts(type: string) {
   return allPosts.filter((post) => post.tag === type)
 }
 
-function ReactPage() {
+function AnimationPage() {
   const posts = getPosts('animation')
   const count = posts.length
   const postWord = getDeclensionsWorld(count)
@@ -43,4 +43,4 @@ function ReactPage() {
   )
 }
 
-export default ReactPage
+export default AnimationPage
