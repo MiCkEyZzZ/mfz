@@ -70,7 +70,7 @@ async function getTags(): Promise<string[]> {
   return Object.keys(tags)
 }
 
-export default async function HomePage() {
+export default async function HomePage(): Promise<JSX.Element> {
   const newestPosts = getLatestPost(20)
   const popularCategory = await getTags()
   const popularPosts = getPopularPosts()
