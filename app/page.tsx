@@ -10,7 +10,11 @@ const posts = [
   { name: 'Мавр. Принципы этики', path: '#' },
   { name: 'Аристотель. Этика', path: '#' },
   { name: 'О достоинстве и приумножении наук', path: '#' },
-  { name: 'Энгельс Ф. Происхождение семьи...', path: '#' },
+  { name: 'Интерактивное руководство по Flexbox', path: '#' },
+  { name: 'Понимание useMemo и useCallback', path: '#' },
+  { name: 'Для чего нужна асинхронность в Rust?', path: '#' },
+  { name: 'Примитивы в Rust', path: '#' },
+  { name: 'Создание однопоточного веб-сервера на Rust', path: '#' },
 ]
 
 function mergeSort(arr: Post[]) {
