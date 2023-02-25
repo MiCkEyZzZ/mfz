@@ -4,22 +4,14 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
 
-const links = [
-  { name: 'Философия', path: '/posts/philosophy' },
-  { name: 'Rust', path: '/posts/rust' },
-  { name: 'Ruby', path: '/posts/ruby' },
-  { name: 'JavaScript', path: '/posts/javascript' },
-  { name: 'Next', path: '/posts/nextjs' },
-  { name: 'React', path: '/posts/react' },
-  { name: 'Религия', path: '/posts/religion' },
-  { name: 'Законы', path: '/posts/laws' },
-]
+import siteConfig from '../config/siteConfig'
 
 function Footer(): JSX.Element {
   let pathname = usePathname() || '/'
+  const { footerLinks, title } = siteConfig
 
   function renderPartitions(): JSX.Element[] {
-    return links.map((link) => {
+    return footerLinks.map((link) => {
       return (
         <li key={link.name}>
           <Link
@@ -40,7 +32,7 @@ function Footer(): JSX.Element {
         <div className='flex flex-col md:justify-between items-center md:items-start w-full md:max-w-xs h-16 md:h-40 mb-8 md:mb-0'>
           <div className='w-40 h-16'>
             <Link href='/' className='text-lg'>
-              <span>Михаил Журавлёв</span>
+              <span>{title}</span>
             </Link>
           </div>
           <div className='hidden md:block w-80 h-6'>

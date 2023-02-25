@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+import siteConfig from '../config/siteConfig'
 import { allPosts, Post } from 'contentlayer/generated'
 import { PostCard, Tags } from 'components'
 import { getAllTags } from 'lib/tags'
@@ -75,6 +76,8 @@ async function getTags(): Promise<string[]> {
 }
 
 export default async function HomePage(): Promise<JSX.Element> {
+  const { recentlyPub, popularCat, popularArt } = siteConfig
+
   const newestPosts = getLatestPost(20)
   const popularCategory = await getTags()
   const popularPosts = getPopularPosts()
@@ -83,15 +86,15 @@ export default async function HomePage(): Promise<JSX.Element> {
     <section className='flex flex-col w-full max-w-6xl'>
       <div className='grid grid-flow-row-1 md:grid-flow-row-3 md:grid-flow-col md:gap-x-24 gap-y-12 md:gap-y-16 w-full items-start pt-16'>
         <div className='w-full col-span-2 row-span-3'>
-          <h2 className='text-base uppercase mb-9'>Недавно опубликовано</h2>
+          <h2 className='text-base uppercase mb-9'>{recentlyPub}</h2>
           <ul className='flex flex-col w-full max-w-1xl'>{newestPosts}</ul>
         </div>
         <div className='w-full col-span-2 md:col-span-1'>
-          <h2 className='text-base uppercase mb-9'>Популярные категории</h2>
+          <h2 className='text-base uppercase mb-9'>{popularCat}</h2>
           <Tags tags={popularCategory} />
         </div>
         <div className='md:sticky top-8 w-full row-span-1 md:row-span-1 col-span-2 md:col-span-1'>
-          <h2 className='text-base uppercase mb-9'>Популярные статьи</h2>
+          <h2 className='text-base uppercase mb-9'>{popularArt}</h2>
           <ul className='flex flex-col w-full max-w-xs'>{popularPosts}</ul>
         </div>
       </div>

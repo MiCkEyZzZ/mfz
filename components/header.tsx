@@ -12,16 +12,12 @@ import {
   UserCircleIcon,
 } from '@heroicons/react/24/solid'
 
+import siteConfig from '../config/siteConfig'
 import { MobileMenu } from 'components'
-
-const navItems = [
-  { title: 'Главная', path: '/' },
-  { title: 'Последние', path: '/latest' },
-  { title: 'Статьи', path: '/posts' },
-]
 
 function Header(): JSX.Element {
   const [menu, setMenu] = useState(false)
+  const { navigationLinks, title } = siteConfig
   let pathname = usePathname() || '/'
   const isSticky =
     pathname.includes('/posts') ||
@@ -34,7 +30,7 @@ function Header(): JSX.Element {
   }
 
   function renderNavigate(): JSX.Element[] {
-    return navItems.map((nav) => {
+    return navigationLinks.map((nav) => {
       const isActive = nav.path === pathname
 
       return (
@@ -84,7 +80,7 @@ function Header(): JSX.Element {
         <header className='flex flex-row justify-between items-center w-full max-w-6xl'>
           <div className='flex flex-row items-center w-full max-w-4xl h-16'>
             <Link href='/' className='mr-8'>
-              Михаил Журавлёв
+              {title}
             </Link>
             <nav className='hidden md:block text-black'>
               <ul className='flex flex-row'>{renderNavigate()}</ul>
