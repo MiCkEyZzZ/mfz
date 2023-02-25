@@ -10,7 +10,7 @@ import {
   SunIcon,
   RssIcon,
   UserCircleIcon,
-} from '@heroicons/react/24/outline'
+} from '@heroicons/react/24/solid'
 
 import { MobileMenu } from 'components'
 
@@ -33,7 +33,7 @@ function Header(): JSX.Element {
     pathname = '/posts'
   }
 
-  function renderNavigate() {
+  function renderNavigate(): JSX.Element[] {
     return navItems.map((nav) => {
       const isActive = nav.path === pathname
 
