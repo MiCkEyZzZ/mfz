@@ -2,9 +2,12 @@
 
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
+import clsx from 'clsx'
+
 import { SunIcon, XMarkIcon } from '@heroicons/react/24/solid'
 
 import { IMobileMenuProps } from 'interfaces'
+import { usePathname } from 'next/navigation'
 
 const navItems = [
   { title: 'Главная', path: '/' },
@@ -15,6 +18,7 @@ const navItems = [
 
 function MobileMenu({ onClose }: IMobileMenuProps) {
   const menuRef = useRef<HTMLDivElement>(null)
+  let pathname = usePathname() || '/'
 
   const handleClickOutside = (event: MouseEvent): void => {
     if (menuRef.current === event.target) {
@@ -23,13 +27,24 @@ function MobileMenu({ onClose }: IMobileMenuProps) {
   }
 
   const renderLinks = () => {
-    return navItems.map((nav) => (
-      <li key={nav.title}>
-        <Link href={nav.path} className='text-gray-500' onClick={onClose}>
-          {nav.title}
-        </Link>
-      </li>
-    ))
+    return navItems.map((nav) => {
+      const isActive = nav.path === pathname
+
+      return (
+        <li key={nav.title}>
+          <Link
+            href={nav.path}
+            className={clsx('text-base font-medium mr-2.5 p-2.5', {
+              'text-gray-500': isActive,
+              'text-black font-bold': !isActive,
+            })}
+            onClick={onClose}
+          >
+            {nav.title}
+          </Link>
+        </li>
+      )
+    })
   }
 
   useEffect(() => {
