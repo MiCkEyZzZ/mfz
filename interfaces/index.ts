@@ -11,3 +11,7 @@ export interface BreadcrumbsProps {
   title: string
   tag: string
 }
+
+export interface IMobileMenuProps {
+  onClose: () => void
+}
