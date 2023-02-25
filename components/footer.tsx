@@ -5,14 +5,14 @@ import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
 
 const links = [
-  { name: 'Философия', path: '' },
-  { name: 'Rust', path: '' },
-  { name: 'Ruby', path: '' },
-  { name: 'JavaScript', path: '' },
-  { name: 'Next', path: '' },
-  { name: 'React', path: '' },
-  { name: 'Религия', path: '' },
-  { name: 'Законы', path: '' },
+  { name: 'Философия', path: '/posts/philosophy' },
+  { name: 'Rust', path: '/posts/rust' },
+  { name: 'Ruby', path: '/posts/ruby' },
+  { name: 'JavaScript', path: '/posts/javascript' },
+  { name: 'Next', path: '/posts/nextjs' },
+  { name: 'React', path: '/posts/react' },
+  { name: 'Религия', path: '/posts/religion' },
+  { name: 'Законы', path: '/posts/laws' },
 ]
 
 function Footer(): JSX.Element {
