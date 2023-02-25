@@ -2,10 +2,10 @@ import Link from 'next/link'
 import { ChevronRightIcon } from '@heroicons/react/24/solid'
 import Balancer from 'react-wrap-balancer'
 
-import { BreadcrumbsProps } from 'interfaces'
+import { IBreadcrumbsProps } from 'interfaces'
 import { convertName } from 'lib/helper'
 
-function Breadcrumbs({ title, tag }: BreadcrumbsProps): JSX.Element {
+function Breadcrumbs({ title, tag }: IBreadcrumbsProps): JSX.Element {
   const label = convertName(tag)
 
   return (

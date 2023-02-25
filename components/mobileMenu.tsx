@@ -16,7 +16,7 @@ const navItems = [
   { title: 'Авторизации', path: '/login' },
 ]
 
-function MobileMenu({ onClose }: IMobileMenuProps) {
+function MobileMenu({ onClose }: IMobileMenuProps): JSX.Element {
   const menuRef = useRef<HTMLDivElement>(null)
   let pathname = usePathname() || '/'
 
@@ -26,7 +26,7 @@ function MobileMenu({ onClose }: IMobileMenuProps) {
     }
   }
 
-  const renderLinks = () => {
+  const renderLinks = (): JSX.Element[] => {
     return navItems.map((nav) => {
       const isActive = nav.path === pathname
 
@@ -79,11 +79,11 @@ function MobileMenu({ onClose }: IMobileMenuProps) {
               <div className='relative flex items-center font-bold overflow-hidden'>
                 <button
                   type='button'
-                  className='p-2 hover:text-white bg-transparent hover:bg-black hover:border-black border rounded-lg shadow-sm'
+                  className='p-2 hover:text-white bg-transparent hover:bg-black hover:border-black border rounded-lg shadow-sm transition-all duration-300'
                   aria-label='Смена темы оформления сайта'
                   title='Смена темы оформления сайта'
                 >
-                  <span className='sr-only'>dark/light</span>
+                  <span className='sr-only'>тёмная/светлая</span>
                   <SunIcon className='w-5 h-5 hover:text-white' />
                 </button>
               </div>

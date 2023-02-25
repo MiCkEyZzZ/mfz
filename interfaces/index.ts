@@ -7,7 +7,7 @@ export interface IErrorProps {
   reset: () => void
 }
 
-export interface BreadcrumbsProps {
+export interface IBreadcrumbsProps {
   title: string
   tag: string
 }
