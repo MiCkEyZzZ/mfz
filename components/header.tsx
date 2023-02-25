@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
@@ -9,7 +9,8 @@ import { Bars2Icon } from '@heroicons/react/24/outline'
 import { SunIcon } from '@heroicons/react/24/solid'
 import { RssIcon } from '@heroicons/react/24/solid'
 import { UserCircleIcon } from '@heroicons/react/24/solid'
-import { XMarkIcon } from '@heroicons/react/24/solid'
+
+import { MobileMenu } from 'components'
 
 const navItems = [
   { title: 'Главная', path: '/' },
@@ -19,7 +20,6 @@ const navItems = [
 
 function Header(): JSX.Element {
   const [menu, setMenu] = useState(false)
-  const menuRef = useRef<HTMLDivElement>(null)
   let pathname = usePathname() || '/'
   const isSticky =
     pathname.includes('/posts') ||
@@ -29,22 +29,6 @@ function Header(): JSX.Element {
 
   if (pathname.includes('/posts')) {
     pathname = '/posts'
-  }
-
-  const onClose = () => {
-    setMenu(false)
-    document.body.style.overflow = 'visible'
-  }
-
-  const handleOpenMenu = (): void => {
-    setMenu(true)
-    document.body.style.overflow = 'hidden'
-  }
-
-  const handleClickOutside = (event: MouseEvent): void => {
-    if (menuRef.current === event.target) {
-      onClose()
-    }
   }
 
   function renderNavigate() {
@@ -67,11 +51,15 @@ function Header(): JSX.Element {
     })
   }
 
-  useEffect(() => {
-    document.addEventListener('click', handleClickOutside)
+  const handleOpenMenu = (): void => {
+    setMenu(true)
+    document.body.style.overflow = 'hidden'
+  }
 
-    return () => document.removeEventListener('click', handleClickOutside)
-  }, [])
+  const handleCloseMenu = (): void => {
+    setMenu(false)
+    document.body.style.overflow = 'visible'
+  }
 
   return (
     <div
@@ -147,102 +135,7 @@ function Header(): JSX.Element {
               <span className='sr-only'>Меню</span>
               <Bars2Icon />
             </button>
-
-            {menu && (
-              <div id='headlessui-portal-root'>
-                <div className='fixed inset-0 md:hidden z-50'>
-                  <div
-                    ref={menuRef}
-                    className='fixed inset-0 -black/20 backdrop-blur-sm dark:bg-back-350'
-                    id='headlessui-dialog-overlay-9'
-                    aria-hidden='true'
-                  ></div>
-                  <div className='fixed top-4 right-3 w-full max-w-sm text-base font-bold p-6 text-slate-900 dark:text-slate-400 bg-white dark:bg-back-300 dark:highlight-white/5 rounded-lg shadow-lg'>
-                    <button
-                      type='button'
-                      className='absolute top-5 right-5 w-8 h-8 flex justify-center items-center text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300'
-                      onClick={() => onClose()}
-                      title=''
-                      aria-label=''
-                    >
-                      <span className='sr-only'>Закрыть</span>
-                      <XMarkIcon className='w-5 h-5' />
-                    </button>
-                    <ul className='space-y-6'>
-                      <li>
-                        <Link
-                          href='/docs/introduction'
-                          className='hover:text-primary dark:hover:text-sky-400'
-                          title=''
-                        >
-                          Главная
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href='/about/about-us'
-                          className='hover:text-primary dark:hover:text-sky-400'
-                          title=''
-                        >
-                          Последние
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href='/support/support-us'
-                          className='hover:text-primary dark:hover:text-sky-400'
-                          title=''
-                        >
-                          Статьи
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href='https://github.com/MiCkEyZzZ/ninja-turtles-api'
-                          className='hover:text-primary dark:hover:text-sky-400'
-                          title=''
-                        >
-                          Авторизации
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href='https://github.com/MiCkEyZzZ/ninja-turtles-api'
-                          className='hover:text-primary dark:hover:text-sky-400'
-                          title=''
-                        >
-                          GitHub
-                        </Link>
-                      </li>
-                    </ul>
-                    <div className='flex flex-row mt-6 pt-6 border-t border-slate-200 dark:border-slate-200/10'>
-                      <div className='flex items-center justify-between mr-2 py-1'>
-                        <div className='relative flex items-center font-bold p-2 ring-1 ring-slate-900/10 hover:ring-lime-300 text-slate-700 dark:text-slate-200 dark:bg-slate-600 dark:ring-0 dark:highlight-white/5 hover:bg-primary dark:hover:bg-sky-400 rounded-lg shadow-sm'>
-                          <button
-                            type='button'
-                            className='bg-transparent border-0'
-                            aria-label='Смена темы оформления сайта'
-                            title='Смена темы оформления сайта'
-                          >
-                            <span className='sr-only'>dark/light</span>
-                            <SunIcon className='w-5 h-5' />
-                          </button>
-                        </div>
-                      </div>
-
-                      <div className='flex items-center justify-between py-1'>
-                        <div className='relative flex items-center ring-1 ring-slate-900/10 hover:ring-lime-300 font-bold p-2 text-slate-700 dark:text-slate-200 dark:bg-slate-600 dark:ring-0 dark:highlight-white/5 hover:bg-primary dark:hover:bg-sky-400 rounded-lg shadow-sm'>
-                          <Link href='/rss.xml'>
-                            <span className='sr-only'>ОСС</span>
-                            <RssIcon className='w-5 h-5' />
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
+            {menu && <MobileMenu onClose={handleCloseMenu} />}
           </div>
         </header>
       </div>
