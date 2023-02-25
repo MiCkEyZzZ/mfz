@@ -18,7 +18,7 @@ const links = [
 function Footer(): JSX.Element {
   let pathname = usePathname() || '/'
 
-  function renderPartitions() {
+  function renderPartitions(): JSX.Element[] {
     return links.map((link) => {
       return (
         <li key={link.name}>
@@ -39,7 +39,7 @@ function Footer(): JSX.Element {
       <div className='flex flex-col md:flex-row md:justify-between w-full max-w-6xl h-96 md:h-60 py-8'>
         <div className='flex flex-col md:justify-between items-center md:items-start w-full md:max-w-xs h-16 md:h-40 mb-8 md:mb-0'>
           <div className='w-40 h-16'>
-            <Link href='#' className='text-lg'>
+            <Link href='/' className='text-lg'>
               <span>Михаил Журавлёв</span>
             </Link>
           </div>
@@ -70,7 +70,7 @@ function Footer(): JSX.Element {
               </li>
               <li>
                 <Link
-                  href='#'
+                  href='/contacts'
                   className='text-sm text-gray-500 hover:text-gray-700'
                 >
                   Контакты
@@ -89,7 +89,7 @@ function Footer(): JSX.Element {
               </li>
               <li>
                 <Link
-                  href='privacy'
+                  href='/privacy'
                   className={clsx('text-sm hover:text-gray-700', {
                     'text-black font-bold': pathname === '/privacy',
                     'text-gray-500': pathname !== '/privacy',
