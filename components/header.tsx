@@ -5,10 +5,12 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
 
-import { Bars2Icon } from '@heroicons/react/24/outline'
-import { SunIcon } from '@heroicons/react/24/solid'
-import { RssIcon } from '@heroicons/react/24/solid'
-import { UserCircleIcon } from '@heroicons/react/24/solid'
+import {
+  Bars2Icon,
+  SunIcon,
+  RssIcon,
+  UserCircleIcon,
+} from '@heroicons/react/24/outline'
 
 import { MobileMenu } from 'components'
 
