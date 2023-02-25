@@ -24,7 +24,7 @@ function MobileMenu({ onClose }: IMobileMenuProps) {
 
   const renderLinks = () => {
     return navItems.map((nav) => (
-      <li>
+      <li key={nav.title}>
         <Link href={nav.path} className='text-gray-500' onClick={onClose}>
           {nav.title}
         </Link>
