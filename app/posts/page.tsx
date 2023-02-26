@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 import { allPosts, Post } from 'contentlayer/generated';
 import { PostCard } from 'components';
-import { convertName } from 'lib/helper';
+import { convertName, getDeclensionsWorld } from 'lib/helper';
 
 export const metadata: Metadata = {
   title: 'Посты',
@@ -45,10 +45,12 @@ function BlogPage(): JSX.Element {
                 {convertName(blog.label)}
               </h1>
               <p className="hidden text-lg font-normal text-[#414141] dark:text-white sm:block">
-                {blog.data.length} статей
+                {blog.data.length} {getDeclensionsWorld(blog.data.length)}
               </p>
             </div>
-            <ul className="grid grid-cols-1 gap-8 md:grid-cols-auto">{renderPosts(blog.data)}</ul>
+            <ul className="mb-10 grid grid-cols-1 gap-8 md:grid-cols-auto">
+              {renderPosts(blog.data)}
+            </ul>
           </div>
         ))}
       </div>
