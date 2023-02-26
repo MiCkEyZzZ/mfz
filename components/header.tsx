@@ -114,10 +114,10 @@ function Header(): JSX.Element {
                   className="px-3 py-2"
                   onClick={() => toggleDarkMode()}
                 >
-                  {!isDarkMode ? (
-                    <MoonIcon className="h-5 w-5 text-black hover:opacity-70" />
+                  {isDarkMode ? (
+                    <MoonIcon className="h-5 w-5 text-black hover:opacity-70 dark:text-white" />
                   ) : (
-                    <SunIcon className="h-5 w-5 hover:opacity-70 dark:text-white" />
+                    <SunIcon className="h-5 w-5 hover:opacity-70" />
                   )}
                 </button>
               </li>
