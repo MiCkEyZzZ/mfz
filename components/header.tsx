@@ -10,13 +10,11 @@ import { Bars2Icon, SunIcon, RssIcon, UserCircleIcon, MoonIcon } from '@heroicon
 import siteConfig from '../config/siteConfig';
 import { MobileMenu } from 'components';
 import { useTheme } from 'lib/theme';
-import color from '../app/default-colors';
 
 function Header(): JSX.Element {
   const { isDarkMode, toggleTheme } = useTheme();
   const [menu, setMenu] = useState(false);
   const { navigationLinks, title } = siteConfig;
-  const { brand } = color;
   let pathname = usePathname() || '/';
   const isSticky =
     pathname.includes('/posts') ||
