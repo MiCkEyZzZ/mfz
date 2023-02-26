@@ -44,7 +44,7 @@ function getLatestPost(limit: number): JSX.Element[] {
     .filter((n: { isPublished: boolean }) => n.isPublished === true)
     .slice(0, limit)
     .map((post: Post) => (
-      <li key={post.slug} className="mt-12 w-full text-gray-900 first:mt-0">
+      <li key={post.slug} className="mt-12 w-full text-[#414141] first:mt-0 dark:text-white">
         <PostCard post={post} />
       </li>
     ));
@@ -54,7 +54,10 @@ function getPopularPosts(): JSX.Element[] {
   return posts.map((post) => (
     <li key={post.name} className="mb-4 w-full">
       <div>
-        <Link href={post.path} className="font-semibold text-black hover:underline">
+        <Link
+          href={post.path}
+          className="font-semibold text-[#414141] hover:underline dark:text-white"
+        >
           {post.name}
         </Link>
       </div>
@@ -79,15 +82,15 @@ export default async function HomePage(): Promise<JSX.Element> {
     <section className="flex w-full max-w-6xl flex-col">
       <div className="grid-flow-row-1 md:grid-flow-row-3 grid w-full items-start gap-y-12 pt-16 md:grid-flow-col md:gap-x-24 md:gap-y-16">
         <div className="col-span-2 row-span-3 w-full">
-          <h2 className="mb-9 text-base uppercase">{recentlyPub}</h2>
+          <h2 className="mb-9 text-base uppercase text-[#414141] dark:text-white">{recentlyPub}</h2>
           <ul className="flex w-full max-w-1xl flex-col">{newestPosts}</ul>
         </div>
         <div className="col-span-2 w-full md:col-span-1">
-          <h2 className="mb-9 text-base uppercase">{popularCat}</h2>
+          <h2 className="mb-9 text-base uppercase text-[#414141] dark:text-white">{popularCat}</h2>
           <Tags tags={popularCategory} />
         </div>
         <div className="top-8 col-span-2 row-span-1 w-full md:sticky md:col-span-1 md:row-span-1">
-          <h2 className="mb-9 text-base uppercase">{popularArt}</h2>
+          <h2 className="mb-9 text-base uppercase text-[#414141] dark:text-white">{popularArt}</h2>
           <ul className="flex w-full max-w-xs flex-col">{popularPosts}</ul>
         </div>
       </div>

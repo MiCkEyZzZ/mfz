@@ -10,11 +10,13 @@ import { Bars2Icon, SunIcon, RssIcon, UserCircleIcon, MoonIcon } from '@heroicon
 import siteConfig from '../config/siteConfig';
 import { MobileMenu } from 'components';
 import { useTheme } from 'lib/theme';
+import color from '../app/default-colors';
 
 function Header(): JSX.Element {
   const { isDarkMode, toggleTheme } = useTheme();
   const [menu, setMenu] = useState(false);
   const { navigationLinks, title } = siteConfig;
+  const { brand } = color;
   let pathname = usePathname() || '/';
   const isSticky =
     pathname.includes('/posts') ||
@@ -35,8 +37,8 @@ function Header(): JSX.Element {
           <Link
             href={nav.path}
             className={clsx('mr-2.5 p-2.5 text-base font-medium', {
-              'cursor-default text-gray-500': isActive,
-              'font-bold text-black': !isActive,
+              'font-bold text-gray-500': !isActive,
+              'cursor-default text-[#414141] dark:text-white': isActive,
             })}
           >
             {nav.title}
@@ -82,7 +84,7 @@ function Header(): JSX.Element {
       >
         <header className="flex w-full max-w-6xl flex-row items-center justify-between">
           <div className="flex h-16 w-full max-w-4xl flex-row items-center">
-            <Link href="/" className="mr-8">
+            <Link href="/" className="mr-8 text-black dark:text-white">
               {title}
             </Link>
             <nav className="hidden text-black md:block">

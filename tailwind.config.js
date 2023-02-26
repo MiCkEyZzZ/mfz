@@ -32,4 +32,4 @@ module.exports = {
     hoverOnlyWhenSupported: true,
   },
   plugins: [],
-}
+};
