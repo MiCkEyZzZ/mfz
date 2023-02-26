@@ -1,19 +1,17 @@
-import { allPosts } from 'contentlayer/generated'
+import { Post } from 'contentlayer/generated';
 
-export async function getAllTags(): Promise<{}> {
-  const files = allPosts
-
-  let tagCount = {}
+export async function getAllTags(files: Post[]): Promise<{}> {
+  let tagCount = {};
 
   files.forEach((file) => {
-    let formattedTag = file.tag
+    let formattedTag = file.tag;
 
     if (formattedTag in tagCount) {
-      tagCount[formattedTag] += 1
+      tagCount[formattedTag] += 1;
     } else {
-      tagCount[formattedTag] = 1
+      tagCount[formattedTag] = 1;
     }
-  })
+  });
 
-  return tagCount
+  return tagCount;
 }

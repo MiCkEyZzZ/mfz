@@ -1,136 +1,114 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import clsx from 'clsx'
+import { useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import clsx from 'clsx';
 
-import {
-  Bars2Icon,
-  SunIcon,
-  RssIcon,
-  UserCircleIcon,
-} from '@heroicons/react/24/solid'
+import { Bars2Icon, SunIcon, RssIcon, UserCircleIcon } from '@heroicons/react/24/solid';
 
-import siteConfig from '../config/siteConfig'
-import { MobileMenu } from 'components'
+import siteConfig from '../config/siteConfig';
+import { MobileMenu } from 'components';
 
 function Header(): JSX.Element {
-  const [menu, setMenu] = useState(false)
-  const { navigationLinks, title } = siteConfig
-  let pathname = usePathname() || '/'
+  const [menu, setMenu] = useState(false);
+  const { navigationLinks, title } = siteConfig;
+  let pathname = usePathname() || '/';
   const isSticky =
     pathname.includes('/posts') ||
     pathname.includes('/latest') ||
     pathname.includes('/terms') ||
-    pathname.includes('/privacy')
+    pathname.includes('/privacy');
 
   if (pathname.includes('/posts')) {
-    pathname = '/posts'
+    pathname = '/posts';
   }
 
   function renderNavigate(): JSX.Element[] {
     return navigationLinks.map((nav) => {
-      const isActive = nav.path === pathname
+      const isActive = nav.path === pathname;
 
       return (
         <li key={nav.path}>
           <Link
             href={nav.path}
-            className={clsx('text-base font-medium mr-2.5 p-2.5', {
-              'text-gray-500': isActive,
-              'text-black font-bold': !isActive,
+            className={clsx('mr-2.5 p-2.5 text-base font-medium', {
+              'cursor-default text-gray-500': isActive,
+              'font-bold text-black': !isActive,
             })}
           >
             {nav.title}
           </Link>
         </li>
-      )
-    })
+      );
+    });
   }
 
   const handleOpenMenu = (): void => {
-    setMenu(true)
-    document.body.style.overflow = 'hidden'
-  }
+    setMenu(true);
+    document.body.style.overflow = 'hidden';
+  };
 
   const handleCloseMenu = (): void => {
-    setMenu(false)
-    document.body.style.overflow = 'visible'
-  }
+    setMenu(false);
+    document.body.style.overflow = 'visible';
+  };
 
   return (
     <div
       className={
         isSticky
-          ? 'sticky top-0 flex flex-col items-center w-full h-16 px-5 md:px-5 bg-white border-b z-50'
-          : 'relative flex flex-col items-center w-full h-96 px-5 md:px-5 bg-white border-b z-50'
+          ? 'sticky top-0 z-50 flex h-16 w-full flex-col items-center border-b bg-white px-5 md:px-5'
+          : 'relative z-50 flex h-96 w-full flex-col items-center border-b bg-white px-5 md:px-5'
       }
     >
-      <div
-        className={isSticky ? 'hidden' : 'hidden md:block w-full h-12'}
-      ></div>
+      <div className={isSticky ? 'hidden' : 'hidden h-12 w-full md:block'}></div>
       <div
         className={
           isSticky
-            ? 'flex flex-row justify-center w-full'
-            : 'sticky top-0 flex flex-row justify-center w-full'
+            ? 'flex w-full flex-row justify-center'
+            : 'sticky top-0 flex w-full flex-row justify-center'
         }
       >
-        <header className='flex flex-row justify-between items-center w-full max-w-6xl'>
-          <div className='flex flex-row items-center w-full max-w-4xl h-16'>
-            <Link href='/' className='mr-8'>
+        <header className="flex w-full max-w-6xl flex-row items-center justify-between">
+          <div className="flex h-16 w-full max-w-4xl flex-row items-center">
+            <Link href="/" className="mr-8">
               {title}
             </Link>
-            <nav className='hidden md:block text-black'>
-              <ul className='flex flex-row'>{renderNavigate()}</ul>
+            <nav className="hidden text-black md:block">
+              <ul className="flex flex-row">{renderNavigate()}</ul>
             </nav>
           </div>
-          <div className='hidden md:flex items-center'>
-            <ul className='flex flex-row'>
-              <li className='flex items-center'>
+          <div className="hidden items-center md:flex">
+            <ul className="flex flex-row">
+              <li className="flex items-center">
                 <Link
-                  href='/login'
-                  aria-label='Ссылка на авторизацию на сайте'
-                  className='px-3 py-2'
+                  href="/login"
+                  aria-label="Ссылка на авторизацию на сайте"
+                  className="px-3 py-2"
                 >
-                  <UserCircleIcon
-                    className='w-5 h-5 hover:opacity-70'
-                    title='Авторизации'
-                  />
+                  <UserCircleIcon className="h-5 w-5 hover:opacity-70" title="Авторизации" />
                 </Link>
               </li>
-              <li className='flex items-center'>
-                <button
-                  type='button'
-                  aria-label='Переключение темы сайта'
-                  className='px-3 py-2'
-                >
-                  <SunIcon
-                    className='w-5 h-5 hover:opacity-70'
-                    title='Смена темы'
-                  />
+              <li className="flex items-center">
+                <button type="button" aria-label="Переключение темы сайта" className="px-3 py-2">
+                  <SunIcon className="h-5 w-5 hover:opacity-70" title="Смена темы" />
                 </button>
               </li>
-              <li className='flex items-center'>
+              <li className="flex items-center">
                 <Link
-                  href='/'
-                  aria-label='Ссылка на обогащённую сводку сайта'
-                  className='px-3 py-2'
+                  href="/"
+                  aria-label="Ссылка на обогащённую сводку сайта"
+                  className="px-3 py-2"
                 >
-                  <RssIcon className='w-5 h-5 hover:opacity-70' title='ОСС' />
+                  <RssIcon className="h-5 w-5 hover:opacity-70" title="ОСС" />
                 </Link>
               </li>
             </ul>
           </div>
-          <div className='relative block md:hidden w-10 h-10'>
-            <button
-              type='button'
-              className='w-10 h-10'
-              onClick={handleOpenMenu}
-              aria-label='Меню'
-            >
-              <span className='sr-only'>Меню</span>
+          <div className="relative block h-10 w-10 md:hidden">
+            <button type="button" className="h-10 w-10" onClick={handleOpenMenu} aria-label="Меню">
+              <span className="sr-only">Меню</span>
               <Bars2Icon />
             </button>
             {menu && <MobileMenu onClose={handleCloseMenu} />}
@@ -138,7 +116,7 @@ function Header(): JSX.Element {
         </header>
       </div>
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header;

@@ -18,6 +18,6 @@ const siteConfig = {
   recentlyPub: 'Недавно опубликовано',
   popularCat: 'Популярные категории',
   popularArt: 'Популярные статьи',
-}
+};
 
-export default siteConfig
+export default siteConfig;

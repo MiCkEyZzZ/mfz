@@ -1,17 +1,17 @@
-import clsx from 'clsx'
-import type { Metadata } from 'next'
-import localFont from '@next/font/local'
+import clsx from 'clsx';
+import type { Metadata } from 'next';
+import localFont from '@next/font/local';
 
-import './globals.css'
+import './globals.css';
 
-import { Header, Footer, Subscribe } from 'components'
+import { Header, Footer, Subscribe } from 'components';
 
 const gteestipro = localFont({
   src: '../public/fonts/GTEestiProText-Regular.woff2',
   weight: '400',
   variable: '--font-gteestipro',
   display: 'swap',
-})
+});
 
 export const metadata: Metadata = {
   title: {
@@ -38,24 +38,18 @@ export const metadata: Metadata = {
   verification: {
     yandex: '',
   },
-}
+};
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}): JSX.Element {
+export default function RootLayout({ children }: { children: React.ReactNode }): JSX.Element {
   return (
-    <html lang='ru' className={clsx('text-black', gteestipro.variable)}>
+    <html lang="ru" className={clsx('text-black', gteestipro.variable)}>
       <head />
-      <body className='flex flex-col items-center w-full h-auto font-gteestipro'>
+      <body className="flex h-auto w-full flex-col items-center font-gteestipro">
         <Header />
-        <main className='flex justify-center w-full h-auto px-5 md:px-5'>
-          {children}
-        </main>
+        <main className="flex h-auto w-full justify-center px-5 md:px-5">{children}</main>
         <Subscribe />
         <Footer />
       </body>
     </html>
-  )
+  );
 }

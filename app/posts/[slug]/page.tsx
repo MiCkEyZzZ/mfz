@@ -1,38 +1,30 @@
-import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
-import { allPosts } from 'contentlayer/generated'
-import { format, parseISO } from 'date-fns'
-import { ru } from 'date-fns/locale'
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { allPosts } from 'contentlayer/generated';
+import { format, parseISO } from 'date-fns';
+import { ru } from 'date-fns/locale';
 
-import ViewCounter from '../view-counter'
-import { Breadcrumbs, Comments, Mdx } from 'components'
+import ViewCounter from '../view-counter';
+import { Breadcrumbs, Comments, Mdx } from 'components';
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
     slug: post.slug,
-  }))
+  }));
 }
 
-export async function generateMetadata({
-  params,
-}: any): Promise<Metadata | undefined> {
-  const post = allPosts.find((post) => post.slug === params.slug)
+export async function generateMetadata({ params }: any): Promise<Metadata | undefined> {
+  const post = allPosts.find((post) => post.slug === params.slug);
 
   if (!post) {
-    return
+    return;
   }
 
-  const {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    image,
-    slug,
-  } = post
+  const { title, publishedAt: publishedTime, summary: description, image, slug } = post;
 
   const ogImage = image
     ? `http://localhost:3000/${image}`
-    : `http://localhost:3000/api/og?title=${title}`
+    : `http://localhost:3000/api/og?title=${title}`;
 
   return {
     title,
@@ -49,7 +41,7 @@ export async function generateMetadata({
         },
       ],
     },
-  }
+  };
 }
 
 const links = [
@@ -59,47 +51,43 @@ const links = [
   { name: 'IV глава', path: '/#' },
   { name: 'V глава', path: '/#' },
   { name: 'VI глава', path: '/#' },
-]
+];
 
 export async function Post({ params }: any): Promise<JSX.Element> {
-  const post = allPosts.find((post) => post.slug === params.slug)
+  const post = allPosts.find((post) => post.slug === params.slug);
 
   if (!post) {
-    notFound()
+    notFound();
   }
 
   function renderContentLink(): JSX.Element[] {
     return links.map((link) => {
       return (
-        <li key={link.name} className='mt-3.5'>
-          <a href={link.path} className='text-smb opacity-70 hover:opacity-100'>
+        <li key={link.name} className="mt-3.5">
+          <a href={link.path} className="text-smb opacity-70 hover:opacity-100">
             {link.name}
           </a>
         </li>
-      )
-    })
+      );
+    });
   }
 
   return (
-    <section className='flex flex-col w-full max-w-6xl'>
-      <script type='application/ld+json'>
-        {JSON.stringify(post.structuredData)}
-      </script>
+    <section className="flex w-full max-w-6xl flex-col">
+      <script type="application/ld+json">{JSON.stringify(post.structuredData)}</script>
       <Breadcrumbs title={post.title} tag={post.tag} />
-      <div className='flex flex-row-reverse justify-center items-start pt-5'>
-        <aside className='sticky top-36 hidden lg:flex w-full max-w-xs h-96 ml-auto overflow-auto'>
+      <div className="flex flex-row-reverse items-start justify-center pt-5">
+        <aside className="sticky top-36 ml-auto hidden h-96 w-full max-w-xs overflow-auto lg:flex">
           <nav>
-            <h2 className='text-base font-semibold uppercase mb-5'>
-              Содержание
-            </h2>
-            <ul className='mt-3.5'>{renderContentLink()}</ul>
+            <h2 className="mb-5 text-base font-semibold uppercase">Содержание</h2>
+            <ul className="mt-3.5">{renderContentLink()}</ul>
           </nav>
         </aside>
-        <div className='flex flex-col w-full lg:max-w-2xlx'>
+        <div className="flex w-full flex-col lg:max-w-2xlx">
           <Mdx code={post.body.code} />
-          <div className='flex flex-row mt-5 py-1 tracking-tighter rounded-md'>
-            <span className='font-semibold mr-2'>Дата публикации:</span>
-            <time dateTime={post.publishedAt} className='text-gray-500 italic'>
+          <div className="mt-5 flex flex-row rounded-md py-1 tracking-tighter">
+            <span className="mr-2 font-semibold">Дата публикации:</span>
+            <time dateTime={post.publishedAt} className="italic text-gray-500">
               {format(parseISO(post.publishedAt), 'dd MMMM yyyy', {
                 locale: ru,
               })}
@@ -110,7 +98,7 @@ export async function Post({ params }: any): Promise<JSX.Element> {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Post
+export default Post;

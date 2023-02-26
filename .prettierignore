@@ -1,0 +1,8 @@
+.next
+.vercel
+package.json
+package-lock.json
+node_modules
+yarn.lock
+.tailing.config
+tailing.config

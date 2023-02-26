@@ -1,0 +1,7 @@
+node_modules
+out_functions
+out_publish
+.next
+.tailing.config
+tailing.config
+.next.config
