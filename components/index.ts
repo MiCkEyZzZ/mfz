@@ -8,3 +8,4 @@ export { default as Mdx } from './mdx';
 export { default as Comments } from './comments';
 export { default as Tags } from './tags';
 export { default as MobileMenu } from './mobileMenu';
+export { default as Tree } from './toc';

@@ -44,35 +44,11 @@ export async function generateMetadata({ params }: any): Promise<Metadata | unde
   };
 }
 
-const links = [
-  { name: 'I глава', path: '/#' },
-  { name: 'II глава', path: '/#' },
-  { name: 'III глава', path: '/#' },
-  { name: 'IV глава', path: '/#' },
-  { name: 'V глава', path: '/#' },
-  { name: 'VI глава', path: '/#' },
-];
-
 export async function Post({ params }: any): Promise<JSX.Element> {
   const post = allPosts.find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();
-  }
-
-  function renderContentLink(): JSX.Element[] {
-    return links.map((link) => {
-      return (
-        <li key={link.name} className="mt-3.5">
-          <a
-            href={link.path}
-            className="text-smb text-[#414141] opacity-70 hover:opacity-100 dark:text-white"
-          >
-            {link.name}
-          </a>
-        </li>
-      );
-    });
   }
 
   return (
@@ -85,7 +61,7 @@ export async function Post({ params }: any): Promise<JSX.Element> {
             <h2 className="mb-5 text-base font-semibold uppercase text-[#414141] dark:text-white">
               Содержание
             </h2>
-            <ul className="mt-3.5">{renderContentLink()}</ul>
+            {/* <Tree /> */}
           </nav>
         </aside>
         <div className="flex w-full flex-col lg:max-w-2xlx">

@@ -1,9 +1,9 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 function AnchorLink(props): JSX.Element {
   const href = props.href;
 
-  if (href.startsWith("/")) {
+  if (href.startsWith('/')) {
     return (
       <Link href={href} {...props}>
         {props.children}
@@ -11,7 +11,7 @@ function AnchorLink(props): JSX.Element {
     );
   }
 
-  if (href.startsWith("#")) {
+  if (href.startsWith('#')) {
     return <a {...props} />;
   }
 
