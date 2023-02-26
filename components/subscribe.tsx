@@ -1,36 +1,33 @@
-import Balancer from 'react-wrap-balancer'
+import Balancer from 'react-wrap-balancer';
 
 function Subscribe(): JSX.Element {
   return (
-    <section className='flex flex-col items-center w-full my-24 px-5 md:px-5'>
-      <div className='flex flex-col justify-between w-full max-w-6xl'>
-        <div className='w-full max-w-xl'>
-          <h2 className='text-2xl md:text-3xl lg:text-4xl mb-6'>
-            <Balancer>
-              Каждый день выходит, что-то новое - не пропустите интересное.
-            </Balancer>
+    <section className="my-24 flex w-full flex-col items-center px-5 md:px-5">
+      <div className="flex w-full max-w-6xl flex-col justify-between">
+        <div className="w-full max-w-xl">
+          <h2 className="mb-6 text-2xl md:text-3xl lg:text-4xl">
+            <Balancer>Каждый день выходит, что-то новое - не пропустите интересное.</Balancer>
           </h2>
-          <p className='text-base md:text-xl lg:text-xl text-black opacity-70'>
+          <p className="text-base text-black opacity-70 md:text-xl lg:text-xl">
             <Balancer>
-              Подпишись на рассылку новостей и будь в курсе о выходе новых
-              материалов.
+              Подпишись на рассылку новостей и будь в курсе о выходе новых материалов.
             </Balancer>
           </p>
         </div>
-        <div className='w-full mt-16'>
-          <form className='flex flex-col md:flex-row items-center w-full max-w-xl'>
-            <fieldset className='w-full'>
+        <div className="mt-16 w-full">
+          <form className="flex w-full max-w-xl flex-col items-center md:flex-row">
+            <fieldset className="w-full">
               <input
-                type='text'
-                placeholder='вы@домен.ру'
-                className='w-full px-3 py-3 md:py-3 border border-black rounded-md appearance-none'
+                type="text"
+                placeholder="вы@домен.ру"
+                className="w-full appearance-none rounded-md border border-black px-3 py-3 md:py-3"
               />
             </fieldset>
-            <div className='mt-5 ml-auto md:ml-5 md:mt-0'>
+            <div className="mt-5 ml-auto md:ml-5 md:mt-0">
               <button
-                type='submit'
-                aria-label='Подписаться'
-                className='text-base font-medium px-4 md:px-7 py-3 md:py-3 text-white bg-black hover:bg-gray-600 border border-transparent rounded-md md:leading-6 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:scale-105 transform-gpu'
+                type="submit"
+                aria-label="Подписаться"
+                className="transform-gpu rounded-md border border-transparent bg-black px-4 py-3 text-base font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-800 md:px-7 md:py-3 md:leading-6"
               >
                 Подписаться
               </button>
@@ -39,7 +36,7 @@ function Subscribe(): JSX.Element {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Subscribe
+export default Subscribe;

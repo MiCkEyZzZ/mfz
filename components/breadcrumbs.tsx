@@ -1,60 +1,49 @@
-import Link from 'next/link'
-import { ChevronRightIcon } from '@heroicons/react/24/solid'
-import Balancer from 'react-wrap-balancer'
+import Link from 'next/link';
+import { ChevronRightIcon } from '@heroicons/react/24/solid';
+import Balancer from 'react-wrap-balancer';
 
-import { IBreadcrumbsProps } from 'interfaces'
-import { convertName } from 'lib/helper'
+import { IBreadcrumbsProps } from 'interfaces';
+import { convertName } from 'lib/helper';
 
 function Breadcrumbs({ title, tag }: IBreadcrumbsProps): JSX.Element {
-  const label = convertName(tag)
+  const label = convertName(tag);
 
   return (
-    <div className='flex justify-center w-full px-2 md:px-0'>
-      <div className='flex flex-col justify-end w-full h-64 max-w-6xl pt-12 pb-9'>
+    <div className="flex w-full justify-center px-2 md:px-0">
+      <div className="flex h-64 w-full max-w-6xl flex-col justify-end pt-12 pb-9">
         <div>
-          <ul className='flex flex-row items-center'>
+          <ul className="flex flex-row items-center">
             <li>
-              <Link
-                href='/'
-                className='text-sm md:text-base'
-                title='Главная страница'
-              >
+              <Link href="/" className="text-sm md:text-base" title="Главная страница">
                 Главная
               </Link>
             </li>
-            <li className='mx-2'>
-              <ChevronRightIcon className='w-3.5 h-3.5' />
+            <li className="mx-2">
+              <ChevronRightIcon className="h-3.5 w-3.5" />
             </li>
             <li>
-              <Link
-                href='/posts'
-                className='text-sm md:text-base'
-                title='Страница с постами'
-              >
+              <Link href="/posts" className="text-sm md:text-base" title="Страница с постами">
                 Посты
               </Link>
             </li>
-            <li className='mx-2'>
-              <ChevronRightIcon className='w-3.5 h-3.5' />
+            <li className="mx-2">
+              <ChevronRightIcon className="h-3.5 w-3.5" />
             </li>
             <li>
-              <p
-                className='text-sm md:text-base text-gray-700 cursor-text'
-                title='Страница поста'
-              >
+              <p className="cursor-text text-sm text-gray-700 md:text-base" title="Страница поста">
                 {label}
               </p>
             </li>
           </ul>
         </div>
-        <div className='w-full lg:max-w-2xlx'>
-          <h1 className='text-xl sm:text-2xl md:text-4xl mt-5'>
+        <div className="w-full lg:max-w-2xlx">
+          <h1 className="mt-5 text-xl sm:text-2xl md:text-4xl">
             <Balancer>{title}</Balancer>
           </h1>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Breadcrumbs
+export default Breadcrumbs;
