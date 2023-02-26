@@ -30,8 +30,10 @@ function LatestPage(): JSX.Element {
     <section className="flex w-full max-w-6xl flex-col pt-32">
       <div className="flex flex-col">
         <div className="flex h-20 w-full flex-row items-center justify-between pl-5 pr-10">
-          <h1 className="text-4xl font-semibold">Последние статьи</h1>
-          <p className="hidden text-lg font-normal sm:block">
+          <h1 className="text-4xl font-semibold text-[#414141] dark:text-white">
+            Последние статьи
+          </h1>
+          <p className="hidden text-lg font-normal text-[#414141] dark:text-white sm:block">
             {count} {postWord}
           </p>
         </div>

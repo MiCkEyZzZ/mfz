@@ -5,10 +5,10 @@ function Subscribe(): JSX.Element {
     <section className="my-24 flex w-full flex-col items-center px-5 md:px-5">
       <div className="flex w-full max-w-6xl flex-col justify-between">
         <div className="w-full max-w-xl">
-          <h2 className="mb-6 text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="mb-6 text-2xl text-[#414141] dark:text-white md:text-3xl lg:text-4xl">
             <Balancer>Каждый день выходит, что-то новое - не пропустите интересное.</Balancer>
           </h2>
-          <p className="text-base text-black opacity-70 md:text-xl lg:text-xl">
+          <p className="text-base text-[#414141] opacity-70 dark:text-white md:text-xl lg:text-xl">
             <Balancer>
               Подпишись на рассылку новостей и будь в курсе о выходе новых материалов.
             </Balancer>
@@ -20,7 +20,7 @@ function Subscribe(): JSX.Element {
               <input
                 type="text"
                 placeholder="вы@домен.ру"
-                className="w-full appearance-none rounded-md border border-black px-3 py-3 md:py-3"
+                className="w-full appearance-none rounded-md border border-black bg-white px-3 py-3 dark:border-white dark:bg-black md:py-3"
               />
             </fieldset>
             <div className="mt-5 ml-auto md:ml-5 md:mt-0">

@@ -1,9 +1,9 @@
 function Comments(): JSX.Element {
   return (
     <div className="mt-3 flex w-full flex-col px-0 py-5">
-      <h1 className="font-semibold">Комментарии</h1>
+      <h1 className="font-semibold text-[#414141] dark:text-white">Комментарии</h1>
       <div className="mt-2 flex w-full flex-col">
-        <textarea className="h-28 w-full rounded-md border"></textarea>
+        <textarea className="h-28 w-full rounded-md border bg-white dark:bg-black"></textarea>
         <div className="mt-2 flex w-full flex-col items-center justify-start">
           <button
             type="submit"
