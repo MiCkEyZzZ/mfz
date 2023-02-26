@@ -5,12 +5,14 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 
-import { Bars2Icon, SunIcon, RssIcon, UserCircleIcon } from '@heroicons/react/24/solid';
+import { Bars2Icon, SunIcon, RssIcon, UserCircleIcon, MoonIcon } from '@heroicons/react/24/solid';
 
 import siteConfig from '../config/siteConfig';
 import { MobileMenu } from 'components';
+import { useTheme } from 'lib/theme';
 
 function Header(): JSX.Element {
+  const { isDarkMode, toggleTheme } = useTheme();
   const [menu, setMenu] = useState(false);
   const { navigationLinks, title } = siteConfig;
   let pathname = usePathname() || '/';
@@ -54,12 +56,20 @@ function Header(): JSX.Element {
     document.body.style.overflow = 'visible';
   };
 
+  const toggleDarkMode = () => {
+    localStorage.setItem('theme', (!isDarkMode).toString());
+    toggleTheme();
+
+    const key = localStorage.getItem('theme');
+    document.documentElement.className = key === 'true' ? 'dark' : '';
+  };
+
   return (
     <div
       className={
         isSticky
-          ? 'sticky top-0 z-50 flex h-16 w-full flex-col items-center border-b bg-white px-5 md:px-5'
-          : 'relative z-50 flex h-96 w-full flex-col items-center border-b bg-white px-5 md:px-5'
+          ? 'sticky top-0 z-50 flex h-16 w-full flex-col items-center border-b bg-white px-5 dark:bg-black md:px-5'
+          : 'relative z-50 flex h-96 w-full flex-col items-center border-b bg-white px-5 dark:bg-black md:px-5'
       }
     >
       <div className={isSticky ? 'hidden' : 'hidden h-12 w-full md:block'}></div>
@@ -87,12 +97,26 @@ function Header(): JSX.Element {
                   aria-label="Ссылка на авторизацию на сайте"
                   className="px-3 py-2"
                 >
-                  <UserCircleIcon className="h-5 w-5 hover:opacity-70" title="Авторизации" />
+                  <UserCircleIcon
+                    className="h-5 w-5 text-black hover:opacity-70 dark:text-white"
+                    title="Авторизации"
+                  />
                 </Link>
               </li>
               <li className="flex items-center">
-                <button type="button" aria-label="Переключение темы сайта" className="px-3 py-2">
-                  <SunIcon className="h-5 w-5 hover:opacity-70" title="Смена темы" />
+                <button
+                  type="button"
+                  aria-pressed={!isDarkMode ? false : true}
+                  aria-label="Переключение темы сайта"
+                  title="Смена темы"
+                  className="px-3 py-2"
+                  onClick={() => toggleDarkMode()}
+                >
+                  {!isDarkMode ? (
+                    <MoonIcon className="h-5 w-5 text-black hover:opacity-70" />
+                  ) : (
+                    <SunIcon className="h-5 w-5 hover:opacity-70 dark:text-white" />
+                  )}
                 </button>
               </li>
               <li className="flex items-center">
@@ -101,7 +125,10 @@ function Header(): JSX.Element {
                   aria-label="Ссылка на обогащённую сводку сайта"
                   className="px-3 py-2"
                 >
-                  <RssIcon className="h-5 w-5 hover:opacity-70" title="ОСС" />
+                  <RssIcon
+                    className="h-5 w-5 text-black hover:opacity-70 dark:text-white"
+                    title="ОСС"
+                  />
                 </Link>
               </li>
             </ul>
@@ -109,7 +136,7 @@ function Header(): JSX.Element {
           <div className="relative block h-10 w-10 md:hidden">
             <button type="button" className="h-10 w-10" onClick={handleOpenMenu} aria-label="Меню">
               <span className="sr-only">Меню</span>
-              <Bars2Icon />
+              <Bars2Icon className="text-black dark:text-white" />
             </button>
             {menu && <MobileMenu onClose={handleCloseMenu} />}
           </div>

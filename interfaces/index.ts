@@ -15,3 +15,12 @@ export interface IBreadcrumbsProps {
 export interface IMobileMenuProps {
   onClose: () => void;
 }
+
+export interface IThemeProps {
+  isDarkMode?: boolean;
+  toggleTheme: () => void;
+}
+
+export interface ThemeProviderProps {
+  children?: any;
+}
