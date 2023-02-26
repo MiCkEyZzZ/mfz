@@ -27,7 +27,7 @@ function Subscribe(): JSX.Element {
               <button
                 type="submit"
                 aria-label="Подписаться"
-                className="transform-gpu rounded-md border border-transparent bg-black px-4 py-3 text-base font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-800 md:px-7 md:py-3 md:leading-6"
+                className="transform-gpu rounded-md border border-transparent bg-black px-4 py-3 text-base font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-800 dark:border-white dark:hover:bg-white dark:hover:text-black md:px-7 md:py-3 md:leading-6"
               >
                 Подписаться
               </button>

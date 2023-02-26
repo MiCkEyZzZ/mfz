@@ -18,21 +18,39 @@ function renderPosts(arr: Post[]): JSX.Element[] {
       </li>
     ));
 }
+interface IPosts {
+  label: string;
+  data: Post[];
+}
+
+function getBlogPosts(arr: Post[]): IPosts[] {
+  return Array.from(new Set(arr.map((s) => s.tag))).map((lab) => {
+    return {
+      label: lab,
+      data: arr.filter((s) => s.tag === lab).map((edit) => edit),
+    };
+  });
+}
 
 function BlogPage(): JSX.Element {
-  const posts = renderPosts(allPosts);
-  const count = allPosts.length;
+  const blogs = getBlogPosts(allPosts);
 
   return (
     <section className="flex w-full max-w-6xl flex-col pt-32">
       <div className="flex flex-col">
-        <div className="flex h-20 w-full flex-row items-center justify-between pl-5 pr-10">
-          <h1 className="text-4xl font-semibold text-[#414141] dark:text-white">Философия</h1>
-          <p className="hidden text-lg font-normal text-[#414141] dark:text-white sm:block">
-            {count} статей
-          </p>
-        </div>
-        <ul className="grid grid-cols-1 gap-8 md:grid-cols-auto">{posts}</ul>
+        {blogs.map((blog) => (
+          <>
+            <div className="flex h-20 w-full flex-row items-center justify-between pl-5 pr-10">
+              <h1 className="text-4xl font-semibold text-[#414141] dark:text-white">
+                {convertName(blog.label)}
+              </h1>
+              <p className="hidden text-lg font-normal text-[#414141] dark:text-white sm:block">
+                {blog.data.length} статей
+              </p>
+            </div>
+            <ul className="grid grid-cols-1 gap-8 md:grid-cols-auto">{renderPosts(blog.data)}</ul>
+          </>
+        ))}
       </div>
     </section>
   );
