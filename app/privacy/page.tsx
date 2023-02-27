@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 function getPrivacy(type: string) {
-  return allPages.map((page) => <p>{page.title}</p>);
+  return allPages.map((page) => <p key={page.title}>{page.title}</p>);
 }
 
 function Privacy(): JSX.Element {
