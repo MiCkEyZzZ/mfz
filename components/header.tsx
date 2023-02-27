@@ -138,7 +138,7 @@ function Header(): JSX.Element {
               <span className="sr-only">Меню</span>
               <Bars2Icon className="text-black dark:text-white" />
             </button>
-            {menu && <MobileMenu onClose={handleCloseMenu} />}
+            {menu && <MobileMenu onToggle={toggleDarkMode} onClose={handleCloseMenu} />}
           </div>
         </header>
       </div>

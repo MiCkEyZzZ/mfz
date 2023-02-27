@@ -1,10 +1,7 @@
 import Link from 'next/link';
 
 import { changeTagsPath, convertName } from 'lib/helper';
-
-type Props = {
-  tags: string[];
-};
+import { TagsProps } from 'interfaces';
 
 function renderTags(tags: string[]): JSX.Element[] {
   return tags.map((tag: string) => (
@@ -20,7 +17,7 @@ function renderTags(tags: string[]): JSX.Element[] {
   ));
 }
 
-function Tags({ tags }: Props): JSX.Element {
+function Tags({ tags }: TagsProps): JSX.Element {
   const mostPopularTags = renderTags(tags);
 
   return <ul className="flex w-full max-w-xs flex-wrap">{mostPopularTags}</ul>;

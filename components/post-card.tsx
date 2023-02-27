@@ -1,16 +1,12 @@
 import Link from 'next/link';
 import Balancer from 'react-wrap-balancer';
 
-import { Post } from 'contentlayer/generated';
+import { PostCardProps } from 'interfaces';
 
-type Props = {
-  post: Post;
-};
-
-function PostCard({ post }: Props): JSX.Element {
+function PostCard({ post }: PostCardProps): JSX.Element {
   return (
     <article className="text-black">
-      <Link href={`/posts/${post.slug}`} className="group flex w-full flex-col">
+      <Link href={`${post.slug}`} className="group flex w-full flex-col">
         <h3 className="text-md font-semibold leading-7 text-[#414141] transition-all duration-300 group-hover:underline dark:text-white">
           <Balancer>{post.title}</Balancer>
         </h3>

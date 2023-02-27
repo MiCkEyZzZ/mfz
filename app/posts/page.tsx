@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { allPosts, Post } from 'contentlayer/generated';
 import { PostCard } from 'components';
 import { convertName, getDeclensionsWorld } from 'lib/helper';
+import { IGroupPost } from 'interfaces';
 
 export const metadata: Metadata = {
   title: 'Посты',
@@ -18,12 +19,8 @@ function renderPosts(arr: Post[]): JSX.Element[] {
       </li>
     ));
 }
-interface IPosts {
-  label: string;
-  data: Post[];
-}
 
-function getBlogPosts(arr: Post[]): IPosts[] {
+function getGroupePosts(arr: Post[]): IGroupPost[] {
   return Array.from(new Set(arr.map((s) => s.tag))).map((lab) => {
     return {
       label: lab,
@@ -32,8 +29,8 @@ function getBlogPosts(arr: Post[]): IPosts[] {
   });
 }
 
-function BlogPage(): JSX.Element {
-  const blogs = getBlogPosts(allPosts);
+function PostsPage(): JSX.Element {
+  const blogs = getGroupePosts(allPosts);
 
   return (
     <section className="flex w-full max-w-6xl flex-col pt-32">
@@ -58,4 +55,4 @@ function BlogPage(): JSX.Element {
   );
 }
 
-export default BlogPage;
+export default PostsPage;
