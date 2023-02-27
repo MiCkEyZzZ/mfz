@@ -6,15 +6,17 @@ import { ru } from 'date-fns/locale';
 
 import ViewCounter from '../view-counter';
 import { Breadcrumbs, Comments, Mdx } from 'components';
+import { PostPageProps } from 'interfaces';
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<PostPageProps['params'][]> {
   return allPosts.map((post) => ({
-    slug: post.slug,
+    slug: post.slugAsParams.split('/'),
   }));
 }
 
-export async function generateMetadata({ params }: any): Promise<Metadata | undefined> {
-  const post = allPosts.find((post) => post.slug === params.slug);
+export async function generateMetadata({ params }: PostPageProps): Promise<Metadata | undefined> {
+  const href = params?.slug?.join('/') || '';
+  const post = allPosts.find((post) => post.slugAsParams === href);
 
   if (!post) {
     return;
@@ -44,8 +46,9 @@ export async function generateMetadata({ params }: any): Promise<Metadata | unde
   };
 }
 
-export async function Post({ params }: any): Promise<JSX.Element> {
-  const post = allPosts.find((post) => post.slug === params.slug);
+export async function PostPage({ params }: PostPageProps): Promise<JSX.Element> {
+  const slug = params?.slug?.join('/') || '';
+  const post = allPosts.find((post) => post.slugAsParams === slug);
 
   if (!post) {
     notFound();
@@ -84,4 +87,4 @@ export async function Post({ params }: any): Promise<JSX.Element> {
   );
 }
 
-export default Post;
+export default PostPage;

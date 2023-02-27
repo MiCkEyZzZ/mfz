@@ -7,7 +7,7 @@ function RegistrationPage() {
         <div className="flex h-96 w-full max-w-sm flex-col">
           <div className="w-full">
             <h1 className="text-center text-2xl font-bold text-[#414141] dark:text-white">
-              Создать аккаунт
+              Регистрация
             </h1>
             <p className="pt-3 text-center text-sm text-slate-600">Введите свой адрес эл. почты</p>
           </div>

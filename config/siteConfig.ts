@@ -18,6 +18,12 @@ const siteConfig = {
   recentlyPub: 'Недавно опубликовано',
   popularCat: 'Популярные категории',
   popularArt: 'Популярные статьи',
+  mobilNavigate: [
+    { title: 'Главная', path: '/' },
+    { title: 'Последние', path: '/latest' },
+    { title: 'Статьи', path: '/posts' },
+    { title: 'Авторизации', path: '/login' },
+  ],
 };
 
 export default siteConfig;

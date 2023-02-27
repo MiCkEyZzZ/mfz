@@ -6,17 +6,12 @@ import clsx from 'clsx';
 
 import { SunIcon, XMarkIcon } from '@heroicons/react/24/solid';
 
+import siteConfig from 'config/siteConfig';
 import { IMobileMenuProps } from 'interfaces';
 import { usePathname } from 'next/navigation';
 
-const navItems = [
-  { title: 'Главная', path: '/' },
-  { title: 'Последние', path: '/latest' },
-  { title: 'Статьи', path: '/posts' },
-  { title: 'Авторизации', path: '/login' },
-];
-
-function MobileMenu({ onClose }: IMobileMenuProps): JSX.Element {
+function MobileMenu({ onClose, onToggle }: IMobileMenuProps): JSX.Element {
+  const { mobilNavigate } = siteConfig;
   const menuRef = useRef<HTMLDivElement>(null);
   let pathname = usePathname() || '/';
 
@@ -27,7 +22,7 @@ function MobileMenu({ onClose }: IMobileMenuProps): JSX.Element {
   };
 
   const renderLinks = (): JSX.Element[] => {
-    return navItems.map((nav) => {
+    return mobilNavigate.map((nav) => {
       const isActive = nav.path === pathname;
 
       return (
@@ -82,6 +77,7 @@ function MobileMenu({ onClose }: IMobileMenuProps): JSX.Element {
                   className="rounded-lg border bg-transparent p-2 shadow-sm transition-all duration-300 hover:border-black hover:bg-black hover:text-white"
                   aria-label="Смена темы оформления сайта"
                   title="Смена темы оформления сайта"
+                  onClick={onToggle}
                 >
                   <span className="sr-only">тёмная/светлая</span>
                   <SunIcon className="h-5 w-5 hover:text-white" />
