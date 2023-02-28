@@ -30,8 +30,8 @@ function MobileMenu({ onClose, onToggle }: IMobileMenuProps): JSX.Element {
           <Link
             href={nav.path}
             className={clsx('mr-2.5 p-2.5 text-base font-medium', {
-              'text-gray-500': isActive,
-              'font-bold text-black': !isActive,
+              'text-gray-500 dark:text-cyan-600': isActive,
+              'font-bold text-black dark:text-white': !isActive,
             })}
             onClick={onClose}
           >
@@ -57,7 +57,7 @@ function MobileMenu({ onClose, onToggle }: IMobileMenuProps): JSX.Element {
           id="headlessui-dialog-overlay-9"
           aria-hidden="true"
         ></div>
-        <div className="dark:bg-back-300 dark:highlight-white/5 fixed top-4 right-3 w-full max-w-sm rounded-lg bg-white p-6 text-base font-bold text-slate-900 shadow-lg dark:text-slate-400">
+        <div className="dark:highlight-white/5 fixed top-4 right-3 w-full max-w-sm rounded-lg bg-white p-6 text-base font-bold text-slate-900 shadow-lg dark:bg-slate-600 dark:text-slate-400">
           <button
             type="button"
             className="absolute top-5 right-5 flex h-8 w-8 items-center justify-center text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
@@ -66,7 +66,7 @@ function MobileMenu({ onClose, onToggle }: IMobileMenuProps): JSX.Element {
             aria-label="Закрыть"
           >
             <span className="sr-only">Закрыть</span>
-            <XMarkIcon className="h-10 w-10" />
+            <XMarkIcon className="h-10 w-10 dark:text-white" />
           </button>
           <ul className="space-y-6">{renderLinks()}</ul>
           <div className="mt-6 flex flex-row border-t border-slate-200 pt-6 dark:border-slate-200/10">
@@ -74,7 +74,7 @@ function MobileMenu({ onClose, onToggle }: IMobileMenuProps): JSX.Element {
               <div className="relative flex items-center overflow-hidden font-bold">
                 <button
                   type="button"
-                  className="rounded-lg border bg-transparent p-2 shadow-sm transition-all duration-300 hover:border-black hover:bg-black hover:text-white"
+                  className="rounded-lg border bg-transparent p-2 shadow-sm transition-all duration-300 hover:border-black hover:bg-black hover:text-white dark:border-gr-2 dark:bg-gr-2"
                   aria-label="Смена темы оформления сайта"
                   title="Смена темы оформления сайта"
                   onClick={onToggle}
