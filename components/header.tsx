@@ -39,8 +39,8 @@ function Header(): JSX.Element {
           <Link
             href={nav.path}
             className={clsx('mr-2.5 p-2.5 text-base font-medium', {
-              'font-bold text-gray-500': !isActive,
-              'cursor-default text-[#414141] dark:text-white': isActive,
+              'font-bold text-gray-500 hover:opacity-70 dark:text-white': !isActive,
+              'cursor-default text-[#414141] dark:text-cyan-600': isActive,
             })}
           >
             {nav.title}
@@ -138,7 +138,12 @@ function Header(): JSX.Element {
             </ul>
           </div>
           <div className="relative block h-10 w-10 md:hidden">
-            <button type="button" className="h-10 w-10" onClick={handleOpenMenu} aria-label="Меню">
+            <button
+              type="button"
+              className="h-10 w-10 dark:bg-transparent"
+              onClick={handleOpenMenu}
+              aria-label="Меню"
+            >
               <span className="sr-only">Меню</span>
               <Bars2Icon className="text-black dark:text-white" />
             </button>

@@ -7,7 +7,7 @@ function Comments(): JSX.Element {
         <div className="mt-2 flex w-full flex-col items-center justify-start">
           <button
             type="submit"
-            className="mr-0 ml-auto transform-gpu rounded-md border border-transparent bg-black px-4 py-2 text-base font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-800 dark:border-transparent dark:border-white dark:bg-gr-2 dark:hover:bg-white dark:hover:text-black md:leading-6"
+            className="mr-0 ml-auto transform-gpu rounded-md border border-transparent border-white bg-black px-4 py-2 text-base font-medium text-white transition-all duration-300 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-800 dark:border-gr-2 dark:bg-gr-2 dark:hover:bg-white dark:hover:text-black md:leading-6"
           >
             Отправить
           </button>

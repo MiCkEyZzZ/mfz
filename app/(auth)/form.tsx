@@ -77,7 +77,7 @@ export function Form() {
       </div>
       <div className="mt-10 text-center">
         <p className="text-[#414141] dark:text-white">
-          Ещё нет аккаунта?
+          {pathname === '/login' ? 'Ещё нет аккаунта?' : 'Уже зарегистрированы?'}
           <Link
             href={pathname === '/login' ? '/registration' : '/login'}
             className="ml-2 text-sm text-[#414141] underline dark:text-white"
