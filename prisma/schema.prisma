@@ -7,8 +7,53 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Views {
-  id    Int    @id @default(autoincrement())
+model Account {
+  id                String   @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?  @db.Text
+  access_token      String?  @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?  @db.Text
+  session_state     String?
+  createdAt         DateTime @default(now()) @map(name: "created_at")
+  updatedAt         DateTime @default(now()) @map(name: "updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  view View @relation(fields: [viewId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map(name: "accounts")
+}
+
+model sessions {
+  id           String   @id
+  seesionToken String   @unique
+  userId       String
+  expires      DateTime
+  User         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map(name: "sessions")
+}
+
+model User {
+  id            String     @id
+  name          String?
+  email         String?
+  emailVerified DateTime?
+  image         String?
+  created_at    DateTime   @default(now())
+  updated_at    DateTime   @default(now())
+  sessions      sessions[]
+  Account       Account[]
+}
+
+model View {
+  id    String @id
   count Int    @default(0)
   slug  String
 }

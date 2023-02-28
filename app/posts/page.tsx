@@ -14,7 +14,10 @@ function renderPosts(arr: Post[]): JSX.Element[] {
   return arr
     .sort((a, b) => (Number(new Date(a.publishedAt)) > Number(new Date(b.publishedAt)) ? -1 : 1))
     .map((post) => (
-      <li key={post.slug} className="w-full rounded-lg border border-gray-200 p-8">
+      <li
+        key={post.slug}
+        className="w-full rounded-lg border border-gray-200 bg-transparent p-8 dark:border-gr-2 dark:bg-gr-2"
+      >
         <PostCard post={post} />
       </li>
     ));

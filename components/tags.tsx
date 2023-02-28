@@ -9,7 +9,7 @@ function renderTags(tags: string[]): JSX.Element[] {
       <Link
         href={`/posts/${changeTagsPath(tag)}/`}
         title={convertName(tag)}
-        className="hover:border--[#414141] rounded-lg border bg-transparent px-3 py-1.5 text-sm text-[#414141] transition-all duration-300 hover:bg-black hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-black"
+        className="hover:border--[#414141] rounded-lg border bg-transparent px-3 py-1.5 text-sm text-[#414141] transition-all duration-300 hover:bg-black hover:text-white dark:border-transparent dark:bg-gr-2 dark:text-white dark:hover:bg-white dark:hover:text-black"
       >
         {convertName(tag)}
       </Link>

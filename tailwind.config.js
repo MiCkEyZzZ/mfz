@@ -26,6 +26,10 @@ module.exports = {
       gridTemplateColumns: {
         auto: 'repeat(auto-fill, minmax(400px, 1fr))',
       },
+      colors: {
+        'gr-1': 'rgb(35 39 47/1);',
+        'gr-2': 'rgb(52 58 70/1)',
+      },
     },
   },
   future: {
