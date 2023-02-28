@@ -15,7 +15,10 @@ function getLatesPost(limit: number): JSX.Element[] {
     .filter((n: { isPublished: boolean }) => n.isPublished === true)
     .slice(0, limit)
     .map((post: Post) => (
-      <li key={post.title} className="w-full rounded-lg border border-gray-200 p-8 text-gray-900">
+      <li
+        key={post.title}
+        className="w-full rounded-lg border border-gray-200 bg-transparent p-8 text-gray-900 dark:border-gr-2 dark:bg-gr-2"
+      >
         <PostCard post={post} />
       </li>
     ));

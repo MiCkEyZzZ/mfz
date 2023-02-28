@@ -20,14 +20,14 @@ function Subscribe(): JSX.Element {
               <input
                 type="text"
                 placeholder="вы@домен.ру"
-                className="w-full appearance-none rounded-md border border-black bg-white px-3 py-3 dark:border-white dark:bg-black md:py-3"
+                className="w-full appearance-none rounded-md border border-black bg-transparent px-3 py-3 dark:border-white md:py-3"
               />
             </fieldset>
             <div className="mt-5 ml-auto md:ml-5 md:mt-0">
               <button
                 type="submit"
                 aria-label="Подписаться"
-                className="transform-gpu rounded-md border border-transparent bg-black px-4 py-3 text-base font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-800 dark:border-white dark:hover:bg-white dark:hover:text-black md:px-7 md:py-3 md:leading-6"
+                className="transform-gpu rounded-md border border-transparent bg-black px-4 py-3 text-base font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-800 dark:border-white dark:border-transparent dark:bg-gr-2 dark:hover:bg-white dark:hover:text-black md:px-7 md:py-3 md:leading-6"
               >
                 Подписаться
               </button>

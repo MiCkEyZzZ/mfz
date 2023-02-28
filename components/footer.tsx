@@ -27,7 +27,7 @@ function Footer(): JSX.Element {
   }
 
   return (
-    <footer className="flex w-full flex-row items-center justify-center border-t px-5 md:px-5">
+    <footer className="flex w-full flex-row items-center justify-center border-t bg-white px-5 dark:border-t-transparent dark:bg-gray-700 md:px-5">
       <div className="flex h-96 w-full max-w-6xl flex-col py-8 md:h-60 md:flex-row md:justify-between">
         <div className="mb-8 flex h-16 w-full flex-col items-center md:mb-0 md:h-40 md:max-w-xs md:items-start md:justify-between">
           <div className="h-16 w-40">
@@ -89,7 +89,9 @@ function Footer(): JSX.Element {
           </div>
         </div>
         <div className="mt-6 flex h-16 w-full items-center justify-center md:mt-0 md:hidden md:h-auto">
-          <span className="text-xs">2023 Михаил Журавлёв. Все права защищены.</span>
+          <span className="text-xs text-black dark:text-white">
+            2023 Михаил Журавлёв. Все права защищены.
+          </span>
         </div>
       </div>
     </footer>

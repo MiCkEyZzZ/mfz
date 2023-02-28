@@ -26,6 +26,10 @@ function Header(): JSX.Element {
     pathname = '/posts';
   }
 
+  if (pathname.includes('/login')) {
+    pathname = '/login';
+  }
+
   function renderNavigate(): JSX.Element[] {
     return navigationLinks.map((nav) => {
       const isActive = nav.path === pathname;
@@ -68,8 +72,8 @@ function Header(): JSX.Element {
     <div
       className={
         isSticky
-          ? 'sticky top-0 z-50 flex h-16 w-full flex-col items-center border-b bg-white px-5 dark:bg-black md:px-5'
-          : 'relative z-50 flex h-96 w-full flex-col items-center border-b bg-white px-5 dark:bg-black md:px-5'
+          ? 'sticky top-0 z-50 flex h-16 w-full flex-col items-center border-b bg-white px-5 dark:border-b-transparent dark:bg-gray-700 md:px-5'
+          : 'relative z-50 flex h-96 w-full flex-col items-center border-b bg-white px-5 dark:border-b-transparent dark:bg-gray-700 md:px-5'
       }
     >
       <div className={isSticky ? 'hidden' : 'hidden h-12 w-full md:block'}></div>

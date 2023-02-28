@@ -26,9 +26,9 @@ function ViewCounter({ slug, trackView }: { slug: string; trackView: boolean }) 
 
   return (
     <div className="flex flex-row">
-      <p className="font-semibold">Просмотров:</p>
+      <p className="font-semibold text-[#414141] dark:text-white">Просмотров:</p>
       {/* <span className='ml-2'>{data ? `${views.toString()}` : ''}</span> */}
-      <span className="ml-2">0</span>
+      <span className="ml-2 text-[#414141] dark:text-white">0</span>
     </div>
   );
 }
