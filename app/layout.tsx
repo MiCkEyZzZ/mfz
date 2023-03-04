@@ -45,14 +45,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
   return (
     <html lang="ru" className={clsx('text-black', gteestipro.variable)}>
       <head />
-      <body className="flex h-auto w-full flex-col items-center bg-white font-gteestipro dark:bg-gr-1">
-        <Providers>
+      <Providers>
+        <body className="flex h-auto w-full flex-col items-center bg-white font-gteestipro dark:bg-gr-1">
           <Header />
           <main className="flex h-auto w-full justify-center px-5 md:px-5">{children}</main>
           <Subscribe />
           <Footer />
-        </Providers>
-      </body>
+        </body>
+      </Providers>
     </html>
   );
 }

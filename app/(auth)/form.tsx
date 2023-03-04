@@ -4,10 +4,11 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { signIn } from 'next-auth/react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 
 export function Form() {
   let pathname = usePathname() || '/';
+  const searchParams = useSearchParams();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const {
     register,
@@ -15,9 +16,15 @@ export function Form() {
     formState: { errors },
   } = useForm<FormData>({});
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = async (data: FormData) => {
     setIsLoading(true);
-    console.log(data);
+    const signInResult = await signIn('email', {
+      email: data.email.toLowerCase(),
+      redirect: false,
+      callbackUrl: searchParams?.get('from') || '/posts',
+    });
+
+    setIsLoading(false);
   };
 
   return (

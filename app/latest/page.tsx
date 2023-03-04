@@ -40,7 +40,7 @@ function LatestPage(): JSX.Element {
             {count} {postWord}
           </p>
         </div>
-        <ul className="grid grid-cols-1 gap-8 md:grid-cols-auto">{latestPost}</ul>
+        <ul className="mt-3 grid grid-cols-1 gap-8 sm:mt-0 md:grid-cols-auto">{latestPost}</ul>
       </div>
     </section>
   );

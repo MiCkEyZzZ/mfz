@@ -4,9 +4,9 @@ import { allPosts } from 'contentlayer/generated';
 import { format, parseISO } from 'date-fns';
 import { ru } from 'date-fns/locale';
 
-import ViewCounter from '../view-counter';
 import { Breadcrumbs, Comments, Mdx } from 'components';
 import { PostPageProps } from 'interfaces';
+import ViewCounter from 'app/posts/view-counter';
 
 export async function generateStaticParams(): Promise<PostPageProps['params'][]> {
   return allPosts.map((post) => ({
