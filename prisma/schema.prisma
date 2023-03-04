@@ -8,8 +8,8 @@ datasource db {
 }
 
 model Account {
-  id                String   @id @default(cuid())
-  userId            String
+  id                Int      @id @default(autoincrement())
+  userId            Int
   type              String
   provider          String
   providerAccountId String
@@ -24,16 +24,15 @@ model Account {
   updatedAt         DateTime @default(now()) @map(name: "updated_at")
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  view View @relation(fields: [viewId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
   @@map(name: "accounts")
 }
 
-model sessions {
-  id           String   @id
+model Sessions {
+  id           Int      @id @default(autoincrement())
   seesionToken String   @unique
-  userId       String
+  userId       Int
   expires      DateTime
   User         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -41,19 +40,19 @@ model sessions {
 }
 
 model User {
-  id            String     @id
+  id            Int        @id @default(autoincrement())
   name          String?
   email         String?
   emailVerified DateTime?
   image         String?
   created_at    DateTime   @default(now())
   updated_at    DateTime   @default(now())
-  sessions      sessions[]
+  sessions      Sessions[]
   Account       Account[]
 }
 
 model View {
-  id    String @id
+  id    Int    @id @default(autoincrement())
   count Int    @default(0)
   slug  String
 }

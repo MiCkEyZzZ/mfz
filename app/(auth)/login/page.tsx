@@ -1,4 +1,11 @@
+import { Metadata } from 'next';
+
 import { Form } from '../form';
+
+export const metadata: Metadata = {
+  title: 'Вход в аккаунт',
+  description: 'Разработчик, философ.',
+};
 
 function LoginPage(): JSX.Element {
   return (

@@ -22,6 +22,8 @@ export function convertName(str: string): string {
     title = str.replaceAll('animation', 'Анимация');
   } else if (str === 'css') {
     return str.toUpperCase().replace(/^\./, '');
+  } else if (str === 'nextjs') {
+    title = str.replaceAll('nextjs', 'Next.js');
   } else {
     title = capitalize(str);
   }
